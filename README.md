@@ -20,3 +20,8 @@
 
 
 <img width="204" height="247" alt="download" src="https://github.com/user-attachments/assets/89e359a5-e59d-4144-8cd7-a9d3bcfa0a62" />
+
+
+
+
+![Screenshot 2025-10-24 154303](https://github.com/user-attachments/assets/32252f1f-0898-4527-9b68-ec15176748d5)
