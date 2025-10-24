@@ -1,0 +1,2236 @@
+/* Rule created by ng86534 1/10/2020 */ 
+/* Rule modified by ng8317c 5/14/2020 -BL-Optimization(N2H-6928)*/ 
+/* ThisObject -> VPMReference */
+/* Parameters -> RuleContext */ 
+
+
+Include "Eurodrone_BT_Extension"
+Include "Eurodrone_Util"
+ 
+Trace(1, "START: Executing the Rule >> Eurodrone_Design_VPMReference_AttributesPropagation.CATRule - Edition mode = #",Parameters -> GetAttributeString("PropagationMode"))
+
+/* Variables */
+Let strCurrSubType(String)
+Let listofTechnoCode(List)
+Let strContentType(String)
+Let pBusinessType(ValuePointer)
+Let pSubType(ValuePointer)
+Let strBusinessTypeValue(String)
+Let listOfBusinessTypes(List)
+Let listOfDEXT(List)
+Let strDeploymentExtension(String)
+Let index(Integer)
+Let pAirbusPartNumber(ValuePointer)
+Let pBOMReference(ValuePointer)
+Let pMaterial(ValuePointer)
+Let pTechnoNote(ValuePointer)
+Let extFileSheet(DTSheetType)
+Let idxAttrsRow(Integer)
+Let pSpecificTechnoNote(ValuePointer)
+Let counter(Integer)
+Let attrLitList(List)
+Let pGenericPointer (ValuePointer)
+Let idxAttrsNamesCol(Integer)
+Let idxAttrsValuesDocumentCol(Integer)
+Let strAttrName(String)
+Let strAttrMulti(String)
+Let strAttrValuesDocument(String)
+Let strAttributesValuesDocumentName(String)
+Let BT_EP(String)
+Let BT_ReferTo(String)
+Let BT_SA(String)
+Let Attr_BOMReference(String)
+Let list_Attributesfor_Combobox(List)
+Let list_AttributesMultifor_Combobox(List)
+Let list_AttrValuesDocumentsfor_Combobox(List)
+Let idxAttr(Integer)
+Let pAttr(ValuePointer)
+Let idxAttrRow(Integer)
+Let idxAttrValuesCol(Integer)
+Let idxAttrDefaultValueCol(Integer)
+Let strValue(String)
+Let list_ListValuefor_Attr(List)
+Let strDescription1(String)
+Let strDescription2(String)
+Let idxAttrDesc1(Integer)
+Let idxAttrDesc2(Integer)
+Let listMultiVal(List)
+Let strMajorRev(String)
+Let strEditAttrId(String)
+
+Let strEditAttrValue(String)
+Let listEditAttrValues(List)
+Let idxEditAttrValue(Integer)
+Let strTempAttr(String)
+Let idxAttrMultiValueCol(Integer)
+Let idxAttrShowDescriptionCol(Integer)
+Let strIsMultiValue(String)
+
+let fourthdigit(String)
+let lst (List)
+let strCategoryAttr(String)
+let strSubCategoryAttr(String)
+
+//N2H-21941 Variable start
+let strAttrDOR (String)
+let strAttrDORValue (String)
+//let idxPipe (Integer)
+//N2H-21941 Variable End
+
+
+
+
+
+
+
+
+
+let categoryValue(String)
+let subCategoryValue(String)
+let does3DExist(Boolean)
+
+Let strIsShowDescription(String)
+Let idxPipeSeparator(Integer)
+Let strAirPartNumber(String)
+
+
+
+Let strSubATAattr(String)
+
+Let strExtractForSubAta(String)
+//Start PI8.1: Set NA as default value of PTCAttribute/AITM/AIPS/Documents attribute
+
+Let listPTCAttributes(List) 
+Let listAITMAttributes(List)
+
+Let listAIPSAttributes(List)
+Let listManualDocuments(List)
+//End PI8.1:
+Let strSubTypeValue(String)
+Let strpartNumber(String)
+Let strBusinessTypeExtension(String)
+Let strCurrentSecurityContext (String)
+Let strCurrentOrg(String)
+Let List_SC (List)
+Let idxBt(Integer)
+Let strDefaultVal(String)	
+Let brName(string)
+Let brId(string)
+
+Let designStageValue(String)
+let pCategory(ValuePointer)
+let pSubCategory(ValuePointer)
+Let strExtCategory(String)
+
+Let strContentTypeRigidPipe(String)
+Let strContentTypeFlexiblePipe(String)
+Let strContentTypePipingSpool(String)
+Let strTubingTechnoCode(String)
+Let strTubingBT(String)
+
+Let listMaterial(List)
+Let listCurrentMaterial(List)
+Let strCurrentMaterial(String)
+Let idxAttrMat(Integer)
+Let iCheckMat(Integer)
+Let bPropagateMaterial(Boolean)
+let strExternalID(String)
+let strPRDLastName(String)
+Let lsExternalID (List)
+Let iLength (Integer)
+
+
+
+Let strCollabSpace(string)
+
+Let pNominal(String)
+Let pPattern(String)
+Let pValue(String)
+Let iList(List)
+Let vuvb(String)
+Let pVuvb(ValuePointer)
+
+let temp1(String)
+let strLength(Integer)
+
+let lFilter(List)
+Let strPartNumber (String)
+pVuvb = ThisObject->GetAttributeValuePointer("AIRBUS_M_VUVB_Code")
+strContentTypeRigidPipe = "Piping_Rigid_Pipe"
+strContentTypeFlexiblePipe = "Piping_Flexible_Pipe"
+strContentTypePipingSpool="Piping_Spool"
+
+
+/* Constants */
+strAirPartNumber = "AIRBUS_E_Identification_AirbusPartNumber"
+//pAirbusPartNumber.Constant = false
+//pBOMReference.Constant = false
+strAttributesValuesDocumentName = "Eurodrone_PART_ATTRIBUTES_DOCUMENTS"
+idxAttrsRow = 1
+
+
+idxAttrsNamesCol = 1
+
+
+
+idxAttrsValuesDocumentCol = 2
+BT_EP = "Elementary Part"
+BT_ReferTo = "Refer To"
+BT_SA = "Storable Assembly"
+Attr_BOMReference = "AIRBUS_E_BOMReference_BOMReference"
+
+idxAttr = 1
+idxAttrValuesCol = 1
+
+idxAttrDefaultValueCol = 2
+idxAttrDesc1 = 3
+idxAttrDesc2 = 4
+
+idxAttrShowDescriptionCol = 3
+does3DExist = false
+idxAttrMultiValueCol = 4
+
+strSubATAattr = "AIRBUS_E_ClassificationLL_SubAta"
+strSubTypeValue = ""
+strBusinessTypeExtension = "AIRBUS_E_DEXT_BusinessType"
+index = 1
+
+idxBt = 1
+strCategoryAttr = "AIRBUS_E_Category_Category"
+
+strSubCategoryAttr = "AIRBUS_E_Category_SubCategory"
+strExtCategory = "AIRBUS_E_DEXT_Category"
+bPropagateMaterial=true
+idxAttrMat=1
+iCheckMat=0
+// SSA : Adding Explicitly the AIRBUS_E_DEXT_BusinessType
+Trace(1, "START: SSA : Adding Explicitly the AIRBUS_E_DEXT_BusinessType")
+strCurrentSecurityContext = GetSystemInfo("securitycontext")
+
+Trace(2, "Current SC : #", strCurrentSecurityContext)
+List_SC = SplitString(strCurrentSecurityContext, ".")
+strCurrentOrg = List_SC[2]
+
+if(ThisObject.HasAttribute("AIRBUS_E_BusinessType_BusinessType"))
+{
+	Trace(1,"BT : " + ThisObject.GetAttributeString("AIRBUS_E_BusinessType_BusinessType"))
+}
+
+if (ThisObject -> IsSupporting(strBusinessTypeExtension) == false) 
+{
+    Trace(1, ">> Adding Extension " + strBusinessTypeExtension + " <<")
+    ThisObject -> AddExtension(strBusinessTypeExtension)
+    Trace(2, "Deployment - # - extension is applied", strBusinessTypeExtension)
+}
+else
+{
+	Trace(1, ">> Extension " + strBusinessTypeExtension + " already added <<")
+}
+
+Trace(1, "END: SSA : Adding Explicitly the AIRBUS_E_DEXT_BusinessType")
+// SSA : End
+
+// The selected type (UpperLevel / LowerLevel) in New Content
+strContentType = ThisObject.PrimaryType.Name  
+ 
+if (ThisObject.IsASortOf(strContentType)) 
+{
+    Trace(1, ">> Current Object type : " + strContentType + " << ")
+	if (ThisObject -> HasAttribute("AIRBUS_E_BusinessType_BusinessType") == true) 
+	{
+        strBusinessTypeValue = ThisObject -> GetAttributeString("AIRBUS_E_BusinessType_BusinessType")
+	}
+	Trace(1, " Current Business Type: " + strBusinessTypeValue)
+
+}
+
+// Start: PI12.4 N2H-6738
+if (ThisObject.IsASortOf("AIRBUS_E_VPMReference_LowerLevel")) 
+{
+	strMajorRev = ThisObject.GetAttributeString("majorrevision")
+	if (strMajorRev <> "" AND strMajorRev <> "A") 
+	{
+		pAirbusPartNumber = ThisObject.GetAttributeValuePointer("AIRBUS_E_Identification_AirbusPartNumber")
+		pAirbusPartNumber.Constant = true
+	}
+}
+
+pBusinessType = ThisObject.GetAttributeValuePointer("AIRBUS_E_BusinessType_BusinessType")
+pSubType = ThisObject.GetAttributeValuePointer("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode")
+
+
+// Start PI19 N2H-12595
+
+if (strContentType == strContentTypeRigidPipe 
+OR strContentType == strContentTypePipingSpool 
+OR strContentType == strContentTypeFlexiblePipe)
+
+{
+	if(ThisObject.HasAttribute("AIRBUS_E_EPASSY_COMMON_DEV_Material"))
+	{
+		listMaterial = ThisObject.GetAttributeObject("AIRBUS_E_EPASSY_COMMON_DEV_Material")
+	}
+	
+	strCollabSpace=ThisObject.project
+	pValue=ThisObject -> GetAttributeString("AIRBUS_E_Identification_AirbusPartNumber")
+
+	if(strCollabSpace=="Eurodrone_Design" 
+	OR strCollabSpace=="Eurodrone_Design_Internal" 
+	OR strCollabSpace=="")
+	{
+		pSubType.Constant = false
+		
+		Trace( 2, "Adding Tubing Custo")
+		if (strContentType == strContentTypeRigidPipe){
+			
+			strTubingTechnoCode="TUB"
+			strTubingBT="Elementary Part"
+
+			if ( listMaterial.Size() == 0 )
+			{
+				listMaterial.RemoveAll()
+				listMaterial.Append(ThisObject.GetAttributeString("V_Name"))
+				Trace( 2, "listMaterial = #", listMaterial )
+			}
+			
+			//Removal for N2H-17873: Starts
+			/*
+			//Added for 15805:Starts
+			if(NULL <> pValue AND "" <> pValue AND pValue.Search("GenTub",0)<>-1)
+			{
+				if(pValue.Search("-TUB",0)<>-1)
+				{
+					strLength=pValue.Length()
+					temp1=pValue.Extract(0,strLength-4)
+				
+					listMaterial.RemoveAll()
+					listMaterial.Append(temp1)
+					ThisObject.SetAttributeObject("AIRBUS_E_EPASSY_COMMON_DEV_Material",listMaterial)
+				}
+				else
+				{
+					iList.RemoveAll()
+					iList.Append(pValue)
+					ThisObject.SetAttributeObject("AIRBUS_E_EPASSY_COMMON_DEV_Material",iList)
+				}
+
+			}
+
+			//Added for 15805:Ends
+			*/
+			//Removal for N2H-17873: Ends
+			
+		}
+		else if (strContentType == strContentTypePipingSpool)
+		{
+			
+			strTubingTechnoCode="TUB"
+			strTubingBT="Storable Assembly"
+			
+			if ( listMaterial.Size() == 0 )
+			{		
+				listMaterial.RemoveAll()
+				listMaterial.Append("NA")
+
+				Trace( 2, "listMaterial = #", listMaterial )
+			}
+		}
+		else if (strContentType == strContentTypeFlexiblePipe)
+		{
+			strTubingTechnoCode="RTS"
+			strTubingBT=BT_ReferTo
+
+			if (ThisObject -> HasAttribute(Attr_BOMReference)){
+
+			
+				brName = ThisObject.GetAttributeString("V_Name")
+
+				
+
+				if (ThisObject.GetAttributeString(Attr_BOMReference) == "")
+				{
+
+
+					ThisObject.SetAttributeString(Attr_BOMReference, ThisObject.GetAttributeString("V_Name"))
+					pBOMReference = ThisObject.GetAttributeValuePointer(Attr_BOMReference)
+					pBOMReference.Constant = true // BOM Reference is no more editable.
+				}
+			}
+			
+
+		strExternalID = ThisObject.GetAttributeString("PLM_ExternalID")
+		lsExternalID = SplitString(strExternalID, "\"-\"")
+		iLength = lsExternalID.Size()
+		
+		strpartNumber = ThisObject.GetAttributeString(Attr_BOMReference)+"-RTS-"+lsExternalID->GetItem(iLength)
+		
+		ThisObject.SetAttributeString("AIRBUS_E_Identification_AirbusPartNumber",strpartNumber)
+		ThisObject.SetAttributeString("V_Name",strpartNumber)
+	}
+
+		listofTechnoCode.Append(strTubingTechnoCode)
+		listofTechnoCode.RemoveDuplicates()
+		pSubType.AuthorizedValues = listofTechnoCode
+		
+
+		if(ThisObject.GetAttributeString("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode") == "")
+		{
+			ThisObject.SetAttributeString("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode", strTubingTechnoCode)
+		}
+		
+		ThisObject -> SetAttributeString("AIRBUS_E_BusinessType_BusinessType", strTubingBT)
+	
+
+		if((ThisObject.GetAttributeObject("AIRBUS_E_EPASSY_COMMON_DEV_Material")).Size() <= 0 )
+		{
+			ThisObject.SetAttributeObject("AIRBUS_E_EPASSY_COMMON_DEV_Material",listMaterial)
+		}
+		
+
+		Trace( 2, "Tubbing business type # Tubbing TechnologicalCode # ",strTubingBT,strTubingTechnoCode)
+		strBusinessTypeValue = strTubingBT
+	}
+
+}
+// End PI19 N2H-12595
+
+/* Edition Mode */
+
+// i.e. when the Object Edition dialog is launched.
+// For New Content, this dialog is always launched at object creation thanks to Eurodrone_PLMAttributesValuationCheck.CATRule (except for OOTB VPMReference type)
+if (Parameters -> GetAttributeString("PropagationMode") == "Edition") 
+{
+
+	Trace( 2, "Current business type = #", strBusinessTypeValue )
+		// start N2H-23976 for creation mode
+				if ( ThisObject.GetAttributeString("AIRBUS_E_BusinessType_BusinessType") == "Environment")
+				{
+					if (ThisObject.HasAttribute("V_Name"))
+					{    
+						if ThisObject.HasAttribute("AIRBUS_E_Identification_AirbusPartNumber")
+						{
+							strPartNumber = ThisObject.GetAttributeString("AIRBUS_E_Identification_AirbusPartNumber")
+							if (strPartNumber <> "" OR strPartNumber <> NULL)
+							{
+								Trace(1,"T000300 - Checking if OK - #", strPartNumber)
+								ThisObject.SetAttributeString("V_Name",strPartNumber)
+							}
+						}
+					}
+				}
+		// N2H-23976 end
+
+	if (ThisObject -> HasAttribute("AIRBUS_E_EPASSY_COMMON_DEV_Material")) 
+	{
+		//Added for defect 13599:Starts
+
+		
+		pMaterial = ThisObject -> GetAttributeValuePointer("AIRBUS_E_EPASSY_COMMON_DEV_Material")
+		pMaterial.Constant = false
+		listMaterial = ThisObject.GetAttributeObject("AIRBUS_E_EPASSY_COMMON_DEV_Material")
+		pValue=ThisObject -> GetAttributeString("AIRBUS_E_Identification_AirbusPartNumber")
+		
+		/*if(NULL <> pValue 
+		AND "" <> pValue 
+		AND pValue.Search("GenTub",0)<>-1)
+		{
+			iList.RemoveAll()
+			iList.Append(pValue)
+			ThisObject.SetAttributeObject("AIRBUS_E_EPASSY_COMMON_DEV_Material",iList)
+		}*/
+		//Added for 15805:Starts
+		//Modified for N2H-17871: Starts
+		//if(NULL <> pValue AND "" <> pValue AND pValue.Search("GenTub",0)<>-1)
+		if(NULL <> pValue AND "" <> pValue AND strContentType == strContentTypeRigidPipe)
+		{
+			if(pValue.Search("-TUB",0)<>-1)
+			{
+				Trace(1, "'-TUB' found")
+				strLength=pValue.Length()
+				temp1=pValue.Extract(0,strLength-4)
+			
+				listMaterial.RemoveAll()
+				listMaterial.Append(temp1)
+				ThisObject.SetAttributeObject("AIRBUS_E_EPASSY_COMMON_DEV_Material",listMaterial)
+			}
+			else if(pValue.Search("GenTub",0)<>-1 AND pValue.Search("-TUB",0)==-1)
+			{
+				Trace(1, "'GenTub' found")
+				listMaterial.RemoveAll()
+				listMaterial.Append(pValue)
+				ThisObject.SetAttributeObject("AIRBUS_E_EPASSY_COMMON_DEV_Material",listMaterial)
+			}
+			/*else
+			{
+				iList.RemoveAll()
+				iList.Append(pValue)
+				ThisObject.SetAttributeObject("AIRBUS_E_EPASSY_COMMON_DEV_Material",iList)
+			}*/
+		}
+		//Modified for N2H-17871: Ends
+		//Added for 15805:Ends
+		else 
+		{
+			
+			if ( listMaterial.Size() == 0 
+			AND strBusinessTypeValue == BT_EP )
+			{
+				listMaterial.RemoveAll()
+				listMaterial.Append("Not Yet Defined")
+				ThisObject.SetAttributeObject("AIRBUS_E_EPASSY_COMMON_DEV_Material",listMaterial)
+				iCheckMat=0
+
+			}
+			else if( listMaterial.Size() == 0 
+			AND strBusinessTypeValue == BT_SA )
+			{
+				listMaterial.RemoveAll()
+				listMaterial.Append("NA")
+				iCheckMat=0
+				ThisObject.SetAttributeObject("AIRBUS_E_EPASSY_COMMON_DEV_Material",listMaterial)
+			}
+			listCurrentMaterial=ThisObject.GetAttributeObject("AIRBUS_E_EPASSY_COMMON_DEV_Material")
+			for idxAttrMat=1 while idxAttrMat<=listCurrentMaterial.Size()
+			{
+				strCurrentMaterial=listCurrentMaterial.GetItem(idxAttrMat)
+				if(listMaterial.IndexOf(strCurrentMaterial,1) <= 0)
+				{
+					iCheckMat=iCheckMat+1
+					break
+				}
+					
+			}
+				
+			if(iCheckMat==0)
+			{
+				bPropagateMaterial=false
+			}
+			else
+			{
+			
+				bPropagateMaterial=true
+			}
+			if(bPropagateMaterial)
+			{
+				ThisObject.SetAttributeObject("AIRBUS_E_EPASSY_COMMON_DEV_Material",listMaterial)
+			}
+		}
+
+		Trace(1,"Done>>>>>")
+		pMaterial.Constant = true
+
+		
+		//Added for defect 13599:Ends
+	}
+	
+
+	if (ThisObject -> HasAttribute("AIRBUS_E_EPASSY_TechnologicalNotes")) 
+	{
+		pTechnoNote = ThisObject -> GetAttributeValuePointer("AIRBUS_E_EPASSY_TechnologicalNotes")
+		pTechnoNote.Constant = true
+
+	}
+	
+	if (ThisObject -> HasAttribute("AIRBUS_E_EPASSY_SpecificTechnologicalNotes")) 
+	{
+		pSpecificTechnoNote = ThisObject -> GetAttributeValuePointer("AIRBUS_E_EPASSY_SpecificTechnologicalNotes")
+		pSpecificTechnoNote.Constant = true
+	}
+	
+	// If business type is already set
+	if (strBusinessTypeValue <> "")	
+	{
+		//BT no more editable
+		pBusinessType.Constant = true 
+		
+		if (ThisObject -> HasAttribute(strAirPartNumber)) {
+
+			strpartNumber = ThisObject.GetAttributeString(strAirPartNumber)
+		}
+		
+		if((Eurodrone_Util::HasNoSubtypeOrUseNaming(strBusinessTypeValue,strpartNumber) == false 
+		OR strBusinessTypeValue == "Electrical Design" 
+		OR strBusinessTypeValue == "EHI") )
+		{
+		
+			let strParentBusinessType(String)
+			strParentBusinessType = Eurodrone_Util::GetParentBusinessType(ThisObject)
+			pSubType.Constant = false
+			
+			listofTechnoCode = Eurodrone_Util::GetListSubTypeAccordingParentBusinessType(strBusinessTypeValue, strParentBusinessType)
+			
+			if((ThisObject.IsASortOf(strContentTypeRigidPipe)) 			OR (ThisObject.IsASortOf(strContentTypePipingSpool)))
+			{
+
+				listofTechnoCode.Append("TUB")
+			}
+
+			pSubType.AuthorizedValues = listofTechnoCode
+			
+			//Start N2H-18527 : Dropdown list for T.Code of EHI business type
+			/*if strpartNumber <> NULL and strpartNumber <> ""
+			{
+				fourthdigit = strpartNumber.Extract(3,1)
+			
+				if (strpartNumber <> "" 
+				AND strpartNumber <> NULL 
+				AND 
+				(
+				fourthdigit == "S"
+				OR fourthdigit == "F"
+				OR fourthdigit == "1"
+				OR fourthdigit == "3"
+				OR fourthdigit == "4"
+				OR fourthdigit == "5"
+				OR fourthdigit == "7"
+				OR fourthdigit == "8"
+				OR fourthdigit == "9"
+				))
+				{
+					//get the TechnoCode List
+					lst = Eurodrone_Util::GetListSubType(strBusinessTypeValue) 
+						
+					pSubType.Constant = false
+					if ( fourthdigit == "S" )
+					{
+						pSubType.AuthorizedValues = lst.Filter("String","x == \"VEU\" or x == \"HRN\"") //Filter to have only desired TechnoCode
+					}
+					else if ( fourthdigit == "5" )
+					{
+						pSubType.Constant = false
+						ThisObject -> SetAttributeString("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode", "VEU")
+						pSubType.Constant = true
+					}
+					else if ( fourthdigit == "9" )
+					{
+						pSubType.Constant = false
+						ThisObject -> SetAttributeString("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode", "HRN")
+						pSubType.Constant = true
+					}
+					else if ( fourthdigit == "F" )
+
+					{
+
+						pSubType.Constant = false
+						ThisObject -> SetAttributeString("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode", "FIF")
+						pSubType.Constant = true
+					}				
+				}
+			}*/
+			//End N2H-18527 : Dropdown list for T.Code of EHI business type
+		}
+		else
+		{
+			pSubType.Constant = true  	//N2H-9070
+		}
+	}
+	else
+
+	{
+
+		// Get the available Business Types corresponding to Object Types
+		Eurodrone_BT_Extension:: ComputeExtensionFromMapping(strContentType, strBusinessTypeValue, listOfBusinessTypes)
+		
+		Trace(2, "Current Org : #", strCurrentOrg)
+		if(strCurrentOrg <> "ADS_Eurodrone_MGY")
+		{
+			for idxBt while idxBt <= listOfBusinessTypes.Size()
+
+			{
+
+				if(listOfBusinessTypes.GetItem(idxBt) == "Master Geometry")
+				{
+					listOfBusinessTypes.RemoveItem(idxBt)
+				}
+
+				idxBt = idxBt +1
+			}
+		}
+		
+		//Added for  N2H-16304:Starts
+		Trace(1,"Primary Type:::::::",ThisObject.PrimaryType.Name)
+		if(
+			(ThisObject.IsASortOf("ElectricalGeometry")) 
+			OR (ThisObject.IsASortOf("ElectricalBranchGeometry")
+			) 
+			OR (ThisObject.PrimaryType.Name == "Electrical3DSystem")
+
+		)
+		{
+			Trace(1,"Inside Electrical Object ::",listOfBusinessTypes.Size())
+			
+			listOfBusinessTypes->Append("Undefined")
+			
+			Trace(1,"Inside Electrical Object ::",listOfBusinessTypes.Size())
+			
+		}
+		//Added for  N2H-16304:Ends
+		
+		listOfBusinessTypes.RemoveDuplicates()
+		pBusinessType.AuthorizedValues = listOfBusinessTypes // list of available Business types in edition dialog combo
+	}
+    
+	// Start - PI7.4: Disable Airbus Part Number modiffication for ReferTo
+	if (strBusinessTypeValue <> "" 
+	AND strBusinessTypeValue == BT_ReferTo )
+	{
+		if (ThisObject -> HasAttribute(strAirPartNumber)) 
+		{
+			strpartNumber = ThisObject.GetAttributeString(strAirPartNumber)
+			pAirbusPartNumber = ThisObject.GetAttributeValuePointer(strAirPartNumber)
+		}
+    
+		// If partNumber is already set
+		if (strpartNumber <> "") 
+		{
+			pAirbusPartNumber.Constant = true // Airbus Part Number is no more editable.
+		}
+	}
+	// End - PI7.4: Disable Airbus Part Number modiffication for ReferTo
+	
+	
+	Trace(2,"T000473 N2H15836 00079 - START Automatic filling of 'VEVB Code' attribute")
+	
+	if (strBusinessTypeValue == "EHI" 
+	AND ThisObject -> GetAttributeString("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode") == "HRN")
+
+	{
+		Trace(2,"T000478 N2H15836 00080 - HRN Automatic filling of 'VEVB Code' attribute")
+		
+		vuvb = strpartNumber.Extract(5,4) + "VB"
+		Trace(1,"vuvb code : #",vuvb)
+		ThisObject -> SetAttributeString("AIRBUS_M_VUVB_Code",vuvb)
+
+		
+		pVuvb.Constant = true
+	}
+
+	if (strBusinessTypeValue == "EHI" 
+	AND ThisObject -> GetAttributeString("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode") == "VEU")
+	{
+		Trace(2,"T000490 N2H15836 00081 - VEU Automatic filling of 'VEVB Code' attribute")
+		
+		vuvb = strpartNumber.Extract(5,4) + "VE"
+		ThisObject -> SetAttributeString("AIRBUS_M_VUVB_Code",vuvb)
+		
+		pVuvb.Constant = true
+		Trace(1,"vuvb code : #",vuvb)
+
+	}
+	
+	Trace(2,"T000500 N2H15836 00079 - END Automatic filling of 'VEVB Code' attribute")
+	
+	// Start - PI7.4: Disable BOM Reference modiffication for ReferTo
+	if (strBusinessTypeValue <> "" AND strBusinessTypeValue == BT_ReferTo )
+	{
+		if (ThisObject -> HasAttribute(Attr_BOMReference)) 
+		{
+			pBOMReference = ThisObject.GetAttributeValuePointer(Attr_BOMReference)
+			pBOMReference.Constant = true // BOM Reference is no more editable.
+		}
+
+	}
+	// End - PI7.4: Disable BOM Reference modiffication for ReferTo
+	
+	//Start- PI3.4 [Manage Attributes By BL]
+    
+	/* List of Attributes */
+	extFileSheet = CreateSheet("KnowledgeResources|" + strAttributesValuesDocumentName)
+
+	if (extFileSheet <> NULL) 
+	{
+
+		for idxAttrsRow while idxAttrsRow < extFileSheet.RowsNb
+		{
+			strAttrName = extFileSheet.CellAsString(idxAttrsRow, idxAttrsNamesCol)
+			
+			if(extFileSheet.CellAsString(idxAttrsRow, idxAttrMultiValueCol) == "1")
+			{
+				strAttrMulti = extFileSheet.CellAsString(idxAttrsRow, idxAttrMultiValueCol)
+			}
+			else
+			{
+				strAttrMulti = "0"
+			}
+			
+
+			strAttrValuesDocument = extFileSheet.CellAsString(idxAttrsRow, idxAttrsValuesDocumentCol)
+			
+			if (
+			("" <> strAttrName) 
+			AND(NULL <> strAttrName) 
+			AND("" <> strAttrValuesDocument) 
+			AND(NULL <> strAttrValuesDocument)
+			)
+
+			{
+				list_Attributesfor_Combobox -> Append(strAttrName)
+
+				list_AttributesMultifor_Combobox -> Append(strAttrMulti)
+    
+
+				list_AttrValuesDocumentsfor_Combobox -> Append(strAttrValuesDocument)
+			}
+			idxAttrsRow = idxAttrsRow + 1
+		}
+	}
+	
+	/* Combobox for Attributes */
+	for idxAttr while idxAttr <= list_Attributesfor_Combobox.Size()
+	{
+		strDefaultVal = ""
+		strAttrName = list_Attributesfor_Combobox.GetItem(idxAttr)
+		Trace(1,"strAttrName>>>>>>>>>>>>>>>>>>>",strAttrName)
+		strAttrValuesDocument = list_AttrValuesDocumentsfor_Combobox.GetItem(idxAttr)
+		pAttr = ThisObject -> GetAttributeValuePointer(strAttrName)
+		idxAttrRow = 1
+		list_ListValuefor_Attr.RemoveAll()
+
+		//extFileSheet = CreateSheet("KnowledgeResources|" + strAttrValuesDocument)
+		Eurodrone_Util::UseExternalFile(strAttrValuesDocument,extFileSheet,lFilter)
+		if(lFilter.Size()==0 or lFilter==NULL )
+		{
+			Trace(2, "----------No lista------------")
+			if (extFileSheet <> NULL AND strBusinessTypeValue <> "EHI" AND strAttrName <> "AIRBUS_E_EM_ADAP_DS_DesignOfficeResponsible")
+			{
+				Trace(2, "strAttrValuesDocument value: #",strAttrValuesDocument)
+				
+				for idxAttrRow while idxAttrRow < extFileSheet.RowsNb
+				{
+					strValue = extFileSheet.CellAsString(idxAttrRow, idxAttrValuesCol)
+					
+					//append descriptions with Value
+					//if(lFilter.Size()>0 and lFilter.IndexOf(idxAttrRow,1)>0)	
+
+					strDescription1 = extFileSheet.CellAsString(idxAttrRow, idxAttrDesc1)
+
+					strDescription2 = extFileSheet.CellAsString(idxAttrRow, idxAttrDesc2)
+					
+					//attempt to create separate function to fit column structure
+
+					Trace(2,"T00786 N2H-21941 00088 - strDescription1 = #", strDescription1)
+					Trace(2,"T00787 N2H-21941 00089 - strDescription2 = #", strDescription2)
+
+					if (
+					(strDescription1 <> NULL) 
+
+					AND(strDescription1 <> "")
+					)
+					{
+						strValue = strValue + " | " + strDescription1
+					}
+					
+					if (
+					(strDescription2 <> NULL) 
+					AND(strDescription2 <> "")
+					)
+					{
+						strValue = strValue + " | " + strDescription2
+					}
+					
+					list_ListValuefor_Attr -> Append(strValue)
+		
+					if (ThisObject.HasAttribute(strAttrName)) 
+					{
+						if ((
+						(
+						ThisObject.GetAttributeString(strAttrName) == "") 
+						OR(ThisObject.GetAttributeString(strAttrName) == NULL) 
+						) 
+						AND
+
+						("1" == extFileSheet.CellAsString(idxAttrRow, idxAttrDefaultValueCol))
+						)
+						{
+							strDefaultVal = strValue
+						}
+					}
+					idxAttrRow = idxAttrRow + 1
+				}
+				
+
+				if (pAttr <> NULL) {
+					list_ListValuefor_Attr.RemoveDuplicates()
+					Trace(1,"list_ListValuefor_Attr>>>>>>>>>>>>>",list_ListValuefor_Attr)
+					pAttr.AuthorizedValues = list_ListValuefor_Attr
+				}
+				
+				if(strDefaultVal <> "")
+				{
+					Let testMulti(String)
+					testMulti = list_AttributesMultifor_Combobox.GetItem(idxAttr)
+					
+					if(testMulti == "1")
+
+
+					{
+						set listMultiVal = ThisObject.GetAttributeObject(strAttrName)
+						
+						if(listMultiVal.Size() == 0)
+						{
+							listMultiVal.Append(strDefaultVal)
+							
+							ThisObject.SetAttributeObject(strAttrName, listMultiVal)
+							
+							Trace(3, "Append default value : #", strDefaultVal)
+
+							
+							if(list_ListValuefor_Attr.Size()==1)
+							{
+								pAttr.Constant=true
+							}
+						}
+						else if(listMultiVal.Size() == 1)
+						{
+							if(list_ListValuefor_Attr.Size()==1 AND listMultiVal.GetItem(1)==strDefaultVal)
+
+							{
+								pAttr.Constant=true
+							}
+						}
+
+					}
+					else
+					{
+						Trace(3, "Set default value : #", strDefaultVal)
+						
+						ThisObject.SetAttributeString(strAttrName, strDefaultVal)
+
+					}
+
+				}
+
+		
+			}
+
+			//Start N2H-21941
+			if (extFileSheet <> NULL AND strAttrName == "AIRBUS_E_EM_ADAP_DS_DesignOfficeResponsible")
+			{
+				Trace(2, "strAttrValuesDocument value: #",strAttrValuesDocument)
+
+				for idxAttrRow while idxAttrRow < extFileSheet.RowsNb
+				{
+					strValue = extFileSheet.CellAsString(idxAttrRow, idxAttrValuesCol)
+					
+					Trace(2,"T00892 N2H-21941 00090 - strValue = #", strValue)
+
+					//append descriptions with Value
+					//if(lFilter.Size()>0 and lFilter.IndexOf(idxAttrRow,1)>0)	
+
+					strDescription1 = extFileSheet.CellAsString(idxAttrRow, idxAttrDesc1)
+
+					strDescription2 = extFileSheet.CellAsString(idxAttrRow, idxAttrDesc2)
+					
+					//attempt to create separate function to fit column structure
+
+					Trace(2,"T00901 N2H-21941 00091 - strDescription1 = #", strDescription1)
+					Trace(2,"T00902 N2H-21941 00092 - strDescription2 = #", strDescription2)
+
+					if (
+					(strDescription1 <> NULL) 
+
+					AND(strDescription1 <> "")
+					)
+					{
+						strValue = strValue + "|" + strDescription1
+					}
+					
+					if (strDescription2 <> "Yes") //Obsolete Column Check
+					{
+						list_ListValuefor_Attr -> Append(strValue)
+					}
+		
+					if (ThisObject.HasAttribute(strAttrName)) 
+					{
+						if ((
+						(
+						ThisObject.GetAttributeString(strAttrName) == "") 
+						OR(ThisObject.GetAttributeString(strAttrName) == NULL) 
+						) 
+						AND
+
+						("1" == extFileSheet.CellAsString(idxAttrRow, idxAttrDefaultValueCol))
+						)
+						{
+							strDefaultVal = strValue
+						}
+					}
+					idxAttrRow = idxAttrRow + 1
+				}
+				
+
+				if (pAttr <> NULL) {
+					list_ListValuefor_Attr.RemoveDuplicates()
+					Trace(1,"list_ListValuefor_Attr>>>>>>>>>>>>>",list_ListValuefor_Attr)
+					pAttr.AuthorizedValues = list_ListValuefor_Attr
+				}
+				
+				if(strDefaultVal <> "")
+				{
+					Let testMulti(String)
+					testMulti = list_AttributesMultifor_Combobox.GetItem(idxAttr)
+					
+					if(testMulti == "1")
+
+
+					{
+						set listMultiVal = ThisObject.GetAttributeObject(strAttrName)
+						
+						if(listMultiVal.Size() == 0)
+						{
+							listMultiVal.Append(strDefaultVal)
+							
+							ThisObject.SetAttributeObject(strAttrName, listMultiVal)
+							
+							Trace(3, "Append default value : #", strDefaultVal)
+
+							
+							if(list_ListValuefor_Attr.Size()==1)
+							{
+								pAttr.Constant=true
+							}
+						}
+						else if(listMultiVal.Size() == 1)
+						{
+							if(list_ListValuefor_Attr.Size()==1 AND listMultiVal.GetItem(1)==strDefaultVal)
+
+							{
+								pAttr.Constant=true
+							}
+						}
+
+					}
+					else
+					{
+						Trace(3, "Set default value : #", strDefaultVal)
+						
+						ThisObject.SetAttributeString(strAttrName, strDefaultVal)
+
+					}
+
+				}
+
+			}
+			//End N2H-21941
+			
+			//start N2H-15838
+
+			if (extFileSheet <> NULL AND strBusinessTypeValue == "EHI" AND strAttrName <> "AIRBUS_E_EPASSY_COMMON_ADAP_ProtectiveTreatmentCode")
+			{
+				
+				for idxAttrRow while idxAttrRow < extFileSheet.RowsNb
+				{
+					strValue = extFileSheet.CellAsString(idxAttrRow, idxAttrValuesCol)
+
+					
+					//append descriptions with Value	
+					strDescription1 = extFileSheet.CellAsString(idxAttrRow, idxAttrDesc1)
+
+					strDescription2 = extFileSheet.CellAsString(idxAttrRow, idxAttrDesc2)
+					
+					if (
+					(strDescription1 <> NULL) 
+					AND(strDescription1 <> "")
+					)
+					{
+						strValue = strValue + " | " + strDescription1
+					}
+					
+					if (
+					(strDescription2 <> NULL) 
+					AND(strDescription2 <> "")
+					)
+					{
+						strValue = strValue + " | " + strDescription2
+					}
+					
+					list_ListValuefor_Attr -> Append(strValue)
+		
+					if (ThisObject.HasAttribute(strAttrName)) 
+					{
+						if ((
+						(
+						ThisObject.GetAttributeString(strAttrName) == "") 
+						OR(ThisObject.GetAttributeString(strAttrName) == NULL) 
+						) 
+
+						AND
+
+						("1" == extFileSheet.CellAsString(idxAttrRow, idxAttrDefaultValueCol))
+						)
+						{
+							strDefaultVal = strValue
+						}
+					}
+					idxAttrRow = idxAttrRow + 1
+				}
+				
+				if (pAttr <> NULL) {
+					list_ListValuefor_Attr.RemoveDuplicates()
+					Trace(1,"list_ListValuefor_Attr>>>>>>>>>>>>>",list_ListValuefor_Attr)
+					pAttr.AuthorizedValues = list_ListValuefor_Attr
+				}
+				
+
+
+				if(strDefaultVal <> "")
+
+				{
+					Let testMulti(String)
+					testMulti = list_AttributesMultifor_Combobox.GetItem(idxAttr)
+					
+					if(testMulti == "1")
+
+					{
+						set listMultiVal = ThisObject.GetAttributeObject(strAttrName)
+						
+						if(listMultiVal.Size() == 0)
+						{
+							listMultiVal.Append(strDefaultVal)
+							
+							ThisObject.SetAttributeObject(strAttrName, listMultiVal)
+							
+							Trace(3, "Append default value : #", strDefaultVal)
+							
+							if(list_ListValuefor_Attr.Size()==1)
+							{
+								pAttr.Constant=true
+							}
+						}
+						else if(listMultiVal.Size() == 1)
+						{
+							if(list_ListValuefor_Attr.Size()==1 AND listMultiVal.GetItem(1)==strDefaultVal)
+
+
+							{
+								pAttr.Constant=true
+							}
+						}
+
+					}
+					else
+
+					{
+						Trace(3, "Set default value : #", strDefaultVal)
+						
+						ThisObject.SetAttributeString(strAttrName, strDefaultVal)
+
+					}
+				}
+
+		
+			}
+			// end N2H-15838
+		}
+		else 
+		{
+			Trace(2, "---------Si lista------------")
+			if (extFileSheet <> NULL AND strBusinessTypeValue <> "EHI")
+			{
+				Trace(2, "strAttrValuesDocument value: #",strAttrValuesDocument)
+				//Miranda --Filter obsoletes out
+				for idxAttrRow inside lFilter
+				{
+					strValue = extFileSheet.CellAsString(idxAttrRow, idxAttrValuesCol)
+					
+					//append descriptions with Value
+					/*if(lFilter.Size()>0 and lFilter.IndexOf(idxAttrRow,1)>0)	
+
+					strDescription1 = extFileSheet.CellAsString(idxAttrRow, idxAttrDesc1)
+
+					strDescription2 = extFileSheet.CellAsString(idxAttrRow, idxAttrDesc2)
+
+					
+					if (
+					(strDescription1 <> NULL) 
+
+					AND(strDescription1 <> "")
+					)
+					{
+						strValue = strValue + " | " + strDescription1
+					}
+					
+					if (
+					(strDescription2 <> NULL) 
+					AND(strDescription2 <> "")
+					)
+					{
+						strValue = strValue + " | " + strDescription2
+					}*/
+					
+					list_ListValuefor_Attr -> Append(strValue)
+		
+					if (ThisObject.HasAttribute(strAttrName)) 
+					{
+						Let lstVals(List)
+						set lstVals = ThisObject.GetAttributeObject(strAttrName)
+						Trace(1,"lstVals<<<<<<<<<<<",lstVals)
+						Trace(1,"# value:-#",strAttrName, ThisObject.GetAttributeString(strAttrName))
+						if ((
+						(
+						ThisObject.GetAttributeString(strAttrName) == "") 
+						OR(ThisObject.GetAttributeString(strAttrName) == NULL) 
+						OR ThisObject.GetAttributeString(strAttrName) == "ABD0002"
+						) 
+						
+						AND
+
+						("1" == extFileSheet.CellAsString(idxAttrRow, idxAttrDefaultValueCol))
+						)
+						{
+							strDefaultVal = strValue
+							Trace(1,"Got a default value: #",strDefaultVal)
+						}
+					}
+					//idxAttrRow = idxAttrRow + 1
+				}
+				
+
+				if (pAttr <> NULL) {
+					list_ListValuefor_Attr.RemoveDuplicates()
+					Trace(1,"list_ListValuefor_Attr>>>>>>>>>>>>>",list_ListValuefor_Attr)
+					pAttr.AuthorizedValues = list_ListValuefor_Attr
+				}
+				
+				if(strDefaultVal <> "")
+				{
+					Let testMulti(String)
+					testMulti = list_AttributesMultifor_Combobox.GetItem(idxAttr)
+					
+					if(testMulti == "1")
+
+
+					{
+						set listMultiVal = ThisObject.GetAttributeObject(strAttrName)
+						
+						if(listMultiVal.Size() == 0)
+						{
+							listMultiVal.Append(strDefaultVal)
+							
+							ThisObject.SetAttributeObject(strAttrName, listMultiVal)
+							
+							Trace(3, "Append default value : #", strDefaultVal)
+
+							
+							if(list_ListValuefor_Attr.Size()==1)
+							{
+								pAttr.Constant=true
+							}
+						}
+						else if(listMultiVal.Size() == 1)
+						{
+							if(list_ListValuefor_Attr.Size()==1 AND listMultiVal.GetItem(1)==strDefaultVal)
+
+							{
+								pAttr.Constant=true
+							}
+						}
+
+					}
+					else
+					{
+						Trace(3, "Set default value : #", strDefaultVal)
+						
+						ThisObject.SetAttributeString(strAttrName, strDefaultVal)
+
+					}
+
+				}
+
+		
+			}
+
+			//start N2H-15838
+			if (extFileSheet <> NULL AND strBusinessTypeValue == "EHI" AND strAttrName <> "AIRBUS_E_EPASSY_COMMON_ADAP_ProtectiveTreatmentCode")
+			{
+				//Miranda filter out obsoletes
+				//for idxAttrRow while idxAttrRow < extFileSheet.RowsNb
+				for idxAttrRow inside lFilter
+				{
+					strValue = extFileSheet.CellAsString(idxAttrRow, idxAttrValuesCol)
+
+					
+					//append descriptions with Value	
+					/*strDescription1 = extFileSheet.CellAsString(idxAttrRow, idxAttrDesc1)
+
+					strDescription2 = extFileSheet.CellAsString(idxAttrRow, idxAttrDesc2)
+					
+					if (
+					(strDescription1 <> NULL) 
+					AND(strDescription1 <> "")
+					)
+					{
+						strValue = strValue + " | " + strDescription1
+					}
+					
+					if (
+					(strDescription2 <> NULL) 
+					AND(strDescription2 <> "")
+					)
+					{
+						strValue = strValue + " | " + strDescription2
+					}*/
+					
+					list_ListValuefor_Attr -> Append(strValue)
+		
+					if (ThisObject.HasAttribute(strAttrName)) 
+					{
+						if ((
+						(
+						ThisObject.GetAttributeString(strAttrName) == "") 
+						OR(ThisObject.GetAttributeString(strAttrName) == NULL) 
+						) 
+
+						AND
+
+						("1" == extFileSheet.CellAsString(idxAttrRow, idxAttrDefaultValueCol))
+						)
+						{
+							strDefaultVal = strValue
+						}
+					}
+					//idxAttrRow = idxAttrRow + 1
+				}
+				
+				if (pAttr <> NULL) {
+					list_ListValuefor_Attr.RemoveDuplicates()
+					Trace(1,"list_ListValuefor_Attr>>>>>>>>>>>>>",list_ListValuefor_Attr)
+					pAttr.AuthorizedValues = list_ListValuefor_Attr
+				}
+				
+
+
+				if(strDefaultVal <> "")
+
+				{
+					Let testMulti(String)
+					testMulti = list_AttributesMultifor_Combobox.GetItem(idxAttr)
+					
+					if(testMulti == "1")
+
+					{
+						set listMultiVal = ThisObject.GetAttributeObject(strAttrName)
+						
+						if(listMultiVal.Size() == 0)
+						{
+							listMultiVal.Append(strDefaultVal)
+							
+							ThisObject.SetAttributeObject(strAttrName, listMultiVal)
+							
+							Trace(3, "Append default value : #", strDefaultVal)
+							
+							if(list_ListValuefor_Attr.Size()==1)
+
+							{
+								pAttr.Constant=true
+							}
+						}
+						else if(listMultiVal.Size() == 1)
+						{
+							if(list_ListValuefor_Attr.Size()==1 AND listMultiVal.GetItem(1)==strDefaultVal)
+
+
+							{
+								pAttr.Constant=true
+							}
+						}
+
+					}
+					else
+
+					{
+						Trace(3, "Set default value : #", strDefaultVal)
+						
+						ThisObject.SetAttributeString(strAttrName, strDefaultVal)
+
+					}
+				}
+
+		
+			}
+			// end N2H-15838
+		}
+		idxAttr = idxAttr + 1
+	}
+	//End - [Manage Attributes By BL]
+    
+	
+	/* Start - PI8.1: Set NA as default value of PTC attribute */
+	Trace(1,"START: ==>> Set NA as default value of PTC attribute <<")
+	
+	
+	if (ThisObject.HasAttribute("AIRBUS_E_EPASSY_COMMON_ADAP_ProtectiveTreatmentCode") and (lFilter.Size()==0)) 
+
+	{
+		set listPTCAttributes = ThisObject.GetAttributeObject("AIRBUS_E_EPASSY_COMMON_ADAP_ProtectiveTreatmentCode")
+		
+		if (listPTCAttributes.Size() == 0 )
+		{
+			listPTCAttributes.Append("NA")
+			ThisObject.SetAttributeObject("AIRBUS_E_EPASSY_COMMON_ADAP_ProtectiveTreatmentCode", listPTCAttributes)
+			Trace(1,"listPTCAttributes 0 #",listPTCAttributes.Size())
+
+		}
+		
+	}
+	
+	Trace(1,"END: ==>> Set NA as default value of Manual PTC attribute <<")
+	/* End - PI8.1: Set NA as default value of PTC attribute*/
+
+	
+	/* Start - PI8.3: Set NA as default value of Manual Associated Documents attribute */
+	Trace(1,"START: ==>> Set NA as default value of Manual Associated Documents attribute <<")
+    
+	if (ThisObject.HasAttribute("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_ManualAssociatedDocument") and(lFilter.Size()==0)) 
+	{
+		set listManualDocuments = ThisObject.GetAttributeObject("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_ManualAssociatedDocument")
+		
+		if (listManualDocuments.Size() == 0)
+
+		{
+
+			listManualDocuments.Append("NA")
+			ThisObject.SetAttributeObject("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_ManualAssociatedDocument", listManualDocuments)
+		}
+		
+	}
+	
+	Trace(1,"END: ==>> Set NA as default value of Surface Finish Reference attribute <<")
+
+	/* End - PI8.3: Set NA as default value of Manual Associated Documents attribute */
+	
+
+	/* Start - PI11.3: Set NA as default value of Surface Finish Reference attribute */
+	Trace(1,"START: ==>> Set NA as default value of Manual Associated Documents attribute <<")
+
+	if (ThisObject.HasAttribute("AIRBUS_E_EPASSY_EPSA_SURFACEFINISHREFERENCE") and (lFilter.Size()==0))
+	{
+		if(ThisObject.GetAttributeString("AIRBUS_E_EPASSY_EPSA_SURFACEFINISHREFERENCE") <> "NA")
+		{
+			 ThisObject.SetAttributeString("AIRBUS_E_EPASSY_EPSA_SURFACEFINISHREFERENCE", "NA")
+			Trace(2,"Setting Surface Finish Reference attribute as NA <<")
+		}
+	}
+	
+    
+	Trace(1,"END: ==>> Set NA as default value of Surface Finish Reference attribute <<")
+	/* End - PI11.3: Set NA as default value of Surface Finish Reference attribute */	
+		
+
+	if(strBusinessTypeValue == "Undefined")
+	{
+		if(ThisObject->IsSupporting("AIRBUS_E_DEXT_EPASSY_PRE_POST_COMMON_ADAP"))
+		{
+		
+			ThisObject->RemoveExtension("AIRBUS_E_DEXT_EPASSY_PRE_POST_COMMON_ADAP")
+		}
+
+	}
+	
+	// Start: PI12.4 N2H-6738
+	if (ThisObject.IsASortOf("AIRBUS_E_VPMReference_LowerLevel")) 
+	{
+		strMajorRev = ThisObject.GetAttributeString("majorrevision")
+		if (strMajorRev <> "" 
+		AND strMajorRev <> "A") 
+		{
+			pAirbusPartNumber = ThisObject.GetAttributeValuePointer("AIRBUS_E_Identification_AirbusPartNumber")
+			pAirbusPartNumber.Constant = true
+		}
+	}
+
+	// End: PI12.4 N2H-6738
+	
+	// Start: PI13.2 N2H-7611
+	if (ThisObject.IsASortOf("AIRBUS_E_VPMReference_EngineeringUpperLevel") 
+	AND Eurodrone_Util::ValidateUpperLevelBTToAddCategoryExt(strBusinessTypeValue))
+	{
+
+		if (ThisObject -> HasAttribute("AIRBUS_E_Category_Category")) 
+
+		{
+			pCategory = ThisObject -> GetAttributeValuePointer("AIRBUS_E_Category_Category")
+			pCategory.AuthorizedValues = Eurodrone_Util::GetListCategory(strBusinessTypeValue)
+			
+			categoryValue = ThisObject -> GetAttributeString("AIRBUS_E_Category_Category")
+			
+			if (categoryValue <> NULL 
+			AND categoryValue == "")
+			{
+				ThisObject.SetAttributeString("AIRBUS_E_Category_Category","")
+			}
+		}
+
+		if (ThisObject -> HasAttribute("AIRBUS_E_Category_SubCategory")) 
+		{
+			let listSubCategory(list)
+           
+			let strSubCatVal(String)
+			
+			subCategoryValue = ThisObject -> GetAttributeString("AIRBUS_E_Category_SubCategory")
+			
+			listSubCategory = Eurodrone_Util::GetListSubCategory(strBusinessTypeValue, categoryValue)
+
+			listSubCategory.RemoveItem(listSubCategory.IndexOf("",1))
+
+			
+			strSubCatVal = listSubCategory.GetItem(1)
+			
+			pSubCategory = ThisObject -> GetAttributeValuePointer("AIRBUS_E_Category_SubCategory")
+			
+
+			if (subCategoryValue <> NULL 
+
+			AND subCategoryValue == "")
+			{
+				pSubCategory.AuthorizedValues = listSubCategory
+				ThisObject.SetAttributeString("AIRBUS_E_Category_SubCategory",strSubCatVal)
+
+			}
+			pSubCategory.AuthorizedValues = listSubCategory
+		
+		}
+	}
+	
+	// End: PI13.2 N2H-7611
+	
+	
+	// N2H-20755 - Code to freeze the reference attributes if maturity state other In Work/Private
+	attrLitList = ThisObject->ListAttributeNames("Literal", false) + ThisObject->ListAttributeNames("List", false)
+	
+	if ThisObject.HasAttribute("AIRBUS_E_ReferenceStatus_ReferenceStatus") == false
+	{
+		if (ThisObject.V_maturity <> "IN_WORK" 
+		AND ThisObject.V_maturity <> "PRIVATE" 
+		AND ThisObject.V_maturity <> "" 
+		AND ThisObject.V_maturity <> NULL)
+		{
+			counter=1
+			For counter while counter <= attrLitList->Size() 
+			{		
+				pGenericPointer = ThisObject->GetAttributeValuePointer(attrLitList[counter])
+				if (pGenericPointer <> NULL)
+				{
+					pGenericPointer.Constant = true			
+				}			
+			}
+		}
+	}
+	else
+	{
+		if (ThisObject.GetAttributeString("AIRBUS_E_ReferenceStatus_ReferenceStatus") <> "InWork"
+		AND ThisObject.GetAttributeString("AIRBUS_E_ReferenceStatus_ReferenceStatus") <> "" 
+		AND ThisObject.GetAttributeString("AIRBUS_E_ReferenceStatus_ReferenceStatus") <> NULL)
+		{
+			counter=1
+			For counter while counter <= attrLitList->Size() 
+			{		
+				pGenericPointer = ThisObject->GetAttributeValuePointer(attrLitList[counter])
+				if (pGenericPointer <> NULL)
+				{
+					pGenericPointer.Constant = true			
+				}			
+			}
+		}			
+	}
+	/*if( (ThisObject.V_maturity <> "IN_WORK" 
+	AND ThisObject.V_maturity <> "PRIVATE" 
+	AND ThisObject.V_maturity <> "" 
+	AND ThisObject.V_maturity <> NULL)
+	OR ( ThisObject.HasAttribute("AIRBUS_E_ReferenceStatus_ReferenceStatus")
+	AND ThisObject.GetAttributeString("AIRBUS_E_ReferenceStatus_ReferenceStatus") <> "InWork"
+	AND ThisObject.GetAttributeString("AIRBUS_E_ReferenceStatus_ReferenceStatus") <> "" 
+	AND ThisObject.GetAttributeString("AIRBUS_E_ReferenceStatus_ReferenceStatus") <> NULL) 
+	)
+	{
+		counter=1
+		For counter while counter <= attrLitList->Size() 
+		{		
+			pGenericPointer = ThisObject->GetAttributeValuePointer(attrLitList[counter])
+			if (pGenericPointer <> NULL)
+			{
+				pGenericPointer.Constant = true			
+			}			
+
+		}
+	}*/
+	// End N2H-20755 - Code to freeze the reference attributes if maturity state other In Work/Private
+	
+	// Start: N2H-18564 - [ADS] Block and Checks during Promote FTA part
+	if ThisObject.IsASortOf("AIRBUS_E_VPMReference_LowerLevel")
+	{
+		if ThisObject.HasAttribute("AIRBUS_E_BusinessType_BusinessType") and ThisObject.GetAttributeString("AIRBUS_E_BusinessType_BusinessType") == "FTA"
+		{
+
+			
+		}
+	}
+	
+	// End: N2H-18564 - [ADS] Block and Checks during Promote FTA part
+}
+
+
+/* Valuation Mode */
+
+
+// i.e. when the user has modified an attribute
+// For New Content, after selecting the BT, this mode is used on pressing OK in the dialog
+if (Parameters -> GetAttributeString("PropagationMode") == "Valuation") 
+{
+    Trace(1, "Inside valuation mode" + Parameters -> GetAttributeString("EditAttributeId"))
+	// start N2H-23976 for edition mode
+				if ( ThisObject.GetAttributeString("AIRBUS_E_BusinessType_BusinessType") == "Environment")
+				{
+					if (ThisObject.HasAttribute("V_Name"))
+					{    
+						if ThisObject.HasAttribute("AIRBUS_E_Identification_AirbusPartNumber")
+						{
+							strPartNumber = ThisObject.GetAttributeString("AIRBUS_E_Identification_AirbusPartNumber")
+							if (strPartNumber <> "" OR strPartNumber <> NULL)
+							{
+								Trace(1,"T000300 - Checking if OK - #", strPartNumber)
+								ThisObject.SetAttributeString("V_Name",strPartNumber)
+							}
+						}
+					}
+				}
+		// N2H-23976 end
+    
+    if (
+	("" <> strBusinessTypeValue)
+	AND(ThisObject.PrimaryType.Name <> "VPMReference")// VPMReference needs a CEXT
+	)
+    {
+        // Business Type has been set
+        Trace(1, ">>> The selected AIRBUS_E_BusinessType_BusinessType value is - " + strBusinessTypeValue + " <<<")
+		
+        //Start - Once BT is set, make it non-editable 
+        pBusinessType = ThisObject.GetAttributeValuePointer("AIRBUS_E_BusinessType_BusinessType")
+
+
+        Trace(1, "Start - Once BT is set, make it non-editable")
+		if (pBusinessType <> NULL) 
+		{
+            pBusinessType.Constant = true
+			
+            Trace(1, "Busines Type is not editable")
+			if (ThisObject -> HasAttribute(strAirPartNumber)) 
+			{
+				strpartNumber = ThisObject.GetAttributeString(strAirPartNumber)
+			}
+			
+			does3DExist = Eurodrone_Util::Check3DPart(strBusinessTypeValue)
+			
+			if (does3DExist==true)
+			{
+				//SetCreationAs3DPart(ThisObject, true)
+
+				Eurodrone_Util::Enable3DPart(ThisObject)
+			}
+			
+			if (ThisObject.IsASortOf("AIRBUS_E_VPMReference_EngineeringUpperLevel") 
+			AND ThisObject.HasAttribute(strCategoryAttr))
+			{
+				Trace(3, "Upper Level Category Activation")
+				
+				pCategory = ThisObject.GetAttributeValuePointer(strCategoryAttr)
+				pSubCategory = ThisObject.GetAttributeValuePointer(strSubCategoryAttr)
+				
+				if(Eurodrone_Util::ValidateUpperLevelBTToAddCategoryExt(strBusinessTypeValue))
+				{
+					Trace(3, "Upper Level BT validated")
+
+
+					
+					pCategory.Constant = false
+					pSubCategory.Constant = false
+
+					pCategory.AuthorizedValues = Eurodrone_Util::GetListCategory(strBusinessTypeValue)
+					
+					categoryValue = ThisObject -> GetAttributeString(strCategoryAttr)
+					if (categoryValue <> NULL AND categoryValue == "") {
+						ThisObject.SetAttributeString(strCategoryAttr,"NA")
+						ThisObject.SetAttributeString(strSubCategoryAttr,"NA")
+					}
+
+
+				}
+				else 
+				{
+					Trace(3, "Upper Level BT not validated, extension removed")
+
+
+					pCategory.Constant = true
+					pSubCategory.Constant = true
+					ThisObject.RemoveExtension(strExtCategory)
+
+				}
+			}
+
+		}
+
+		Trace(1, "End - Once BT is set, make it non-editable")
+
+        //End - Once BT is set, make it non-editable
+        
+        listOfDEXT = Eurodrone_BT_Extension::ComputeExtensionFromMapping(strContentType, strBusinessTypeValue)
+        
+		if (listOfDEXT.Size() > 0)
+		{
+			for index while index <= listOfDEXT.Size()
+			{
+				strDeploymentExtension = listOfDEXT -> GetItem(index)
+				if (ThisObject -> IsSupporting(strDeploymentExtension) == false) 
+				{
+					Trace(1, ">> Adding Extension " + strDeploymentExtension + " <<")
+					ThisObject -> AddExtension(strDeploymentExtension)
+				}
+				else 
+				{
+					Trace(1, ">> Extension " + strDeploymentExtension + " already added <<")
+				}
+			}
+		}
+		else 
+		{
+			Trace(1, ">>> No suitable Deployment Extension found in the Mapping table <<<")
+		}
+		
+		if (ThisObject -> HasAttribute(strAirPartNumber)) 
+		{
+			strpartNumber = ThisObject.GetAttributeString(strAirPartNumber)
+		}
+		
+
+		fourthdigit = strpartNumber.Extract(3,1)
+
+		Trace(1, "Fourth Digit #", fourthdigit)
+		
+		
+		//N2H-15836 : add EHI in the condition check
+
+		//N2H-15840 : remove FIF in the selection of subtype(TechnoCode)
+		Trace(2,"T000913 N2H15836 00080 - Start Automatic filling of 'VEVB Code' attribute")
+		
+		//This condition is to reset the authorize value, because if we put S at the fourth digit we apply a filter, so we need to reset if we change the fourth digit
+
+		if (strBusinessTypeValue == "Electrical Design"
+			OR strBusinessTypeValue == "EHI")
+		{
+				pSubType.AuthorizedValues = Eurodrone_Util::GetListSubType(strBusinessTypeValue)
+
+		}
+		
+		/*if (strBusinessTypeValue == "Electrical Design" 
+		OR strBusinessTypeValue == "EHI" 
+		AND strpartNumber <> "" 
+		AND strpartNumber <> NULL 
+		AND 
+			(
+			fourthdigit == "S" 
+			OR fourthdigit == "1" 
+			OR fourthdigit == "3" 
+			OR fourthdigit == "4" 
+			OR fourthdigit == "7" 
+			OR fourthdigit == "8"
+			)
+		)
+		{
+			//get the TechnoCode List
+
+			lst = Eurodrone_Util::GetListSubType(strBusinessTypeValue) 
+			
+			if ( fourthdigit == "S" )
+			{
+				pSubType.AuthorizedValues = lst.Filter("String","x == \"VEU\" or x == \"HRN\"") //Filter to have only desired TechnoCode
+			} 
+
+			else
+			{
+				pSubType.AuthorizedValues = lst
+			}
+			
+			pSubType.Constant = false
+			
+
+			if (ThisObject -> GetAttributeString("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode") == "" 
+			AND ThisObject -> GetAttributeString("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode") <> NULL
+
+			OR 
+				(
+				ThisObject -> GetAttributeString("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode") == "FIF" 
+				AND fourthdigit == "S"
+				)
+			)
+			{
+				ThisObject -> SetAttributeString("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode", lst.GetItem(1))
+			}	
+		}
+		else 
+		if(Eurodrone_Util::HasNoSubtypeOrUseNaming(strBusinessTypeValue,strpartNumber) == true)
+		{
+			strSubTypeValue = Eurodrone_Util::GetSubTypeName(strpartNumber, strBusinessTypeValue)
+
+			Trace(2, "SubTypeValue After Computing: #", strSubTypeValue)			
+			if (ThisObject -> HasAttribute("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode"))
+			{
+				pSubType.Constant = false
+				ThisObject -> SetAttributeString("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode", strSubTypeValue)
+				pSubType.Constant = true
+			}
+		}*/
+		 if(Eurodrone_Util::HasNoSubtypeOrUseNaming(strBusinessTypeValue,strpartNumber) == false)
+		{
+			pSubType.Constant = false
+			listofTechnoCode = Eurodrone_Util::GetListSubType(strBusinessTypeValue)
+			
+			strEditAttrId = Parameters -> GetAttributeString("EditAttributeId")
+			strCurrSubType = ThisObject.GetAttributeString("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode")
+
+			if(strEditAttrId == strAirPartNumber AND strBusinessTypeValue == "SAM" AND strCurrSubType == "EQT")
+			{
+				pSubType->SetValue(listofTechnoCode.GetItem(1))
+			}
+			if((ThisObject.IsASortOf(strContentTypeRigidPipe)) OR (ThisObject.IsASortOf(strContentTypePipingSpool)))
+			{
+				listofTechnoCode.Append("TUB")
+			}
+			pSubType.AuthorizedValues = listofTechnoCode
+		}
+		else if(Eurodrone_Util::HasNoSubtypeOrUseNaming(strBusinessTypeValue,strpartNumber) == true AND strBusinessTypeValue <> "EHI")
+		{
+			strSubTypeValue = Eurodrone_Util::GetSubTypeName(strpartNumber, strBusinessTypeValue)
+
+			Trace(2, "SubTypeValue After Computing: #", strSubTypeValue)			
+			if (ThisObject -> HasAttribute("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode"))
+			{
+				pSubType.Constant = false
+				ThisObject -> SetAttributeString("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode", strSubTypeValue)
+				pSubType.Constant = true
+			}
+		}
+		//Added for N2H-17873: Starts
+		else if(NULL <> pValue AND "" <> pValue AND strContentType == strContentTypeRigidPipe)
+		{
+			if(pValue.Search("-TUB",0)<>-1)
+			{
+				strLength=pValue.Length()
+				temp1=pValue.Extract(0,strLength-4)
+			
+				listMaterial.RemoveAll()
+				listMaterial.Append(temp1)
+				ThisObject.SetAttributeObject("AIRBUS_E_EPASSY_COMMON_DEV_Material",listMaterial)
+			}
+			else if(pValue.Search("GenTub",0)<>-1 AND pValue.Search("-TUB",0)==-1)
+			{
+				listMaterial.RemoveAll()
+				listMaterial.Append(pValue)
+				ThisObject.SetAttributeObject("AIRBUS_E_EPASSY_COMMON_DEV_Material",listMaterial)
+			}
+		}
+		//Added for N2H-17873: Ends
+	}
+	
+    //Start - PI3.4 [Manage Attributes By BL]
+	strEditAttrId = Parameters -> GetAttributeString("EditAttributeId")
+	Trace(1, "strEditAttrId  >> " + strEditAttrId)
+	extFileSheet = CreateSheet("KnowledgeResources|" + strAttributesValuesDocumentName)
+
+
+	if (extFileSheet <> NULL) 
+	{
+		for idxAttrsRow while idxAttrsRow < extFileSheet.RowsNb
+		{
+			strAttrName = extFileSheet.CellAsString(idxAttrsRow, idxAttrsNamesCol)
+			strIsShowDescription = extFileSheet.CellAsString(idxAttrsRow, idxAttrShowDescriptionCol)
+			strIsMultiValue = extFileSheet.CellAsString(idxAttrsRow, idxAttrMultiValueCol)
+
+			Trace(2, "MultiValue for # : #", strAttrName, strIsMultiValue)
+
+			if ((NULL <> strIsShowDescription) AND("" <> strIsShowDescription) AND("1" == strIsShowDescription))
+
+			{
+				if ((NULL <> strAttrName) AND("" <> strAttrName) AND(strEditAttrId == strAttrName))
+				{
+
+					if (ThisObject.HasAttribute(strEditAttrId)) 
+					{
+						if ((NULL <> strIsMultiValue) AND("" <> strIsMultiValue) AND("1" == strIsMultiValue))
+
+						{
+							set listEditAttrValues = ThisObject.GetAttributeObject(strEditAttrId) 
+						}
+						else
+						{
+							strEditAttrValue = ThisObject.GetAttributeString(strEditAttrId)
+
+							Trace(1, "strEditAttrValue  >> " + strEditAttrValue)
+
+						}
+						
+						if ((strEditAttrValue <> NULL) AND(strEditAttrValue <> ""))
+						{
+							strEditAttrValue = strEditAttrValue.Extract(0, (strEditAttrValue -> Search(" | ")))
+							Trace(1, "Extracted string value >>>> " + strEditAttrValue + ">>>>")
+
+							ThisObject.SetAttributeString(strEditAttrId, strEditAttrValue)
+						}
+						
+						if ((listEditAttrValues <> NULL) AND(listEditAttrValues.Size() > 0))
+						{
+							idxEditAttrValue = 1
+
+							for idxEditAttrValue while idxEditAttrValue <= listEditAttrValues->Size()
+							{
+								strTempAttr = listEditAttrValues->GetItem(idxEditAttrValue)
+								Trace(1, "strTempAttr >>>> " + strTempAttr)
+
+
+								idxPipeSeparator = strTempAttr -> Search(" | ")
+								Trace(2, "idxPipeSep : #", idxPipeSeparator)
+
+
+								if (idxPipeSeparator > -1)
+								{
+									strTempAttr = strTempAttr.Extract(0, idxPipeSeparator)
+
+									Trace(1, "Extracted string value >>>> " + strTempAttr + ">>>>")
+								}
+								listEditAttrValues->SetItem(strTempAttr, idxEditAttrValue)
+
+							}
+							ThisObject.SetAttributeObject(strEditAttrId, listEditAttrValues)
+						}
+					}
+
+				}
+			}
+			idxAttrsRow = idxAttrsRow + 1
+		}
+
+	}
+	//End - PI3.4 [Manage Attributes By BL]
+	
+	//Start-PI 5.4 add attributes by BL Lower Level
+	if (strEditAttrId == strAirPartNumber) 
+
+	{		
+
+		if(
+			(ThisObject.IsASortOf("AIRBUS_E_VPMReference_LowerLevel")) 
+			OR (
+				strBusinessTypeValue == "EM" 
+				OR ThisObject.IsASortOf("AIRBUS_E_VPMReference_EngineeringUpperLevel")
+			) 
+			OR (ThisObject.IsASortOf("ElectricalGeometry")) 
+			OR (ThisObject.IsASortOf("ElectricalBranchGeometry")) 
+			OR (ThisObject.IsASortOf("Electrical3DSystem")) 
+			OR (ThisObject.IsASortOf(strContentTypeRigidPipe)) 
+			OR (ThisObject.IsASortOf(strContentTypePipingSpool)) 
+			OR (ThisObject.IsASortOf(strContentTypeFlexiblePipe)) 
+			)
+		{
+			// This is needed for the Alignment of APN/Title
+			set strEditAttrValue = ThisObject.GetAttributeString(strEditAttrId)
+
+
+			Trace(1, "strEditAttrValue  >> " + strEditAttrValue)
+			Trace(1,"Update Instance Title:Starts")
+         			if not (ThisObject.HasAttribute("AIRBUS_E_BusinessType_BusinessType") AND ThisObject.GetAttributeString("AIRBUS_E_BusinessType_BusinessType")== "Refer To" 
+			AND ThisObject.HasAttribute("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode") AND ThisObject.GetAttributeString("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode")== "RQD")
+			{
+				Trace(1,"Business Type>>>>",ThisObject.GetAttributeString("AIRBUS_E_BusinessType_BusinessType"))
+				if(ThisObject.HasAttribute("AIRBUS_E_BusinessType_BusinessType"))
+				{
+					Eurodrone_Util::UpdateInstanceTitle(ThisObject,strEditAttrValue)
+					Trace(1,"strEditAttrValue",strEditAttrValue) 
+				}
+			}
+			//Eurodrone_Util::UpdateInstanceTitle(ThisObject,strEditAttrValue)
+			Trace(1,"Update Instance Title:Ends")
+			Trace(2,"T001086 N2H15836 00084 - START Automatic filling of 'VEVB Code' attribute")
+			if(ThisObject -> HasAttribute("AIRBUS_M_VUVB_Code")){
+				if ( ThisObject -> GetAttributeString("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode") == "HRN")
+				{
+					pVuvb.Constant = false
+
+					ThisObject -> SetAttributeString("AIRBUS_M_VUVB_Code",strEditAttrValue.Extract(5,4)+"VB")
+					set vuvb=strEditAttrValue.Extract(5,4)+"VB"
+					pVuvb.Constant = true
+					Trace(1,"vuvb code : #VB",strEditAttrValue.Extract(5,4))
+				}	
+
+				
+				if (  ThisObject -> GetAttributeString("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode") == "VEU")
+				{
+					pVuvb.Constant = false
+
+					ThisObject -> SetAttributeString("AIRBUS_M_VUVB_Code",strEditAttrValue.Extract(5,4)+"VE")
+					set vuvb = strEditAttrValue.Extract(5,4)+"VE"
+					pVuvb.Constant = true
+					Trace(1,"vuvb code : #VE",strEditAttrValue.Extract(5,4))
+				}
+				if ( ThisObject -> GetAttributeString("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode") == "FIF")
+				{
+					pVuvb.Constant = false
+					ThisObject -> SetAttributeString("AIRBUS_M_VUVB_Code","")
+
+
+				}
+			}
+			Trace(2,"T001108 N2H15836 00085 - END Automatic filling of 'VEVB Code' attribute")
+
+			if(ThisObject -> HasAttribute("V_Name")) 
+			{
+				ThisObject.SetAttributeString("V_Name", strEditAttrValue)
+			}
+			// Extract the SubATA value from the AirbusPartNumber value
+			set strExtractForSubAta = strEditAttrValue.Extract(1, 3)
+			Trace(1, "strExtractForSubAta  >> " + strExtractForSubAta)
+
+
+			// Computing and setting the value of SubATA attribute
+			if (ThisObject -> IsSupporting("AIRBUS_E_DEXT_ClassificationLL") == true) 
+
+			{
+
+				if (ThisObject.HasAttribute(strSubATAattr)) 
+				{
+					if ("" <> strExtractForSubAta)
+					{
+
+						ThisObject.SetAttributeString(strSubATAattr, strExtractForSubAta)
+						Trace(1, "Setting SubAta attribute SUCCESS > ")
+					}
+				}
+			}
+		}
+	}
+	//End-PI 5.4 add attributes by BL Lower Level
+
+	// Start: PI13.2 N2H-7611
+
+	if (strEditAttrId == "AIRBUS_E_Category_Category") 
+	{
+
+		set strEditAttrValue = ThisObject.GetAttributeString(strEditAttrId)
+		Trace(1, "strEditAttrValue  >> " + strEditAttrValue)
+		if (ThisObject -> HasAttribute("AIRBUS_E_Category_SubCategory")) 
+		{
+			let category(List)
+			let strSubCatVal(String)
+			
+
+			pSubCategory = ThisObject -> GetAttributeValuePointer("AIRBUS_E_Category_SubCategory")
+			category = Eurodrone_Util::GetListSubCategory(strBusinessTypeValue,strEditAttrValue)
+			category.RemoveItem(category.IndexOf("",1))
+
+			pSubCategory.AuthorizedValues = category
+			strSubCatVal = category.GetItem(1)
+
+			ThisObject.SetAttributeString("AIRBUS_E_Category_SubCategory",strSubCatVal)
+			pSubCategory.AuthorizedValues = category
+			
+		}
+	}
+	// End: PI13.2 N2H-7611
+	
+	/* START - Modification by Hakuna team to set technical attribute for manual promote block */
+	/* Business Rule Id : BR00028*/
+	if (strEditAttrId == "AIRBUS_E_EPASSY_DesignStage") 
+	{
+		brName = "VPMReference Block Manual Promote to Release Step 1"
+		brId = "BR00028"
+		if (ThisObject.IsASortOf("AIRBUS_E_VPMReference_LowerLevel") or ThisObject.IsASortOf("ElectricalGeometry") or ThisObject.IsASortOf("Electrical3DSystem") or (ThisObject.PrimaryType.Name == "SpotFastenerAssy"))
+		{
+
+			Trace(1,brName+" - " + brId + " - Start Business rule to set technical attribute for manual promote block")	
+
+
+
+			if (ThisObject->HasAttribute("AIRBUS_E_EPASSY_DesignStage"))
+			{
+
+				designStageValue = ThisObject.GetAttributeString("AIRBUS_E_EPASSY_DesignStage")
+
+
+				if (designStageValue == "DFM" OR designStageValue == "Data Drop")
+				{
+
+					ThisObject.SetAttributeBoolean("AIRBUS_E_RPTech_PromoteAllowed", False)
+
+				}
+
+				else
+				{
+					ThisObject.SetAttributeBoolean("AIRBUS_E_RPTech_PromoteAllowed", True)
+				}
+			}
+			Trace(1,brName+" - " + brId + " - End Business rule to set technical attribute for manual promote block")
+		}
+	}
+	/* END - Modification by Hakuna team to set technical attribute for manual promote block */
+	
+	if (strEditAttrId == "AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode") 
+	{
+		set strEditAttrValue = ThisObject.GetAttributeString(strEditAttrId)
+		Trace(1, "strEditAttrValue  >> " + strEditAttrValue)
+		ThisObject.SetAttributeString("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode", strEditAttrValue)
+		
+		Trace(2,"T001190 N2H15836 00082 - START Automatic filling of 'VEVB Code' attribute")	
+		if(ThisObject -> HasAttribute("AIRBUS_M_VUVB_Code")){
+				
+			Trace(1,"vuvb code : #VE",ThisObject->GetAttributeString("AIRBUS_M_VUVB_Code"))
+			if ( ThisObject -> GetAttributeString("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode") == "HRN")
+			{
+				pVuvb.Constant = false
+				
+				ThisObject -> SetAttributeString("AIRBUS_M_VUVB_Code",ReplaceAll(ThisObject->GetAttributeString("AIRBUS_M_VUVB_Code"),"VE","VB"))
+				set vuvb=ReplaceAll(ThisObject->GetAttributeString("AIRBUS_M_VUVB_Code"),"VE","VB")
+
+				
+				Trace(1,"vuvb code : #VB",ThisObject->GetAttributeString("AIRBUS_M_VUVB_Code"))
+				pVuvb.Constant = true
+			}	
+			if (  ThisObject -> GetAttributeString("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode") == "VEU")
+			{
+				pVuvb.Constant = false
+
+				
+
+				ThisObject -> SetAttributeString("AIRBUS_M_VUVB_Code",ReplaceAll(ThisObject->GetAttributeString("AIRBUS_M_VUVB_Code"),"VB","VE"))
+				set vuvb = ReplaceAll(ThisObject->GetAttributeString("AIRBUS_M_VUVB_Code"),"VB","VE")
+				
+				Trace(1,"vuvb code : #VB",ThisObject->GetAttributeString("AIRBUS_M_VUVB_Code"))
+
+				pVuvb.Constant = true
+			}
+			if (  ThisObject -> GetAttributeString("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode") == "FIF")
+			{
+				pVuvb.Constant = false
+				ThisObject -> SetAttributeString("AIRBUS_M_VUVB_Code","")
+			}
+		}
+		Trace(2,"T001215 N2H15836 00083 - END Automatic filling of 'VEVB Code' attribute")	
+	}
+	
+	if(strEditAttrId == "AIRBUS_E_EM_ADAP_DS_DesignOfficeResponsible")
+	{
+		strAttrDOR = ThisObject -> GetAttributeString("AIRBUS_E_EM_ADAP_DS_DesignOfficeResponsible")
+		strAttrDORValue = SplitString(strAttrDOR, "|").GetItem(1)
+		ThisObject->GetAttributeValuePointer("AIRBUS_E_EM_ADAP_DS_DesignOfficeResponsible")->SetValue(strAttrDORValue)
+	}
+}
+
+//Starts:Added for N2H-16806
+Let pTitle(ValuePointer)
+Let pRevisionComment(ValuePointer)
+Let pDescription(ValuePointer)
+Let pEnglishTitle(ValuePointer)
+Let pAirbusPartNumberPointer(ValuePointer)
+Let pIsManuf(ValuePointer)
+if(ThisObject->IsASortOf("PLMFst_FlexibleFastenerReference") OR  ThisObject->IsASortOf("BundleFastener"))
+
+{
+	Trace(1,"Adding For Fasteners")
+	pTitle=ThisObject.GetAttributeValuePointer("V_Name")
+	pTitle.Constant=true
+	pRevisionComment=ThisObject.GetAttributeValuePointer("V_versionComment")
+	pRevisionComment.Constant=true
+	pDescription=ThisObject.GetAttributeValuePointer("V_description")
+	pDescription.Constant=true
+	pEnglishTitle=ThisObject.GetAttributeValuePointer("AIRBUS_E_Identification_EnglishTitle")
+	pEnglishTitle.Constant=true
+
+
+	pAirbusPartNumberPointer=ThisObject.GetAttributeValuePointer("AIRBUS_E_Identification_AirbusPartNumber")
+	pAirbusPartNumberPointer.Constant=true
+	if(ThisObject->IsASortOf("BundleFastener"))
+	{
+		pIsManuf=ThisObject.GetAttributeValuePointer("V_IsManufacturable")
+		pIsManuf.Constant=true
+	}
+}
+//Ends:Added for N2H-16806
+
+//Starts:Added for N2H-19727
+Let AttributesSheet(DTSheetType)
+let Technical_Action (String)
+//Let pDesignOfficeResponsiblePointer(ValuePointer)
+Let pTempPointer(ValuePointer)
+let attr (String)
+Let idxIndex(Integer)
+if(ThisObject.HasAttribute("AIRBUS_E_DEXT_TECHNICAL_INFORMATION_Action" ))
+{
+	Technical_Action = ThisObject.GetAttributeString( "AIRBUS_E_DEXT_TECHNICAL_INFORMATION_Action" )
+	if (Technical_Action == "SYM")
+	{
+		if ( ThisObject.GetAttributeString("AIRBUS_E_BusinessType_BusinessType") == "EM" OR ThisObject.GetAttributeString("AIRBUS_E_ReferenceStatus_ReferenceStatus") == "InWork" OR ThisObject.GetAttributeString("AIRBUS_E_ReferenceStatus_ReferenceStatus") == "Private" )
+		{
+			AttributesSheet = CreateSheet("KnowledgeResources|Eurodrone_AssemblySymmetry_Attribute_Mapping")
+			if(AttributesSheet == NULL)
+			{
+				Trace(1, ">>  Error in detecting Knowledge resource -  Eurodrone_AssemblySymmetry_Attribute_Mapping  << ")
+			}
+			else
+			{
+				Trace(1, ">>  Knowledge resource -  Eurodrone_AssemblySymmetry_Attribute_Mapping detected << ")
+				idxIndex = 1
+				for idxIndex while idxIndex < AttributesSheet.RowsNb
+				{
+					attr = AttributesSheet->CellAsString(idxIndex, 1)
+					if(AttributesSheet.CellAsString(idxIndex, 5) == "N" AND ThisObject.HasAttribute(attr))
+					{
+						pTempPointer=ThisObject.GetAttributeValuePointer(attr)
+						pTempPointer.Constant=true
+					}
+					if(AttributesSheet.CellAsString(idxIndex, 5) == "Y" AND ThisObject.HasAttribute(attr))
+					{
+						pTempPointer=ThisObject.GetAttributeValuePointer(attr)
+						pTempPointer.Constant=false
+					}
+				}					
+			}
+			
+			// Maturity State
+			pTempPointer=ThisObject.GetAttributeValuePointer("current")
+			pTempPointer.Constant=false
+			// Reference Status
+			if(ThisObject.HasAttribute("AIRBUS_E_ReferenceStatus_ReferenceStatus" ))
+			{
+				pTempPointer=ThisObject.GetAttributeValuePointer("AIRBUS_E_ReferenceStatus_ReferenceStatus")
+				pTempPointer.Constant=false
+			}
+			// Sub Category
+			if(ThisObject.HasAttribute("AIRBUS_E_Category_SubCategory" ))
+			{
+				pTempPointer=ThisObject.GetAttributeValuePointer("AIRBUS_E_Category_SubCategory")
+				pTempPointer.Constant=true
+			}
+			// Surface Finish Value
+			if(ThisObject.HasAttribute("AIRBUS_E_EPASSY_EPSA_SURFACEFINISHVALUE" ))
+			{
+				pTempPointer=ThisObject.GetAttributeValuePointer("AIRBUS_E_EPASSY_EPSA_SURFACEFINISHVALUE")
+				pTempPointer.Constant=true
+			}
+		}	
+	}
+	
+}
+//Ends:Added for N2H-19727
+//N2H-21941 ReWrit value of attribute Dor
+/*if ( ThisObject.HasAttribute("AIRBUS_E_EM_ADAP_DS_DesignOfficeResponsible"))
+{
+	strAttrDORValue = ThisObject.GetAttributeString("AIRBUS_E_EM_ADAP_DS_DesignOfficeResponsible")
+	idxPipe = strAttrDORValue.Search(" | ")
+	Trace(1,"T000629 N2H21941 00001 - Index to the pipe : #",idxPipe )
+	if (idxPipe <> -1)
+	{
+		strAttrDORValue = strAttrDORValue.Extract(0,idxPipe)
+	}
+	Trace(1,"T000634 N2H21941 00002 - Value set in the attribute DOR : #",strAttrDORValue )
+	ThisObject ->SetAttributeString("AIRBUS_E_EM_ADAP_DS_DesignOfficeResponsible",strAttrDORValue)
+	Trace(1, "T002165-N2H-21941-0001 Value of DOR Attribute : #", ThisObject.GetAttributeString("AIRBUS_E_EM_ADAP_DS_DesignOfficeResponsible"))
+}*/
+//N2H-21941
+Trace(1, "END: Executing the Rule >> Eurodrone_Design_VPMReference_AttributesPropagation.CATRule")

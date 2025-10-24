@@ -1,0 +1,17 @@
+Attribute_Name	Attribute_Type	EM_Attribute	Other_BT_Attribute	Editable
+AIRBUS_E_Identification_EnglishTitle	String	Y	Y	Y
+AIRBUS_E_BusinessType_BusinessType	String	Y	Y	N
+AIRBUS_E_Category_Category	String	Y	N	N
+AIRBUS_E_Category_SubCategory	String	Y	N	N
+AIRBUS_E_EM_ADAP_DS_DesignOfficeResponsible	String	Y	Y	N
+V_description	String	Y	Y	Y
+AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode	String	N	Y	N
+AIRBUS_E_EPASSY_DesignStage	String	N	Y	N
+AIRBUS_E_EPASSY_COMMON_DEV_IdentifiablePart	String	N	Y	N
+AIRBUS_E_EPASSY_COMMON_DEV_FunctionalClass	String	N	Y	N
+AIRBUS_E_EPASSY_COMMON_ADAP_Marking	List	N	Y	N
+AIRBUS_E_EPASSY_COMMON_DEV_Material	List	N	Y	N
+AIRBUS_E_EPASSY_COMMON_ADAP_ProtectiveTreatmentCode	List	N	Y	N
+AIRBUS_E_EPASSY_EPSA_SURFACEFINISHREFERENCE	String	N	Y	N
+AIRBUS_E_EPASSY_EPSA_LIMITSNOTSTATED	String	N	Y	N
+AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_ManualAssociatedDocument	List	N	Y	N

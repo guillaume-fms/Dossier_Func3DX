@@ -1,0 +1,1451 @@
+Default Method Computation for Symmetry:Starts
+New Reference to be created
+Default Method Computation for Symmetry:Ends
+Default Method Computation for Symmetry:Starts
+New Reference to be created
+Default Method Computation for Symmetry:Ends
+Default Method Computation for Symmetry:Starts
+New Reference to be created
+Default Method Computation for Symmetry:Ends
+START: Executing the script >> Eurodrone_Design_VPMReference_AssemblySymmetry_CustoProcess.CATRule
+BT : Elementary Part
+Type : AIRBUS_E_VPMReference_LowerLevel
+END: Executing the script >>Eurodrone_Design_VPMReference_AssemblySymmetry_CustoProcess.CATRule
+START: Executing Rule >> Eurodrone_VPMReference_PLMIdentificationInitialization
+ENONT_PLMReference_BLInitialization, Operation: New
+ENONT_PLMReference_BLInitialization, OperationDetails: AssemblySymmetry
+ENONT_PLMReference_BLInitialization, Allocated Numbers for type VPMReference are ID=00005648, VN=00005648
+		T00354 00000 00001 The OperationDetail: AssemblySymmetry
+		T00355 00000 00002 The OperationID: New
+T00509 N2H18525 00020 - envVarDataFilteringBatch : 1
+T00500 N2H18524 00022 UserPrefix: 
+T00484 N2H18524 00015 keyMode :  
+AIRBUS_E_DEXT_TECHNICAL_INFORMATION_Action : SYM
+T00510 N2H19721 00001 - AssemblySymmetry -> V_Name :  Y811D6624-105
+T00511 N2H19721 00002 - AssemblySymmetry -> ThisObject type :  
+T00513 N2H19721 00004 - AssemblySymmetry -> CopyFromObject type :  Elementary Part
+>> Inside Function - ComputeExtensionFromBusinessType <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_EPASSY_COMMON_ADAP to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_EPASSY_COMMON_DEV to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_EPASSY to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_EPASSY_EPSA to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_ICY to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_ValidationDate to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_ReferenceStatus to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_EPASSY_PRE_POST_COMMON_ADAP to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_DDeVDerivedFrom to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_DDeVManual to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_DDeVType to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_EM_ADAP_DS to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_ReferenceAlternate to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_DDeVDerivedFrom to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_DDeVManual to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_DDeVType to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_EM_ADAP_DS to be applied for Business Type  - Elementary Part <<
+>> END Function - ComputeExtensionFromBusinessType <<
+T00515 N2H19721 00006 - AssemblySymmetry -> Adding Extension AIRBUS_E_DEXT_EPASSY_COMMON_ADAP
+T00515 N2H19721 00006 - AssemblySymmetry -> Adding Extension AIRBUS_E_DEXT_EPASSY_COMMON_DEV
+T00515 N2H19721 00006 - AssemblySymmetry -> Adding Extension AIRBUS_E_DEXT_EPASSY
+T00515 N2H19721 00006 - AssemblySymmetry -> Adding Extension AIRBUS_E_DEXT_EPASSY_EPSA
+T00515 N2H19721 00006 - AssemblySymmetry -> Adding Extension AIRBUS_E_DEXT_ICY
+T00515 N2H19721 00006 - AssemblySymmetry -> Adding Extension AIRBUS_E_DEXT_ValidationDate
+T00515 N2H19721 00006 - AssemblySymmetry -> Adding Extension AIRBUS_E_DEXT_ReferenceStatus
+T00515 N2H19721 00006 - AssemblySymmetry -> Adding Extension AIRBUS_E_DEXT_EPASSY_PRE_POST_COMMON_ADAP
+T00515 N2H19721 00006 - AssemblySymmetry -> Adding Extension AIRBUS_E_DEXT_DDeVDerivedFrom
+T00515 N2H19721 00006 - AssemblySymmetry -> Adding Extension AIRBUS_E_DEXT_DDeVManual
+T00515 N2H19721 00006 - AssemblySymmetry -> Adding Extension AIRBUS_E_DEXT_DDeVType
+T00515 N2H19721 00006 - AssemblySymmetry -> Adding Extension AIRBUS_E_DEXT_EM_ADAP_DS
+T00515 N2H19721 00006 - AssemblySymmetry -> Adding Extension AIRBUS_E_DEXT_ReferenceAlternate
+T00516 N2H19721 00007 - AssemblySymmetry -> Extension AIRBUS_E_DEXT_DDeVDerivedFrom already added
+T00516 N2H19721 00007 - AssemblySymmetry -> Extension AIRBUS_E_DEXT_DDeVManual already added
+T00516 N2H19721 00007 - AssemblySymmetry -> Extension AIRBUS_E_DEXT_DDeVType already added
+T00516 N2H19721 00007 - AssemblySymmetry -> Extension AIRBUS_E_DEXT_EM_ADAP_DS already added
+T00518 N2H19721 00009 - AssemblySymmetry -> ThisObject TCode :  MCH
+T00528 N2H19721 00019 - AssemblySymmetry -> New APN :  Y811D6624-106
+BusinessType------Elementary Part
+Source DOR----To be defined
+Copy DOR----To be defined
+Source Object DOR----To be defined
+DOR Copied--~~*******~~~~~--
+External Id----------Y811D6624-106
+END: Executing Rule >> Eurodrone_VPMReference_PLMIdentificationInitialization
+ENONT_PLMReference_BLInitialization, Operation: New
+ENONT_PLMReference_BLInitialization, OperationDetails: AssemblySymmetry
+ENONT_PLMReference_BLInitialization, Allocated Numbers for type 3DShape are ID=00003511, VN=00003511
+Bus type   = [AIRBUS_E_VPMReference_LowerLevel]
+Bus name   = [prd-n2h31explo-00005648]
+Bus rev    = []
+Bus input  = [Eurodrone_Design]
+START: Executing Rule >> Eurodrone_VPMReference_PLMIdentificationInitialization
+ENONT_PLMReference_BLInitialization, Operation: New
+ENONT_PLMReference_BLInitialization, OperationDetails: AssemblySymmetry
+ENONT_PLMReference_BLInitialization, Allocated Numbers for type VPMReference are ID=00005649, VN=00005649
+		T00354 00000 00001 The OperationDetail: AssemblySymmetry
+		T00355 00000 00002 The OperationID: New
+T00509 N2H18525 00020 - envVarDataFilteringBatch : 1
+T00500 N2H18524 00022 UserPrefix: 
+T00484 N2H18524 00015 keyMode :  
+AIRBUS_E_DEXT_TECHNICAL_INFORMATION_Action : SYM
+T00510 N2H19721 00001 - AssemblySymmetry -> V_Name :  Y811D6624-105
+T00511 N2H19721 00002 - AssemblySymmetry -> ThisObject type :  
+T00513 N2H19721 00004 - AssemblySymmetry -> CopyFromObject type :  Elementary Part
+>> Inside Function - ComputeExtensionFromBusinessType <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_EPASSY_COMMON_ADAP to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_EPASSY_COMMON_DEV to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_EPASSY to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_EPASSY_EPSA to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_ICY to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_ValidationDate to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_ReferenceStatus to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_EPASSY_PRE_POST_COMMON_ADAP to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_DDeVDerivedFrom to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_DDeVManual to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_DDeVType to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_EM_ADAP_DS to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_ReferenceAlternate to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_DDeVDerivedFrom to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_DDeVManual to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_DDeVType to be applied for Business Type  - Elementary Part <<
+>> ComputeExtensionFromBusinessType:: DEXT - AIRBUS_E_DEXT_EM_ADAP_DS to be applied for Business Type  - Elementary Part <<
+>> END Function - ComputeExtensionFromBusinessType <<
+T00515 N2H19721 00006 - AssemblySymmetry -> Adding Extension AIRBUS_E_DEXT_EPASSY_COMMON_ADAP
+T00515 N2H19721 00006 - AssemblySymmetry -> Adding Extension AIRBUS_E_DEXT_EPASSY_COMMON_DEV
+T00515 N2H19721 00006 - AssemblySymmetry -> Adding Extension AIRBUS_E_DEXT_EPASSY
+T00515 N2H19721 00006 - AssemblySymmetry -> Adding Extension AIRBUS_E_DEXT_EPASSY_EPSA
+T00515 N2H19721 00006 - AssemblySymmetry -> Adding Extension AIRBUS_E_DEXT_ICY
+T00515 N2H19721 00006 - AssemblySymmetry -> Adding Extension AIRBUS_E_DEXT_ValidationDate
+T00515 N2H19721 00006 - AssemblySymmetry -> Adding Extension AIRBUS_E_DEXT_ReferenceStatus
+T00515 N2H19721 00006 - AssemblySymmetry -> Adding Extension AIRBUS_E_DEXT_EPASSY_PRE_POST_COMMON_ADAP
+T00515 N2H19721 00006 - AssemblySymmetry -> Adding Extension AIRBUS_E_DEXT_DDeVDerivedFrom
+T00515 N2H19721 00006 - AssemblySymmetry -> Adding Extension AIRBUS_E_DEXT_DDeVManual
+T00515 N2H19721 00006 - AssemblySymmetry -> Adding Extension AIRBUS_E_DEXT_DDeVType
+T00515 N2H19721 00006 - AssemblySymmetry -> Adding Extension AIRBUS_E_DEXT_EM_ADAP_DS
+T00515 N2H19721 00006 - AssemblySymmetry -> Adding Extension AIRBUS_E_DEXT_ReferenceAlternate
+T00516 N2H19721 00007 - AssemblySymmetry -> Extension AIRBUS_E_DEXT_DDeVDerivedFrom already added
+T00516 N2H19721 00007 - AssemblySymmetry -> Extension AIRBUS_E_DEXT_DDeVManual already added
+T00516 N2H19721 00007 - AssemblySymmetry -> Extension AIRBUS_E_DEXT_DDeVType already added
+T00516 N2H19721 00007 - AssemblySymmetry -> Extension AIRBUS_E_DEXT_EM_ADAP_DS already added
+T00518 N2H19721 00009 - AssemblySymmetry -> ThisObject TCode :  MCH
+T00528 N2H19721 00019 - AssemblySymmetry -> New APN :  Y811D6624-106
+BusinessType------Elementary Part
+Source DOR----To be defined
+Copy DOR----To be defined
+Source Object DOR----To be defined
+DOR Copied--~~*******~~~~~--
+External Id----------Y811D6624-106
+END: Executing Rule >> Eurodrone_VPMReference_PLMIdentificationInitialization
+ENONT_PLMReference_BLInitialization, Operation: New
+ENONT_PLMReference_BLInitialization, OperationDetails: AssemblySymmetry
+ENONT_PLMReference_BLInitialization, Allocated Numbers for type 3DShape are ID=00003512, VN=00003512
+Bus type   = [AIRBUS_E_VPMReference_LowerLevel]
+Bus name   = [prd-n2h31explo-00005649]
+Bus rev    = []
+Bus input  = [Eurodrone_Design]
+START: Executing the script >> Eurodrone_Design_VPMReference_PLMAttributesValuationCheck.CATRule
+BusinessTypeValue Elementary Part
+		Pattern Matched
+PartNumber -- Y811D6624-106 :: patternMatch -- true
+	Start Function -->HasNoSubtypeOrUseNaming   Y811D6624-106
+	oBooleanToReturn false
+	End Function -->HasNoSubtypeOrUseNaming
+END: Executing the script >> Eurodrone_Design_VPMReference_PLMAttributesValuationCheck.CATRule
+START: Executing the Rule >> Eurodrone_Design_VPMReference_AttributesPropagation.CATRule - Edition mode = Edition
+START: SSA : Adding Explicitly the AIRBUS_E_DEXT_BusinessType
+	Current SC : VPLMProjectAdministrator.ADS_Eurodrone_Design.Eurodrone_Design
+BT : Elementary Part
+>> Extension AIRBUS_E_DEXT_BusinessType already added <<
+END: SSA : Adding Explicitly the AIRBUS_E_DEXT_BusinessType
+>> Current Object type : AIRBUS_E_VPMReference_LowerLevel << 
+ Current Business Type: Elementary Part
+	Current business type = Elementary Part
+Done>>>>>
+	Start Function -->HasNoSubtypeOrUseNaming   Y811D6624-106
+	oBooleanToReturn false
+	End Function -->HasNoSubtypeOrUseNaming
+Start executing ---> GetParentBusinessType
+	ThisObject ID = prd-n2h31explo-00005547
+	refActualObject is  not null 
+------Parent APN: prd-n2h31explo-00005045
+	It's getting the BT of parent
+BusinessType Parent>>>>>EM
+	ToReturn = EM
+End executing ---> GetParentBusinessType()
+	Start Function -->GetListSubTypeAccordingBusinessType
+	End Function -->GetListSubTypeAccordingBusinessType
+	T000473 N2H15836 00079 - START Automatic filling of 'VEVB Code' attribute
+	T000500 N2H15836 00079 - END Automatic filling of 'VEVB Code' attribute
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_COMMON_DEV_FunctionalClass
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_Part_FunctionalClass_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_Part_FunctionalClass_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_Part_FunctionalClass_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_COMMON_ADAP_Marking
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_Part_Marking_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_Part_Marking_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_Part_Marking_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_COMMON_ADAP_ProtectiveTreatmentCode
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_Part_ProtectiveTreatmentCode_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_Part_ProtectiveTreatmentCode_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_Part_ProtectiveTreatmentCode_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NAAD013AD014AD015AD016AD022AD023AD024AD025AD026AD001AD005TD001TD011TD012TD013RD001RD020RD021
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_DesignStage
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_Part_DesignStage_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>Not Yet DefinedInceptionDFMData DropNA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_EPSA_LIMITSNOTSTATED
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_LOWER_LEVEL_LIMITSNOTSTATED_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_LOWER_LEVEL_LIMITSNOTSTATED_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_LOWER_LEVEL_LIMITSNOTSTATED_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_EPSA_SURFACEFINISHREFERENCE
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_LOWER_LEVEL_SURFACEFINISHREFERENCE_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_LOWER_LEVEL_SURFACEFINISHREFERENCE_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_LOWER_LEVEL_SURFACEFINISHREFERENCE_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_EPSA_SURFACEFINISHVALUE
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_LOWER_LEVEL_SURFACEFINISHVALUE_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_LOWER_LEVEL_SURFACEFINISHVALUE_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_LOWER_LEVEL_SURFACEFINISHVALUE_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_AssociatedAITM
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_AITM_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_AssociatedAIPS
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_AIPS_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_COMMON_DEV_IdentifiablePart
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_Part_IdentifiablePart_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_Part_IdentifiablePart_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_Part_IdentifiablePart_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EM_ADAP_DS_DesignOfficeResponsible
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_DOR_Values
+	T00892 N2H-21941 00090 - strValue = To be defined
+	T00901 N2H-21941 00091 - strDescription1 = 
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = NA
+	T00901 N2H-21941 00091 - strDescription1 = 
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = C0419
+	T00901 N2H-21941 00091 - strDescription1 = Airbus Defence and Space GmbH Manching
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = C0420
+	T00901 N2H-21941 00091 - strDescription1 = AIRBUS Defence & Space GMBH Bremen
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = 0117B
+	T00901 N2H-21941 00091 - strDescription1 = AIRBUS DEFENCE AND SPACE SAU Getafe
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = A0019
+	T00901 N2H-21941 00091 - strDescription1 = Leonardo Spa Aircraft Division
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = F6117
+	T00901 N2H-21941 00091 - strDescription1 = Dassault Aviation
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = C0415
+	T00901 N2H-21941 00091 - strDescription1 = MBDA DEUTSCHLAND GmbH Schrobenhausen
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = DL655
+	T00901 N2H-21941 00091 - strDescription1 = MBDA DEUTSCHLAND GmbH Ulm
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = F0555
+	T00901 N2H-21941 00091 - strDescription1 = MBDA France Les Plessis Robinson
+	T00902 N2H-21941 00092 - strDescription2 = No
+list_ListValuefor_Attr>>>>>>>>>>>>>To be definedNAC0419|Airbus Defence and Space GmbH ManchingC0420|AIRBUS Defence & Space GMBH Bremen0117B|AIRBUS DEFENCE AND SPACE SAU GetafeA0019|Leonardo Spa Aircraft DivisionF6117|Dassault AviationC0415|MBDA DEUTSCHLAND GmbH SchrobenhausenDL655|MBDA DEUTSCHLAND GmbH UlmF0555|MBDA France Les Plessis Robinson
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_ICY_CLASS_InterchangeabilityClass
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_ICY_InterchangeabilityClass_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_ICY_InterchangeabilityClass_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_ICY_InterchangeabilityClass_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NAIR
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_ICY_RELATION_InterchangeabilityRelation
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_ICY_InterchangeabilityRelation_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_ICY_InterchangeabilityRelation_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_ICY_InterchangeabilityRelation_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NACounterpart/Assembly of ICY
+START: ==>> Set NA as default value of PTC attribute <<
+END: ==>> Set NA as default value of Manual PTC attribute <<
+START: ==>> Set NA as default value of Manual Associated Documents attribute <<
+END: ==>> Set NA as default value of Surface Finish Reference attribute <<
+START: ==>> Set NA as default value of Manual Associated Documents attribute <<
+END: ==>> Set NA as default value of Surface Finish Reference attribute <<
+>>  Knowledge resource -  Eurodrone_AssemblySymmetry_Attribute_Mapping detected << 
+END: Executing the Rule >> Eurodrone_Design_VPMReference_AttributesPropagation.CATRule
+START: Executing the script >> Eurodrone_Design_VPMReference_PLMAttributesValuationCheck.CATRule
+BusinessTypeValue Elementary Part
+		Pattern Matched
+PartNumber -- Y831D6624-106 :: patternMatch -- true
+	Start Function -->HasNoSubtypeOrUseNaming   Y831D6624-106
+	oBooleanToReturn false
+	End Function -->HasNoSubtypeOrUseNaming
+END: Executing the script >> Eurodrone_Design_VPMReference_PLMAttributesValuationCheck.CATRule
+START: Executing the Rule >> Eurodrone_Design_VPMReference_AttributesPropagation.CATRule - Edition mode = Edition
+START: SSA : Adding Explicitly the AIRBUS_E_DEXT_BusinessType
+	Current SC : VPLMProjectAdministrator.ADS_Eurodrone_Design.Eurodrone_Design
+BT : Elementary Part
+>> Extension AIRBUS_E_DEXT_BusinessType already added <<
+END: SSA : Adding Explicitly the AIRBUS_E_DEXT_BusinessType
+>> Current Object type : AIRBUS_E_VPMReference_LowerLevel << 
+ Current Business Type: Elementary Part
+	Current business type = Elementary Part
+Done>>>>>
+	Start Function -->HasNoSubtypeOrUseNaming   Y831D6624-106
+	oBooleanToReturn false
+	End Function -->HasNoSubtypeOrUseNaming
+Start executing ---> GetParentBusinessType
+	ThisObject ID = prd-n2h31explo-00005546
+	refActualObject is  not null 
+------Parent APN: prd-n2h31explo-00005045
+	It's getting the BT of parent
+BusinessType Parent>>>>>EM
+	ToReturn = EM
+End executing ---> GetParentBusinessType()
+	Start Function -->GetListSubTypeAccordingBusinessType
+	End Function -->GetListSubTypeAccordingBusinessType
+	T000473 N2H15836 00079 - START Automatic filling of 'VEVB Code' attribute
+	T000500 N2H15836 00079 - END Automatic filling of 'VEVB Code' attribute
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_COMMON_DEV_FunctionalClass
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_Part_FunctionalClass_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_Part_FunctionalClass_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_Part_FunctionalClass_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_COMMON_ADAP_Marking
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_Part_Marking_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_Part_Marking_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_Part_Marking_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_COMMON_ADAP_ProtectiveTreatmentCode
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_Part_ProtectiveTreatmentCode_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_Part_ProtectiveTreatmentCode_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_Part_ProtectiveTreatmentCode_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NAAD013AD014AD015AD016AD022AD023AD024AD025AD026AD001AD005TD001TD011TD012TD013RD001RD020RD021
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_DesignStage
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_Part_DesignStage_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>Not Yet DefinedInceptionDFMData DropNA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_EPSA_LIMITSNOTSTATED
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_LOWER_LEVEL_LIMITSNOTSTATED_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_LOWER_LEVEL_LIMITSNOTSTATED_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_LOWER_LEVEL_LIMITSNOTSTATED_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_EPSA_SURFACEFINISHREFERENCE
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_LOWER_LEVEL_SURFACEFINISHREFERENCE_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_LOWER_LEVEL_SURFACEFINISHREFERENCE_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_LOWER_LEVEL_SURFACEFINISHREFERENCE_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_EPSA_SURFACEFINISHVALUE
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_LOWER_LEVEL_SURFACEFINISHVALUE_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_LOWER_LEVEL_SURFACEFINISHVALUE_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_LOWER_LEVEL_SURFACEFINISHVALUE_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_AssociatedAITM
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_AITM_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_AssociatedAIPS
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_AIPS_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_COMMON_DEV_IdentifiablePart
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_Part_IdentifiablePart_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_Part_IdentifiablePart_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_Part_IdentifiablePart_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EM_ADAP_DS_DesignOfficeResponsible
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_DOR_Values
+	T00892 N2H-21941 00090 - strValue = To be defined
+	T00901 N2H-21941 00091 - strDescription1 = 
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = NA
+	T00901 N2H-21941 00091 - strDescription1 = 
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = C0419
+	T00901 N2H-21941 00091 - strDescription1 = Airbus Defence and Space GmbH Manching
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = C0420
+	T00901 N2H-21941 00091 - strDescription1 = AIRBUS Defence & Space GMBH Bremen
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = 0117B
+	T00901 N2H-21941 00091 - strDescription1 = AIRBUS DEFENCE AND SPACE SAU Getafe
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = A0019
+	T00901 N2H-21941 00091 - strDescription1 = Leonardo Spa Aircraft Division
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = F6117
+	T00901 N2H-21941 00091 - strDescription1 = Dassault Aviation
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = C0415
+	T00901 N2H-21941 00091 - strDescription1 = MBDA DEUTSCHLAND GmbH Schrobenhausen
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = DL655
+	T00901 N2H-21941 00091 - strDescription1 = MBDA DEUTSCHLAND GmbH Ulm
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = F0555
+	T00901 N2H-21941 00091 - strDescription1 = MBDA France Les Plessis Robinson
+	T00902 N2H-21941 00092 - strDescription2 = No
+list_ListValuefor_Attr>>>>>>>>>>>>>To be definedNAC0419|Airbus Defence and Space GmbH ManchingC0420|AIRBUS Defence & Space GMBH Bremen0117B|AIRBUS DEFENCE AND SPACE SAU GetafeA0019|Leonardo Spa Aircraft DivisionF6117|Dassault AviationC0415|MBDA DEUTSCHLAND GmbH SchrobenhausenDL655|MBDA DEUTSCHLAND GmbH UlmF0555|MBDA France Les Plessis Robinson
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_ICY_CLASS_InterchangeabilityClass
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_ICY_InterchangeabilityClass_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_ICY_InterchangeabilityClass_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_ICY_InterchangeabilityClass_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NAIR
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_ICY_RELATION_InterchangeabilityRelation
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_ICY_InterchangeabilityRelation_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_ICY_InterchangeabilityRelation_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_ICY_InterchangeabilityRelation_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NACounterpart/Assembly of ICY
+START: ==>> Set NA as default value of PTC attribute <<
+END: ==>> Set NA as default value of Manual PTC attribute <<
+START: ==>> Set NA as default value of Manual Associated Documents attribute <<
+END: ==>> Set NA as default value of Surface Finish Reference attribute <<
+START: ==>> Set NA as default value of Manual Associated Documents attribute <<
+END: ==>> Set NA as default value of Surface Finish Reference attribute <<
+>>  Knowledge resource -  Eurodrone_AssemblySymmetry_Attribute_Mapping detected << 
+END: Executing the Rule >> Eurodrone_Design_VPMReference_AttributesPropagation.CATRule
+START: Executing the script >> Eurodrone_Design_VPMReference_PLMAttributesValuationCheck.CATRule
+BusinessTypeValue Elementary Part
+		Pattern Matched
+PartNumber -- Y811D6624-105 :: patternMatch -- true
+	Start Function -->HasNoSubtypeOrUseNaming   Y811D6624-105
+	oBooleanToReturn false
+	End Function -->HasNoSubtypeOrUseNaming
+END: Executing the script >> Eurodrone_Design_VPMReference_PLMAttributesValuationCheck.CATRule
+START: Executing the Rule >> Eurodrone_Design_VPMReference_AttributesPropagation.CATRule - Edition mode = Edition
+START: SSA : Adding Explicitly the AIRBUS_E_DEXT_BusinessType
+	Current SC : VPLMProjectAdministrator.ADS_Eurodrone_Design.Eurodrone_Design
+BT : Elementary Part
+>> Extension AIRBUS_E_DEXT_BusinessType already added <<
+END: SSA : Adding Explicitly the AIRBUS_E_DEXT_BusinessType
+>> Current Object type : AIRBUS_E_VPMReference_LowerLevel << 
+ Current Business Type: Elementary Part
+	Current business type = Elementary Part
+Done>>>>>
+	Start Function -->HasNoSubtypeOrUseNaming   Y811D6624-105
+	oBooleanToReturn false
+	End Function -->HasNoSubtypeOrUseNaming
+Start executing ---> GetParentBusinessType
+	ThisObject ID = prd-n2h31explo-00002978
+	refActualObject is  not null 
+------Parent APN: prd-n2h31explo-00005045
+	It's getting the BT of parent
+BusinessType Parent>>>>>EM
+	ToReturn = EM
+End executing ---> GetParentBusinessType()
+	Start Function -->GetListSubTypeAccordingBusinessType
+	End Function -->GetListSubTypeAccordingBusinessType
+	T000473 N2H15836 00079 - START Automatic filling of 'VEVB Code' attribute
+	T000500 N2H15836 00079 - END Automatic filling of 'VEVB Code' attribute
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_COMMON_DEV_FunctionalClass
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_Part_FunctionalClass_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_Part_FunctionalClass_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_Part_FunctionalClass_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_COMMON_ADAP_Marking
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_Part_Marking_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_Part_Marking_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_Part_Marking_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_COMMON_ADAP_ProtectiveTreatmentCode
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_Part_ProtectiveTreatmentCode_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_Part_ProtectiveTreatmentCode_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_Part_ProtectiveTreatmentCode_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NAAD013AD014AD015AD016AD022AD023AD024AD025AD026AD001AD005TD001TD011TD012TD013RD001RD020RD021
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_DesignStage
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_Part_DesignStage_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>Not Yet DefinedInceptionDFMData DropNA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_EPSA_LIMITSNOTSTATED
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_LOWER_LEVEL_LIMITSNOTSTATED_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_LOWER_LEVEL_LIMITSNOTSTATED_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_LOWER_LEVEL_LIMITSNOTSTATED_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_EPSA_SURFACEFINISHREFERENCE
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_LOWER_LEVEL_SURFACEFINISHREFERENCE_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_LOWER_LEVEL_SURFACEFINISHREFERENCE_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_LOWER_LEVEL_SURFACEFINISHREFERENCE_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_EPSA_SURFACEFINISHVALUE
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_LOWER_LEVEL_SURFACEFINISHVALUE_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_LOWER_LEVEL_SURFACEFINISHVALUE_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_LOWER_LEVEL_SURFACEFINISHVALUE_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_AssociatedAITM
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_AITM_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_AssociatedAIPS
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_AIPS_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_COMMON_DEV_IdentifiablePart
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_Part_IdentifiablePart_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_Part_IdentifiablePart_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_Part_IdentifiablePart_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EM_ADAP_DS_DesignOfficeResponsible
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_DOR_Values
+	T00892 N2H-21941 00090 - strValue = To be defined
+	T00901 N2H-21941 00091 - strDescription1 = 
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = NA
+	T00901 N2H-21941 00091 - strDescription1 = 
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = C0419
+	T00901 N2H-21941 00091 - strDescription1 = Airbus Defence and Space GmbH Manching
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = C0420
+	T00901 N2H-21941 00091 - strDescription1 = AIRBUS Defence & Space GMBH Bremen
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = 0117B
+	T00901 N2H-21941 00091 - strDescription1 = AIRBUS DEFENCE AND SPACE SAU Getafe
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = A0019
+	T00901 N2H-21941 00091 - strDescription1 = Leonardo Spa Aircraft Division
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = F6117
+	T00901 N2H-21941 00091 - strDescription1 = Dassault Aviation
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = C0415
+	T00901 N2H-21941 00091 - strDescription1 = MBDA DEUTSCHLAND GmbH Schrobenhausen
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = DL655
+	T00901 N2H-21941 00091 - strDescription1 = MBDA DEUTSCHLAND GmbH Ulm
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = F0555
+	T00901 N2H-21941 00091 - strDescription1 = MBDA France Les Plessis Robinson
+	T00902 N2H-21941 00092 - strDescription2 = No
+list_ListValuefor_Attr>>>>>>>>>>>>>To be definedNAC0419|Airbus Defence and Space GmbH ManchingC0420|AIRBUS Defence & Space GMBH Bremen0117B|AIRBUS DEFENCE AND SPACE SAU GetafeA0019|Leonardo Spa Aircraft DivisionF6117|Dassault AviationC0415|MBDA DEUTSCHLAND GmbH SchrobenhausenDL655|MBDA DEUTSCHLAND GmbH UlmF0555|MBDA France Les Plessis Robinson
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_ICY_CLASS_InterchangeabilityClass
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_ICY_InterchangeabilityClass_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_ICY_InterchangeabilityClass_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_ICY_InterchangeabilityClass_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NAIR
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_ICY_RELATION_InterchangeabilityRelation
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_ICY_InterchangeabilityRelation_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_ICY_InterchangeabilityRelation_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_ICY_InterchangeabilityRelation_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NACounterpart/Assembly of ICY
+START: ==>> Set NA as default value of PTC attribute <<
+END: ==>> Set NA as default value of Manual PTC attribute <<
+START: ==>> Set NA as default value of Manual Associated Documents attribute <<
+END: ==>> Set NA as default value of Surface Finish Reference attribute <<
+START: ==>> Set NA as default value of Manual Associated Documents attribute <<
+END: ==>> Set NA as default value of Surface Finish Reference attribute <<
+END: Executing the Rule >> Eurodrone_Design_VPMReference_AttributesPropagation.CATRule
+START: Executing the Rule >> Eurodrone_Design_VPMReference_AttributesPropagation.CATRule - Edition mode = Valuation
+START: SSA : Adding Explicitly the AIRBUS_E_DEXT_BusinessType
+	Current SC : VPLMProjectAdministrator.ADS_Eurodrone_Design.Eurodrone_Design
+BT : Elementary Part
+>> Extension AIRBUS_E_DEXT_BusinessType already added <<
+END: SSA : Adding Explicitly the AIRBUS_E_DEXT_BusinessType
+>> Current Object type : AIRBUS_E_VPMReference_LowerLevel << 
+ Current Business Type: Elementary Part
+Inside valuation modeAIRBUS_E_Identification_AirbusPartNumber
+>>> The selected AIRBUS_E_BusinessType_BusinessType value is - Elementary Part <<<
+Start - Once BT is set, make it non-editable
+Busines Type is not editable
+>> Inside Function - Check3DPart <<
+>> END Function - Check3DPart <<
+End - Once BT is set, make it non-editable
+>> Inside Function - ComputeExtensionFromMapping <<
+>> ComputeExtensionFromMapping:: DEXT - AIRBUS_E_DEXT_EPASSY_COMMON_ADAP to be applied for Object Type - AIRBUS_E_VPMReference_LowerLevel and Business Type - Elementary Part <<
+>> ComputeExtensionFromMapping:: DEXT - AIRBUS_E_DEXT_EPASSY_COMMON_DEV to be applied for Object Type - AIRBUS_E_VPMReference_LowerLevel and Business Type - Elementary Part <<
+>> ComputeExtensionFromMapping:: DEXT - AIRBUS_E_DEXT_EPASSY to be applied for Object Type - AIRBUS_E_VPMReference_LowerLevel and Business Type - Elementary Part <<
+>> ComputeExtensionFromMapping:: DEXT - AIRBUS_E_DEXT_EPASSY_EPSA to be applied for Object Type - AIRBUS_E_VPMReference_LowerLevel and Business Type - Elementary Part <<
+>> ComputeExtensionFromMapping:: DEXT - AIRBUS_E_DEXT_ICY to be applied for Object Type - AIRBUS_E_VPMReference_LowerLevel and Business Type - Elementary Part <<
+>> ComputeExtensionFromMapping:: DEXT - AIRBUS_E_DEXT_ValidationDate to be applied for Object Type - AIRBUS_E_VPMReference_LowerLevel and Business Type - Elementary Part <<
+>> ComputeExtensionFromMapping:: DEXT - AIRBUS_E_DEXT_ReferenceStatus to be applied for Object Type - AIRBUS_E_VPMReference_LowerLevel and Business Type - Elementary Part <<
+>> ComputeExtensionFromMapping:: DEXT - AIRBUS_E_DEXT_EPASSY_PRE_POST_COMMON_ADAP to be applied for Object Type - AIRBUS_E_VPMReference_LowerLevel and Business Type - Elementary Part <<
+>> ComputeExtensionFromMapping:: DEXT - AIRBUS_E_DEXT_DDeVDerivedFrom to be applied for Object Type - AIRBUS_E_VPMReference_LowerLevel and Business Type - Elementary Part <<
+>> ComputeExtensionFromMapping:: DEXT - AIRBUS_E_DEXT_DDeVManual to be applied for Object Type - AIRBUS_E_VPMReference_LowerLevel and Business Type - Elementary Part <<
+>> ComputeExtensionFromMapping:: DEXT - AIRBUS_E_DEXT_DDeVType to be applied for Object Type - AIRBUS_E_VPMReference_LowerLevel and Business Type - Elementary Part <<
+>> ComputeExtensionFromMapping:: DEXT - AIRBUS_E_DEXT_EM_ADAP_DS to be applied for Object Type - AIRBUS_E_VPMReference_LowerLevel and Business Type - Elementary Part <<
+>> ComputeExtensionFromMapping:: DEXT - AIRBUS_E_DEXT_ReferenceAlternate to be applied for Object Type - AIRBUS_E_VPMReference_LowerLevel and Business Type - Elementary Part <<
+>> END Function - ComputeExtensionFromMapping <<
+>> Extension AIRBUS_E_DEXT_EPASSY_COMMON_ADAP already added <<
+>> Extension AIRBUS_E_DEXT_EPASSY_COMMON_DEV already added <<
+>> Extension AIRBUS_E_DEXT_EPASSY already added <<
+>> Extension AIRBUS_E_DEXT_EPASSY_EPSA already added <<
+>> Extension AIRBUS_E_DEXT_ICY already added <<
+>> Extension AIRBUS_E_DEXT_ValidationDate already added <<
+>> Extension AIRBUS_E_DEXT_ReferenceStatus already added <<
+>> Extension AIRBUS_E_DEXT_DDeVDerivedFrom already added <<
+>> Extension AIRBUS_E_DEXT_DDeVManual already added <<
+>> Extension AIRBUS_E_DEXT_DDeVType already added <<
+>> Extension AIRBUS_E_DEXT_EM_ADAP_DS already added <<
+>> Extension AIRBUS_E_DEXT_ReferenceAlternate already added <<
+Fourth Digit 2
+	T000913 N2H15836 00080 - Start Automatic filling of 'VEVB Code' attribute
+	Start Function -->HasNoSubtypeOrUseNaming   Y812E6624-105
+	oBooleanToReturn false
+	End Function -->HasNoSubtypeOrUseNaming
+	Start Function -->GetListSubType
+	End Function -->GetListSubType
+strEditAttrId  >> AIRBUS_E_Identification_AirbusPartNumber
+	MultiValue for AIRBUS_E_EPASSY_COMMON_DEV_FunctionalClass : 
+	MultiValue for AIRBUS_E_EPASSY_COMMON_ADAP_Marking : 1
+	MultiValue for AIRBUS_E_EPASSY_COMMON_ADAP_ProtectiveTreatmentCode : 1
+	MultiValue for AIRBUS_E_EPASSY_DesignStage : 
+	MultiValue for AIRBUS_E_EPASSY_EPSA_LIMITSNOTSTATED : 
+	MultiValue for AIRBUS_E_EPASSY_EPSA_SURFACEFINISHREFERENCE : 
+	MultiValue for AIRBUS_E_EPASSY_EPSA_SURFACEFINISHVALUE : 
+	MultiValue for AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_AssociatedAITM : 1
+	MultiValue for AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_AssociatedAIPS : 1
+	MultiValue for AIRBUS_E_EPASSY_COMMON_DEV_IdentifiablePart : 
+	MultiValue for AIRBUS_E_EM_ADAP_DS_DesignOfficeResponsible : 
+	MultiValue for AIRBUS_E_ICY_CLASS_InterchangeabilityClass : 
+	MultiValue for AIRBUS_E_ICY_RELATION_InterchangeabilityRelation : 
+strEditAttrValue  >> Y812E6624-105
+Update Instance Title:Starts
+Business Type>>>>Elementary Part
+Start Function ====== UpdateInstanceTitle()
+	iChildRef ID = prd-n2h31explo-00002978
+listInstances>>>>>>>>>>>>1
+idx>>>>>>>>1
+Instance Title>>>>>Y811D6624-105.1
+Updating Instance!
+Minor Revision>>>>>1
+Current Instance Title>>>>Y811D6624-105.1
+Last Index>>>>13
+Instance Title Length>>>>>15
+strAPN>>>>>Y812E6624-105
+strTemp>>>>>.1
+New Instance Title <<<<<<<****>>>>>Y812E6624-105.1
+Instance Title Updated!
+	ToReturn = true
+End Function ===SS=== UpdateInstanceTitle()
+strEditAttrValueY812E6624-105
+Update Instance Title:Ends
+	T001086 N2H15836 00084 - START Automatic filling of 'VEVB Code' attribute
+	T001108 N2H15836 00085 - END Automatic filling of 'VEVB Code' attribute
+strExtractForSubAta  >> 812
+END: Executing the Rule >> Eurodrone_Design_VPMReference_AttributesPropagation.CATRule
+START: Executing the script >> Eurodrone_Design_VPMReference_PLMAttributesValuationCheck.CATRule
+BusinessTypeValue Elementary Part
+		Pattern Matched
+PartNumber -- Y812E6624-105 :: patternMatch -- true
+	Start Function -->HasNoSubtypeOrUseNaming   Y812E6624-105
+	oBooleanToReturn false
+	End Function -->HasNoSubtypeOrUseNaming
+END: Executing the script >> Eurodrone_Design_VPMReference_PLMAttributesValuationCheck.CATRule
+START: Executing the script >> Eurodrone_Design_VPMReference_PLMAttributesValuationCheck.CATRule
+BusinessTypeValue Elementary Part
+		Pattern Matched
+PartNumber -- Y812E6624-105 :: patternMatch -- true
+	Start Function -->HasNoSubtypeOrUseNaming   Y812E6624-105
+	oBooleanToReturn false
+	End Function -->HasNoSubtypeOrUseNaming
+END: Executing the script >> Eurodrone_Design_VPMReference_PLMAttributesValuationCheck.CATRule
+START >> Eurodrone_Design_VPMReference_PLMAttributesValuationFinalization.CATRule
+	Validation: true
+END >> Eurodrone_Design_VPMReference_PLMAttributesValuationFinalization.CATRule
+START: Executing the Rule >> Eurodrone_Design_VPMReference_AttributesPropagation.CATRule - Edition mode = Edition
+START: SSA : Adding Explicitly the AIRBUS_E_DEXT_BusinessType
+	Current SC : VPLMProjectAdministrator.ADS_Eurodrone_Design.Eurodrone_Design
+BT : Elementary Part
+>> Extension AIRBUS_E_DEXT_BusinessType already added <<
+END: SSA : Adding Explicitly the AIRBUS_E_DEXT_BusinessType
+>> Current Object type : AIRBUS_E_VPMReference_LowerLevel << 
+ Current Business Type: Elementary Part
+	Current business type = Elementary Part
+Done>>>>>
+	Start Function -->HasNoSubtypeOrUseNaming   Y812E6624-105
+	oBooleanToReturn false
+	End Function -->HasNoSubtypeOrUseNaming
+Start executing ---> GetParentBusinessType
+	ThisObject ID = prd-n2h31explo-00002978
+	refActualObject is  not null 
+------Parent APN: prd-n2h31explo-00005045
+	It's getting the BT of parent
+BusinessType Parent>>>>>EM
+	ToReturn = EM
+End executing ---> GetParentBusinessType()
+	Start Function -->GetListSubTypeAccordingBusinessType
+	End Function -->GetListSubTypeAccordingBusinessType
+	T000473 N2H15836 00079 - START Automatic filling of 'VEVB Code' attribute
+	T000500 N2H15836 00079 - END Automatic filling of 'VEVB Code' attribute
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_COMMON_DEV_FunctionalClass
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_Part_FunctionalClass_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_Part_FunctionalClass_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_Part_FunctionalClass_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_COMMON_ADAP_Marking
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_Part_Marking_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_Part_Marking_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_Part_Marking_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_COMMON_ADAP_ProtectiveTreatmentCode
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_Part_ProtectiveTreatmentCode_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_Part_ProtectiveTreatmentCode_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_Part_ProtectiveTreatmentCode_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NAAD013AD014AD015AD016AD022AD023AD024AD025AD026AD001AD005TD001TD011TD012TD013RD001RD020RD021
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_DesignStage
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_Part_DesignStage_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>Not Yet DefinedInceptionDFMData DropNA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_EPSA_LIMITSNOTSTATED
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_LOWER_LEVEL_LIMITSNOTSTATED_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_LOWER_LEVEL_LIMITSNOTSTATED_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_LOWER_LEVEL_LIMITSNOTSTATED_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_EPSA_SURFACEFINISHREFERENCE
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_LOWER_LEVEL_SURFACEFINISHREFERENCE_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_LOWER_LEVEL_SURFACEFINISHREFERENCE_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_LOWER_LEVEL_SURFACEFINISHREFERENCE_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_EPSA_SURFACEFINISHVALUE
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_LOWER_LEVEL_SURFACEFINISHVALUE_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_LOWER_LEVEL_SURFACEFINISHVALUE_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_LOWER_LEVEL_SURFACEFINISHVALUE_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_AssociatedAITM
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_AITM_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_AssociatedAIPS
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_AIPS_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_COMMON_DEV_IdentifiablePart
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_Part_IdentifiablePart_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_Part_IdentifiablePart_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_Part_IdentifiablePart_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EM_ADAP_DS_DesignOfficeResponsible
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_DOR_Values
+	T00892 N2H-21941 00090 - strValue = To be defined
+	T00901 N2H-21941 00091 - strDescription1 = 
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = NA
+	T00901 N2H-21941 00091 - strDescription1 = 
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = C0419
+	T00901 N2H-21941 00091 - strDescription1 = Airbus Defence and Space GmbH Manching
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = C0420
+	T00901 N2H-21941 00091 - strDescription1 = AIRBUS Defence & Space GMBH Bremen
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = 0117B
+	T00901 N2H-21941 00091 - strDescription1 = AIRBUS DEFENCE AND SPACE SAU Getafe
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = A0019
+	T00901 N2H-21941 00091 - strDescription1 = Leonardo Spa Aircraft Division
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = F6117
+	T00901 N2H-21941 00091 - strDescription1 = Dassault Aviation
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = C0415
+	T00901 N2H-21941 00091 - strDescription1 = MBDA DEUTSCHLAND GmbH Schrobenhausen
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = DL655
+	T00901 N2H-21941 00091 - strDescription1 = MBDA DEUTSCHLAND GmbH Ulm
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = F0555
+	T00901 N2H-21941 00091 - strDescription1 = MBDA France Les Plessis Robinson
+	T00902 N2H-21941 00092 - strDescription2 = No
+list_ListValuefor_Attr>>>>>>>>>>>>>To be definedNAC0419|Airbus Defence and Space GmbH ManchingC0420|AIRBUS Defence & Space GMBH Bremen0117B|AIRBUS DEFENCE AND SPACE SAU GetafeA0019|Leonardo Spa Aircraft DivisionF6117|Dassault AviationC0415|MBDA DEUTSCHLAND GmbH SchrobenhausenDL655|MBDA DEUTSCHLAND GmbH UlmF0555|MBDA France Les Plessis Robinson
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_ICY_CLASS_InterchangeabilityClass
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_ICY_InterchangeabilityClass_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_ICY_InterchangeabilityClass_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_ICY_InterchangeabilityClass_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NAIR
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_ICY_RELATION_InterchangeabilityRelation
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_ICY_InterchangeabilityRelation_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_ICY_InterchangeabilityRelation_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_ICY_InterchangeabilityRelation_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NACounterpart/Assembly of ICY
+START: ==>> Set NA as default value of PTC attribute <<
+END: ==>> Set NA as default value of Manual PTC attribute <<
+START: ==>> Set NA as default value of Manual Associated Documents attribute <<
+END: ==>> Set NA as default value of Surface Finish Reference attribute <<
+START: ==>> Set NA as default value of Manual Associated Documents attribute <<
+END: ==>> Set NA as default value of Surface Finish Reference attribute <<
+END: Executing the Rule >> Eurodrone_Design_VPMReference_AttributesPropagation.CATRule
+START: Executing the Rule >> Eurodrone_Design_VPMReference_AttributesPropagation.CATRule - Edition mode = Edition
+START: SSA : Adding Explicitly the AIRBUS_E_DEXT_BusinessType
+	Current SC : VPLMProjectAdministrator.ADS_Eurodrone_Design.Eurodrone_Design
+BT : Elementary Part
+>> Extension AIRBUS_E_DEXT_BusinessType already added <<
+END: SSA : Adding Explicitly the AIRBUS_E_DEXT_BusinessType
+>> Current Object type : AIRBUS_E_VPMReference_LowerLevel << 
+ Current Business Type: Elementary Part
+	Current business type = Elementary Part
+Done>>>>>
+	Start Function -->HasNoSubtypeOrUseNaming   Y812E6624-105
+	oBooleanToReturn false
+	End Function -->HasNoSubtypeOrUseNaming
+Start executing ---> GetParentBusinessType
+	ThisObject ID = prd-n2h31explo-00002978
+	refActualObject is  not null 
+------Parent APN: prd-n2h31explo-00005045
+	It's getting the BT of parent
+BusinessType Parent>>>>>EM
+	ToReturn = EM
+End executing ---> GetParentBusinessType()
+	Start Function -->GetListSubTypeAccordingBusinessType
+	End Function -->GetListSubTypeAccordingBusinessType
+	T000473 N2H15836 00079 - START Automatic filling of 'VEVB Code' attribute
+	T000500 N2H15836 00079 - END Automatic filling of 'VEVB Code' attribute
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_COMMON_DEV_FunctionalClass
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_Part_FunctionalClass_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_Part_FunctionalClass_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_Part_FunctionalClass_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_COMMON_ADAP_Marking
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_Part_Marking_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_Part_Marking_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_Part_Marking_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_COMMON_ADAP_ProtectiveTreatmentCode
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_Part_ProtectiveTreatmentCode_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_Part_ProtectiveTreatmentCode_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_Part_ProtectiveTreatmentCode_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NAAD013AD014AD015AD016AD022AD023AD024AD025AD026AD001AD005TD001TD011TD012TD013RD001RD020RD021
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_DesignStage
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_Part_DesignStage_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>Not Yet DefinedInceptionDFMData DropNA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_EPSA_LIMITSNOTSTATED
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_LOWER_LEVEL_LIMITSNOTSTATED_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_LOWER_LEVEL_LIMITSNOTSTATED_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_LOWER_LEVEL_LIMITSNOTSTATED_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_EPSA_SURFACEFINISHREFERENCE
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_LOWER_LEVEL_SURFACEFINISHREFERENCE_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_LOWER_LEVEL_SURFACEFINISHREFERENCE_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_LOWER_LEVEL_SURFACEFINISHREFERENCE_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_EPSA_SURFACEFINISHVALUE
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_LOWER_LEVEL_SURFACEFINISHVALUE_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_LOWER_LEVEL_SURFACEFINISHVALUE_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_LOWER_LEVEL_SURFACEFINISHVALUE_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_AssociatedAITM
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_AITM_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_AssociatedAIPS
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_AIPS_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EPASSY_COMMON_DEV_IdentifiablePart
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_Part_IdentifiablePart_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_Part_IdentifiablePart_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_Part_IdentifiablePart_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NA
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_EM_ADAP_DS_DesignOfficeResponsible
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_DOR_Values
+	T00892 N2H-21941 00090 - strValue = To be defined
+	T00901 N2H-21941 00091 - strDescription1 = 
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = NA
+	T00901 N2H-21941 00091 - strDescription1 = 
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = C0419
+	T00901 N2H-21941 00091 - strDescription1 = Airbus Defence and Space GmbH Manching
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = C0420
+	T00901 N2H-21941 00091 - strDescription1 = AIRBUS Defence & Space GMBH Bremen
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = 0117B
+	T00901 N2H-21941 00091 - strDescription1 = AIRBUS DEFENCE AND SPACE SAU Getafe
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = A0019
+	T00901 N2H-21941 00091 - strDescription1 = Leonardo Spa Aircraft Division
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = F6117
+	T00901 N2H-21941 00091 - strDescription1 = Dassault Aviation
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = C0415
+	T00901 N2H-21941 00091 - strDescription1 = MBDA DEUTSCHLAND GmbH Schrobenhausen
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = DL655
+	T00901 N2H-21941 00091 - strDescription1 = MBDA DEUTSCHLAND GmbH Ulm
+	T00902 N2H-21941 00092 - strDescription2 = No
+	T00892 N2H-21941 00090 - strValue = F0555
+	T00901 N2H-21941 00091 - strDescription1 = MBDA France Les Plessis Robinson
+	T00902 N2H-21941 00092 - strDescription2 = No
+list_ListValuefor_Attr>>>>>>>>>>>>>To be definedNAC0419|Airbus Defence and Space GmbH ManchingC0420|AIRBUS Defence & Space GMBH Bremen0117B|AIRBUS DEFENCE AND SPACE SAU GetafeA0019|Leonardo Spa Aircraft DivisionF6117|Dassault AviationC0415|MBDA DEUTSCHLAND GmbH SchrobenhausenDL655|MBDA DEUTSCHLAND GmbH UlmF0555|MBDA France Les Plessis Robinson
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_ICY_CLASS_InterchangeabilityClass
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_ICY_InterchangeabilityClass_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_ICY_InterchangeabilityClass_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_ICY_InterchangeabilityClass_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NAIR
+strAttrName>>>>>>>>>>>>>>>>>>>AIRBUS_E_ICY_RELATION_InterchangeabilityRelation
+Unable to find the resource file 'C:\Temp\CATTemp\ResourceFiles\Eurodrone_ICY_InterchangeabilityRelation_Values.txt' ... going to KnowledgeResources
+File found in Knowledge Resources: KnowledgeResources
+Eurodrone_ICY_InterchangeabilityRelation_Values' ...
+	----------No lista------------
+	strAttrValuesDocument value: Eurodrone_ICY_InterchangeabilityRelation_Values
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+	T00786 N2H-21941 00088 - strDescription1 = 
+	T00787 N2H-21941 00089 - strDescription2 = 
+list_ListValuefor_Attr>>>>>>>>>>>>>NACounterpart/Assembly of ICY
+START: ==>> Set NA as default value of PTC attribute <<
+END: ==>> Set NA as default value of Manual PTC attribute <<
+START: ==>> Set NA as default value of Manual Associated Documents attribute <<
+END: ==>> Set NA as default value of Surface Finish Reference attribute <<
+START: ==>> Set NA as default value of Manual Associated Documents attribute <<
+END: ==>> Set NA as default value of Surface Finish Reference attribute <<
+END: Executing the Rule >> Eurodrone_Design_VPMReference_AttributesPropagation.CATRule

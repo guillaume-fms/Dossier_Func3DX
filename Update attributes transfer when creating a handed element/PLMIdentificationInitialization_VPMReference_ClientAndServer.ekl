@@ -1,0 +1,1163 @@
+ThisObject:VPMReference;Parameters:RuleContext/* Rule ENONT_VPMReference_BLInitialization (ThisObject: PLMReference, Parameters: RuleContext)       */
+/* NOT CONTRACTUAL and PROPERTY OF TE (TEAM ENVIRONMENT) DEFINITION, ANY CHANGE MAY HAPPEN WITHOUT NOTICE         */
+/* Parameters contains many information such as name, user, security ... depending on Operation                   */
+/* Notice this BL operates for Several OpeningID and Many OperationId (New, Cloning, ImportAsNew, ...)            */
+/* PLMIdentificationInitialization,PLMTemplateCloning,PLMImportExportAttributesValuation,ComponentsFamilyNaming   */
+/* Notice this BL sometimes operates only for updating an existing object,mentioned IsCreatingNewObject==false    */
+Include "Eurodrone_Util"
+Include "Eurodrone_BT_Extension"
+Let IsCreatingNewObject (Boolean)
+Let UserPrefix(String)
+Let Inc(Integer)
+Let strDOR(String)
+
+Let CopyFromObject(PLMEntity)
+/*Let CopyFromObject(PLMReference)*/
+
+Let ProjectUsage (STRING)
+Let VNameWas(STRING)
+Let ItemName (String)
+Let IsRootFamilyItem (Boolean)
+Let NativeV5PropFeat(Feature)
+
+Let ModelingType(Type)
+Let ModelingTypeName(String)
+Let AbbreviatedBaseTypeName(String)
+Let Separator(String)
+Let strPLMExternalID(String)
+
+/************
+temporary definition for hardcoded test on VPMReference with TBD new V2 naming principle below
+***********/
+Let VUsage(String)
+Let MyNamingCustomFileName(String)
+Let MyNamingBaseFileName(String)
+/* end of temporary definition */
+
+Let TypeTitle(STRING)
+Let TypePackage(STRING)
+Let NamingTypePrefix(STRING)
+Let SiteAffix(STRING)
+Let NamingTypeSuffix(STRING)
+
+Let VName(STRING)
+Let ID(STRING)
+Let Description(STRING)
+Let DescriptionSize(INTEGER)
+Let IDNumber(STRING)
+Let IDVNumber(STRING)
+Let IDType(STRING)
+Let NumberAlignment(INTEGER)
+
+Let NameSize(INTEGER)
+
+/****** Custo *****/
+Let strMadeFrom (String)
+Let brName(String)
+Let brId(String)
+Let OperationID(String)
+Let OperationDetail(String)
+Let ThisObjectAPN (String)
+Let strObjectType (String)
+Let strDesignStageValue (String)
+Let strExternalID (String)
+Let ostring (String)
+Let iPosAPN (Integer)
+Let iLenAPN (Integer)
+Let sType(String)
+Let bBehaviorOOTB(Boolean)
+Let strBusinessTypeValue (String)
+Let strClonedObjectAPN (String)
+Let BT_ReferTo(String)
+Let clonedObject (String)
+Let strPRDLastName (String)
+Let iPosition (Integer)
+Let iLength (Integer)
+Let strPrdNumber(String)
+
+//N2H-18525 start
+let keyMode (String)
+let envVarDataFilteringBatch (String)
+let idString (String)
+//N2H-18525 end
+
+//N2H-19721 start
+Let iAPNLastDigits (Integer)
+Let sAPNLastDigits (String)
+Let strTechnoCode(String)
+Let sTechnoCode(String)
+Let strBOMReference(String)
+Let CopyFromObjectRef(VPMReference)
+Let strParentBT(String)
+//N2H-19721 end
+
+//N2H-19725 start
+Let listOfDEXT(List)
+Let index(Integer)
+Let strDeploymentExtension(String)
+Let listAttrToMapForEM(List)
+Let listAttrTypeToMapForEM(List)
+Let listAttrToMapForOtherBT(List)
+Let listAttrTypeToMapForOtherBT(List)
+Let ResourceSheet(DTSheetType)
+Let idxRows(Integer)
+Let strAttributeName(String)
+Let strAttributeType(String)
+Let strAttributeValue(String)
+Let listAttrValue(List)
+//N2H-19725 end
+
+//N2H-24591
+Let alternateCheck(Boolean)
+Let strAlternateAttribute(String)
+Let strErrorMsg(String)
+
+
+/* in case of Cloning of this rule  following constant must be defined */
+NumberAlignment=8
+AbbreviatedBaseTypeName="PLMCoreReference"
+Separator="-"
+SiteAffix=""
+alternateCheck=false
+
+/* variable set-up */
+
+/*standard case of this BL is creation of new object*/
+IsCreatingNewObject=true
+
+Description = ""
+UserPrefix = ""
+Inc = 0
+NameSize = 0
+ProjectUsage = ""
+
+CopyFromObject=NULL
+
+
+Trace (1, "START: Executing Rule >> Eurodrone_VPMReference_PLMIdentificationInitialization")
+
+/* checking Rule calling context  */
+
+if ((ThisObject->IsSupporting("VPMReference") == false) and (ThisObject->IsSupporting("VPMRepReference") == false) ){
+	Trace (1, "ENONT_PLMReference_BLInitialization: ERROR, Called on an Invalid Object type"  )
+	Parameters.Message="wrong usage of rule ENONT_VPMReference_BLInitialization"
+	Parameters.Severity=3
+	Report("Error",Parameters.Message, Parameters.Message)
+	} else {
+	if (Parameters->HasAttribute("OperationId") == true) {
+		Trace (1, "ENONT_PLMReference_BLInitialization, Operation: ", Parameters->GetAttributeString("OperationId")   )
+	}
+	if (Parameters->HasAttribute("OperationDetail") == true) {
+		Trace (1, "ENONT_PLMReference_BLInitialization, OperationDetails: ", Parameters->GetAttributeString("OperationDetail")   )
+	}
+	Parameters.Severity=0
+}
+
+
+/* TBD: testing operation applicable to this rule */
+
+/* getting information from RuleContext parameters  */
+
+if ( Parameters->HasAttribute("FirstImport") == true ) {  /* BriefcaseImport or FBDIImport */
+	/*synchronization operation only (update) for ThisObject, =>no creation*/
+	IsCreatingNewObject= Parameters.GetAttributeBoolean("FirstImport")
+}
+
+if ( Parameters->HasAttribute("Project") == true ) {
+	ProjectUsage=Parameters->GetAttributeString("Project")
+}
+
+if ( Parameters->HasAttribute("IdCloningString") == true ) { /* Cloning/SaveAsNew */
+	UserPrefix = Parameters->GetAttributeString("IdCloningString")
+	if (UserPrefix == NULL) UserPrefix = ""
+	}
+
+if ( UserPrefix == "" and Parameters->HasAttribute("IdString") == true ) {
+	UserPrefix = Parameters->GetAttributeString("IdString")
+	if (UserPrefix == NULL) UserPrefix = ""
+	}
+if (Parameters->HasAttribute("IdString") == true ) {
+	idString = Parameters->GetAttributeString("IdString")
+	Trace(1, "idString ", idString)
+}
+
+if (IsCreatingNewObject == false) {
+	/*prefix are considered only at creation time*/
+	UserPrefix=""
+}
+
+if ( Parameters->HasAttribute("CopyFrom") == true ) {  /* Cloning/SaveAsNew */
+	set CopyFromObject=Parameters->GetAttributeObject("CopyFrom")
+
+}
+
+if ( Parameters->HasAttribute("GenericModel") == true ) {  /* ComponentsFamilyNaming */
+	set CopyFromObject=Parameters->GetAttributeObject("GenericModel")
+}
+
+if ( Parameters->HasAttribute("IncSessionId") == true ) {
+	Inc=Parameters->GetAttributeInteger("IncSessionId")
+}
+
+
+IsRootFamilyItem = false
+if ( Parameters->HasAttribute("IsRoot") == true ) {  /* ComponentsFamilyNaming */
+
+	IsRootFamilyItem = Parameters.GetAttributeBoolean("IsRoot")
+	UserPrefix=""   /*user prefix must not be preprended to any items*/
+}
+
+/* Getting Information from current object*/
+
+/* PrimaryType is the custom type of a DS Modeling type */
+ModelingType = ThisObject.ModelerType
+if (ModelingType<>NULL){
+	ModelingTypeName=ModelingType.Name
+}
+
+if (ModelingTypeName == "" and CopyFromObject <> NULL){
+	ModelingType=CopyFromObject.ModelerType
+	if (ModelingType<>NULL) {
+		ModelingTypeName=ModelingType.Name
+	}
+}
+
+VUsage=""
+if (ThisObject->HasAttribute("V_usage") == true) {
+	VUsage= ThisObject->GetAttributeString("V_usage")
+}
+
+if (VUsage == "" and Parameters->HasAttribute("V_usage") == true) {
+	VUsage= Parameters->GetAttributeString("V_usage")
+}
+
+if (VUsage == "" and CopyFromObject <> NULL){
+	if (CopyFromObject->HasAttribute("V_usage") == true) {
+		VUsage= CopyFromObject->GetAttributeString("V_usage")
+	}
+}
+
+
+
+/*former name defined?*/
+VNameWas=""
+if  (ThisObject->HasAttribute("V_Name") == true and IsRootFamilyItem == false) { /*TEMPLATE CLONING and ComponentsFamilyNaming sub-ref */
+	VNameWas=ThisObject->GetAttributeString("V_Name")
+
+
+}
+
+if ( (VNameWas == "") and (CopyFromObject <> NULL)) {
+	if (CopyFromObject->HasAttribute("V_Name") == true){
+		VNameWas=CopyFromObject->GetAttributeString("V_Name")
+	}
+}
+
+/* tree naming - default value: tree naming from -> tree naming to */
+ItemName=""
+if ( IsRootFamilyItem == true and Parameters->HasAttribute("ItemName") == true ) {  /* ComponentsFamilyNaming Root only*/
+	ItemName = Parameters.GetAttributeString("ItemName")
+	VNameWas=ItemName   /*by pass already set V_Name already defaulty set, but wrongly by KW ComponentsFamily*/
+}
+
+if ( Parameters->HasAttribute("iFileId") == true ) {  /* DataExchangeImport */
+	ItemName = Parameters.GetAttributeString("iFileId")
+}
+
+if ( Parameters->HasAttribute("FileName") == true ) {  /* FBDImport */
+	ItemName = Parameters.GetAttributeString("FileName")
+}
+
+/*new 207: take in accound V5 product properties in case of Import */
+if (Parameters->HasAttribute("NativeV5Properties") == true) { /* FBDImport CATProduct & CATPart */
+	Set NativeV5PropFeat = Parameters->GetAttributeObject("NativeV5Properties")
+	/* internal components have the same FileName but different PartNumber */
+	if (NativeV5PropFeat->HasAttribute("PartNumber") == true)
+	{
+		
+		ItemName = NativeV5PropFeat->GetAttributeString("PartNumber")
+		VNameWas = NativeV5PropFeat->GetAttributeString("PartNumber")
+	}
+	if (NativeV5PropFeat->HasAttribute("DescriptionRef") == true)
+	{
+		Description = NativeV5PropFeat->GetAttributeString("DescriptionRef")
+	}
+}
+
+
+if (VNameWas=="") { VNameWas=ItemName }
+
+if ( (VNameWas == "") and (CopyFromObject <> NULL)) { /* new 207 (import default name = VPM External id) */
+	if (CopyFromObject->HasAttribute("PLM_ExternalID") == true){
+		VNameWas=CopyFromObject->GetAttributeString("PLM_ExternalID")
+	}
+}
+
+/*new V6R2014x services for typing V2: requires Apps to deliver the property Abbreviation in the metadata*/
+AbbreviatedBaseTypeName=ModelingTypeName
+/* RetrieveNamingParameters(ModelingTypeName,NamingTypePrefix,SiteAffix,NamingTypeSuffix) */
+RetrieveNamingParametersWithSeparator(ModelingTypeName,NamingTypePrefix,SiteAffix,NamingTypeSuffix,Separator,AbbreviatedBaseTypeName)
+if ((AbbreviatedBaseTypeName == "") or (AbbreviatedBaseTypeName == NULL)) {
+	AbbreviatedBaseTypeName=ModelingTypeName
+}
+
+/* Management of Common Abbreviation requires the ModelingTypeName to be rerouted*/
+if (ModelingTypeName <> AbbreviatedBaseTypeName) {
+	Trace (1, "ENONT_PLMReference_BLInitialization, BaseType Abreviation Used for Type ", ModelingTypeName, " requires base numbering reroute to type ", AbbreviatedBaseTypeName)
+		/*Change of Alignement for subtype to avoid any data naming conflict with earlier naming principle*/
+	NumberAlignment=NumberAlignment+1
+	/* AbbreviatedBaseTypeName=ModelingTypeName */
+}
+
+/*Naming Prefix is Manadatory */
+
+if ( (NamingTypePrefix == "") or (NamingTypePrefix == NULL) ){
+	Trace (1, "ENONT_VPMReference_BLInitialization, Error No prefix for Type ", ModelingTypeName  )
+		NamingTypePrefix="$$$"
+}
+
+/* Retrieve default NLS prefix for the title */
+
+/*find the default title for the type (RACE V2 will use the NLS of the type - somehow different from RACE V1) which is good mitigation as long as it is only default title*/
+TypeTitle=ModelingType.UserName
+if ( (TypeTitle == "") or (TypeTitle == NULL) ) {
+	TypeTitle="$$$"
+}
+
+/* Apply business logic  for Creation */
+
+
+/*requires STCusto KW package with MyNamingCustomFileName when supported*/
+if (IsCreatingNewObject==true) {
+	/* Numbering on AbbreviatedBaseType*/
+	STAutoNumbers(AbbreviatedBaseTypeName, NumberAlignment, IDNumber, IDVNumber)
+	Trace (1, "ENONT_PLMReference_BLInitialization, Allocated Numbers for type ", AbbreviatedBaseTypeName, " are ID=", IDNumber,", VN=", IDVNumber )
+	}
+
+/* object naming setup*/
+VName=""
+
+if ((VNameWas =="") or (VNameWas==NULL)) {
+	/*VName=UserPrefix+TypeTitle+ToString(Inc)*/
+	VName=UserPrefix+TypeTitle+IDNumber
+	/*TO BE VName=UserPrefix+TypeTitle+IDVNumber */
+}
+else {
+	/*case cloning, import, partfamily, ....*/
+	VName=UserPrefix+VNameWas
+	/*may be an error for partfamily where itemname is already set in target object... */
+}
+
+if ( ThisObject->HasAttribute("V_Name") == true ) {
+	NameSize=VName.Length()
+	if (NameSize>100) {
+		VName=VName.Extract(0,96)+ "..."
+	}
+	ThisObject->SetAttributeString("V_Name",VName)
+}
+
+/*set description but do not cover unseting description */
+if ( Description <> "" and ThisObject->HasAttribute("V_description") == true) {
+	DescriptionSize=Description.Length()
+	if (DescriptionSize>256) {
+		Description=Description.Extract(0,252)+ "..."
+	}
+	
+	ThisObject->SetAttributeString("V_description",Description)
+}
+
+/*identification setup*/
+if (IsCreatingNewObject == true) {
+	/* define P/S depending on project:  kind of standard or not */
+	IDType=""
+	if ( STStandardProject(ProjectUsage) == true ) {
+		IDType="s"+NamingTypePrefix
+	}
+	else {
+		IDType=NamingTypePrefix
+	}
+	
+	ID=IDType
+	if (SiteAffix<>"") ID=ID+Separator+SiteAffix+Separator
+		
+
+	ID=ID+IDNumber
+	
+	if (NamingTypeSuffix<>"") ID=ID+Separator+NamingTypeSuffix
+		
+	/* blocking evolution??? if (Parameters->GetAttributeString("OperationDetail")  == "NewEvolution") {ID="" } */
+	
+	if ( ThisObject->HasAttribute("PLM_ExternalID") == true ) {
+		ThisObject->SetAttributeString("PLM_ExternalID",ID)
+	}
+	
+	if (CopyFromObject <> NULL) { /* set id cloning chain */
+		if (CopyFromObject->HasAttribute("PLM_ExternalID") == true){
+			VNameWas=CopyFromObject->GetAttributeString("PLM_ExternalID")
+		}
+		
+		if (CopyFromObject->HasAttribute("revision") == true ) {
+			ItemName=CopyFromObject->GetAttributeString("revision")
+			VNameWas=VNameWas + " " + ItemName
+		}
+		
+		if ( ThisObject->HasAttribute("V_fromExternalID") == true ) {
+			ThisObject->SetAttributeString("V_fromExternalID",VNameWas)
+		}
+	}
+	
+	OperationDetail=Parameters->GetAttributeString("OperationDetail")
+	OperationID=Parameters->GetAttributeString("OperationId")
+	Trace(3,"T00354 00000 00001 The OperationDetail: #",OperationDetail)
+	Trace(3,"T00355 00000 00002 The OperationID: #",OperationID)
+	
+	if (OperationDetail=="NewEvolution" OR OperationID=="Cloning") {
+		bBehaviorOOTB = false
+		BT_ReferTo = "Refer To"
+
+		brName = "VPMReference Block Manual Promote to Release Step 1"
+		Trace(1, brName + " - Start")
+		
+		/* -------------------------------------------------------------------------------- */
+		/* Business Rule Ids : BR00028 */
+		brId = "BR00028"
+		Trace(1, brName + " - " + brId + " - Start setting technical hidden attribute used to block manual promote")
+		
+		
+		strObjectType = ThisObject.PrimaryType.Name
+		
+		
+		if (ThisObject.IsASortOf("VPMReference") OR ThisObject.IsASortOf("Drawing"))
+		{
+			if (ThisObject -> HasAttribute("AIRBUS_E_BusinessType_BusinessType") == true)
+			{
+				strBusinessTypeValue = ThisObject -> GetAttributeString("AIRBUS_E_BusinessType_BusinessType")
+			}
+			
+			// Description :Add prefix on duplication
+			if (ThisObject -> HasAttribute("AIRBUS_E_Identification_AirbusPartNumber") AND ThisObject -> HasAttribute("V_Name") AND ThisObject -> HasAttribute("PLM_ExternalID"))
+				
+			{
+				strClonedObjectAPN = ThisObject.GetAttributeString("AIRBUS_E_Identification_AirbusPartNumber")
+				if (strClonedObjectAPN == "")
+				{
+					if (CopyFromObject -> HasAttribute("AIRBUS_E_Identification_AirbusPartNumber") == true)
+					{
+						strClonedObjectAPN = CopyFromObject -> GetAttributeString("AIRBUS_E_Identification_AirbusPartNumber")
+					}
+				}
+				strMadeFrom = strClonedObjectAPN + " " + ThisObject.revision
+				Trace(1,"strMade from Value #",strMadeFrom)
+				if(strBusinessTypeValue == "Storable Assembly" OR strBusinessTypeValue == "EHI" OR strBusinessTypeValue == "FTA" OR strBusinessTypeValue == "Elementary Part" OR strBusinessTypeValue == "Specialized Item" OR strBusinessTypeValue == "Piping Rigid Pipe" OR strBusinessTypeValue == "Piping Spool")
+				{
+					ThisObject.SetAttributeString("AIRBUS_E_DDeVDerivedFrom_DerivedFrom", strMadeFrom)
+					Trace(1,"AIRBUS_E_DDeVDerivedFrom_DerivedFrom Value #",strMadeFrom)
+				}
+				strExternalID = ThisObject.GetAttributeString("PLM_ExternalID")
+				if(strBusinessTypeValue == BT_ReferTo)
+				{
+					iLenAPN = strClonedObjectAPN.Length()
+					
+					iPosAPN = strClonedObjectAPN->Search("-" , iLenAPN , FALSE)
+					strClonedObjectAPN = strClonedObjectAPN->Extract(0, iPosAPN)
+				}
+				
+				// For Spot Fastener
+				if (strObjectType == "SpotFastenerAssy")
+				{
+					iLength = strExternalID.Length()
+					iPosition = strExternalID->Search("-" , iLength , FALSE)
+					strPRDLastName = strExternalID->Extract(iPosition + 1, iLength - iPosition - 1)
+					strClonedObjectAPN = "Fastener-" + strPRDLastName
+				}
+				// For other VPMReference objects
+				else if (ThisObject.IsASortOf("VPMReference") OR ThisObject.IsASortOf("Drawing"))
+				{
+					if (OperationDetail=="NewEvolution")
+					{
+						iLength = strExternalID.Length()
+						iPosition = strExternalID->Search("-" , iLength , FALSE)
+						strPRDLastName = strExternalID->Extract(iPosition + 1, iLength - iPosition - 1)
+						strClonedObjectAPN = strClonedObjectAPN+ "-" + strPRDLastName
+						Trace(1,"strClonedObjectAPN #",strClonedObjectAPN)
+					}					
+				}
+				ThisObject.SetAttributeString("AIRBUS_E_Identification_AirbusPartNumber", strClonedObjectAPN)
+				Trace(1,"T00435 N2H18524 00001 - AIRBUS_E_Identification_AirbusPartNumber #",strClonedObjectAPN)
+				ThisObject.SetAttributeString("V_Name", strClonedObjectAPN)
+			}
+		}
+		/* Description : Set technical hidden attribute if VPMReference has DesignStage attribute value DFM or Data Drop */
+		if (ThisObject.IsASortOf("AIRBUS_E_VPMReference_LowerLevel") or ThisObject.IsASortOf("ElectricalGeometry") or ThisObject.IsASortOf("Electrical3DSystem") or (ThisObject.PrimaryType.Name == "SpotFastenerAssy"))
+			
+		{
+
+			if (ThisObject -> HasAttribute("AIRBUS_E_EPASSY_DesignStage"))
+			{
+				strDesignStageValue = ThisObject.GetAttributeString("AIRBUS_E_EPASSY_DesignStage")
+				if (strDesignStageValue == "DFM" OR strDesignStageValue == "Data Drop")
+
+				{
+					ThisObject.SetAttributeBoolean("AIRBUS_E_RPTech_PromoteAllowed", False)
+				}
+
+			}
+			//Trace(1, "--> Attribute AIRBUS_E_RPTech_PromoteAllowed is set to False for '" + ThisObject.V_Name + "'")
+		}
+		
+		
+		Trace(1, brName + " - " + brId + " - End setting technical hidden attribute used to block manual promote")
+		/* Business Rule Ids : BR00028 */
+		/* -------------------------------------------------------------------------------- */
+		
+		Trace(1, brName + " - End")
+		
+		//N2H-24591 - Alternate Warning Message
+		//Trace(1, "T00511 N2H-24591 00001 - hasAttribute ReferenceAlternate = #", ThisObject->HasAttribute("AIRBUS_E_ReferenceAlternate"))
+		if (ThisObject -> HasAttribute("AIRBUS_E_ReferenceAlternate"))
+		{
+			strAlternateAttribute = ThisObject.GetAttributeString("AIRBUS_E_ReferenceAlternate")
+			if(strAlternateAttribute <> NULL OR strAlternateAttribute <> "")
+			{
+				alternateCheck = true
+			}
+		}
+
+		//Trace(1, "T00521 N2H-24591 00002 - hasAttribute InstanceAlternate = #", ThisObject->HasAttribute("AIRBUS_E_InstanceAlternate"))
+		if (ThisObject -> HasAttribute("AIRBUS_E_InstanceAlternate"))
+		{
+			strAlternateAttribute = ThisObject.GetAttributeString("AIRBUS_E_InstanceAlternate")
+			if(strAlternateAttribute <> NULL OR strAlternateAttribute <> "")
+			{
+				alternateCheck = true
+			}
+		}
+
+		if (alternateCheck == true)
+		{
+			Trace(1,"T00539 N2H-24591 00003 - alternateCheck true")
+			strErrorMsg = "Alternates on Instances and References are not maintained after a duplicate. Please run B.I. Essentials on the original dataset to retrieve the original items including alternates."
+			Notify(strErrorMsg)
+		}
+		//End N2H-24591
+	}
+}
+
+//Added For Fastener Exploration:Starts
+if(ThisObject.IsASortOf("BundleFastener") OR ThisObject.IsASortOf("PLMFst_FlexibleFastenerReference"))
+{
+	if(ThisObject -> HasAttribute("AIRBUS_E_Identification_AirbusPartNumber"))
+	{
+		Trace(1,"PRD Number>>>>",ThisObject->GetAttributeString("PLM_ExternalID"))
+		strPrdNumber=ThisObject->GetAttributeString("PLM_ExternalID")
+		ThisObject->SetAttributeString("AIRBUS_E_Identification_AirbusPartNumber",strPrdNumber)
+		ThisObject->SetAttributeString("V_Name",strPrdNumber)
+		Trace(1,"Updated APN & Title with prdNumber")
+
+	}
+	if(ThisObject->HasAttribute("AIRBUS_E_BusinessType_BusinessType"))
+	{
+		if(ThisObject.IsASortOf("BundleFastener"))
+		{
+			ThisObject.SetAttributeString("AIRBUS_E_BusinessType_BusinessType","FastenerBundle")
+			Trace(1,"Business Type for Bundle Fastener is Set")
+			}
+		if(ThisObject.IsASortOf("PLMFst_FlexibleFastenerReference"))
+		{
+			ThisObject.SetAttributeString("AIRBUS_E_BusinessType_BusinessType","FastenerDefinition")
+			Trace(1,"Business Type for Flexible Fastener is Set")
+			}
+	}
+}
+//N2H-18525 start
+envVarDataFilteringBatch = GetEnvVariableValue("DF1_MERGE_IN_NEW_REFERENCE")
+
+if ( envVarDataFilteringBatch <> NULL OR envVarDataFilteringBatch <> "" )
+{
+	Trace(1,"T00509 N2H18525 00020 - envVarDataFilteringBatch : #",envVarDataFilteringBatch)
+}
+else
+{
+	Trace(1,"T00509 N2H18525 00020 - envVarDataFilteringBatch empty, the value of environment variable DF1_MERGE_IN_NEW_REFERENCE can t be read")
+}
+
+Trace(1,"T00500 N2H18524 00022 UserPrefix: #",UserPrefix)
+keyMode = UserPrefix.Extract(0,3)
+Trace(1,"T00484 N2H18524 00015 keyMode :  #",keyMode)
+//N2H-18525 end
+//N2H-18524 Start
+if ((OperationDetail == "ProductFilteringAndMerging" OR OperationDetail == "ProductSimplificationAndMerging" ) AND ThisObject.HasAttribute("AIRBUS_E_BusinessType_BusinessType") AND ( keyMode <>"ENV" AND keyMode <>"Env" AND keyMode <>"env"))
+{
+	ThisObject.SetAttributeString("AIRBUS_E_BusinessType_BusinessType", "Environment")
+
+	strClonedObjectAPN = strClonedObjectAPN+ "_" + "Env"
+	Trace(1,"T00485 N2H18524 00003 strClonedObjectAPN #",strClonedObjectAPN)
+	ThisObject.SetAttributeString("AIRBUS_E_Identification_AirbusPartNumber", strClonedObjectAPN)
+	Trace(1,"T00489 N2H18524 00004 - AIRBUS_E_Identification_AirbusPartNumber:  #",ThisObject.GetAttributeString("AIRBUS_E_Identification_AirbusPartNumber"))
+	ThisObject.SetAttributeString("V_Name", strClonedObjectAPN)
+	Trace(1,"T00491 N2H18524 00005 - V_Name :  #",ThisObject.GetAttributeString("V_Name"))
+}
+//N2H-18524 end
+//N2H-18525 start
+if (envVarDataFilteringBatch =="1")
+{
+	if ((OperationDetail == "ProductFilteringAndMerging" ) AND ThisObject.HasAttribute("AIRBUS_E_BusinessType_BusinessType") AND (keyMode =="ENV" OR keyMode =="Env" OR keyMode =="env")) {
+		if (Parameters->HasAttribute("IdString")){
+			
+			Trace(1,"T00493 N2H18525 00006 - Data Batch IdString : #",Parameters.GetAttributeString("IdString"))
+			Trace(1,"T00494 N2H18525 00007 - Data Batch UserPrefixe : #",UserPrefix)
+			Trace(1,"T00495 N2H18525 00008 - Data Batch strMadeFrom : #",strMadeFrom)
+			Trace(1,"T00496 N2H18525 00009 - Data Batch Parameter ProjectUsage : #",ProjectUsage)
+			Trace(1,"T00497 N2H18525 00010 - Data Batch ThisOject.VUsage : #",VUsage)
+			Trace(1,"T00498 N2H18525 00011 - Data Batch ThisOject This Object.ModelingTypeName : #",ModelingTypeName)
+			Trace(1,"T00499 N2H18525 00012 - Data Batch ThisOject This Object.ItemName: #",ItemName)
+			if (ThisObject.HasAttribute("AIRBUS_E_BusinessType_BusinessType")){
+				ThisObject.SetAttributeString("AIRBUS_E_BusinessType_BusinessType", "Undefined")
+			}
+			if (ThisObject.HasAttribute("AIRBUS_E_Identification_AirbusPartNumber")){
+			strClonedObjectAPN = UserPrefix+Parameters.GetAttributeString("IdString")
+			Trace(1,"T00504 N2H18524 00013 strClonedObjectAPN #",strClonedObjectAPN)
+			ThisObject.SetAttributeString("AIRBUS_E_Identification_AirbusPartNumber", strClonedObjectAPN)
+			Trace(1,"T00506 N2H18524 00014 - AIRBUS_E_Identification_AirbusPartNumber:  #",ThisObject.GetAttributeString("AIRBUS_E_Identification_AirbusPartNumber"))
+			}
+			if (ThisObject.HasAttribute("V_Name")){
+			ThisObject.SetAttributeString("V_Name", strClonedObjectAPN)
+			Trace(1,"T00508 N2H18524 00015 - V_Name :  #",ThisObject.GetAttributeString("V_Name"))
+			}
+			if (ThisObject.HasAttribute("CopyFromObject")){
+			set CopyFromObject =""
+			}
+		}
+	}
+}
+//N2H-18525
+//Added For Fastener Exploration:Ends
+
+
+//N2H-19721 | Symmetry of EP and Assembly | Start
+if (OperationDetail == "AssemblySymmetry")
+{
+	//Added for N2H-19727:Starts
+	if(ThisObject.HasAttribute("AIRBUS_E_DEXT_TECHNICAL_INFORMATION_Action"))
+	{
+		ThisObject->SetAttributeString("AIRBUS_E_DEXT_TECHNICAL_INFORMATION_Action","SYM")
+		Trace(1,"AIRBUS_E_DEXT_TECHNICAL_INFORMATION_Action : SYM")
+	}
+	//Added for N2H-19727:Ends
+
+    //Added for N2H-20888:Starts
+	if(ThisObject->IsASortOf("BundleFastener"))
+	{
+		if (CopyFromObject -> HasAttribute("PLM_ExternalID") == true)
+		{
+		if (ThisObject -> HasAttribute("V_Name") == true AND ThisObject -> HasAttribute("PLM_ExternalID"))
+			{	
+				strPLMExternalID=ThisObject->GetAttributeString("PLM_ExternalID")
+				Trace(1,"strPLMExternalID---of Bundle Fastener-------",strPLMExternalID)
+				ThisObject->SetAttributeString("V_Name", strPLMExternalID)
+				Trace(1,"Added for BundleFastener")
+			}	
+		}
+	}
+	//Added for N2H-20888:Ends
+	Trace(1,"T00510 N2H19721 00001 - AssemblySymmetry -> V_Name :  #",CopyFromObject.GetAttributeString("V_Name"))
+	if (CopyFromObject -> HasAttribute("AIRBUS_E_BusinessType_BusinessType") == true)
+	{
+		strBusinessTypeValue = CopyFromObject -> GetAttributeString("AIRBUS_E_BusinessType_BusinessType")
+		if (ThisObject -> HasAttribute("AIRBUS_E_BusinessType_BusinessType") == true)
+		{
+			sType = ThisObject -> GetAttributeString("AIRBUS_E_BusinessType_BusinessType")
+			Trace(1,"T00511 N2H19721 00002 - AssemblySymmetry -> ThisObject type :  #",sType)
+		}
+		else
+		{
+			//ThisObject->AddExtension("AIRBUS_E_DEXT_BusinessType")
+			sType = ThisObject -> GetAttributeString("AIRBUS_E_BusinessType_BusinessType")
+			Trace(1,"T00512 N2H19721 00003 - AssemblySymmetry -> Adding 'AIRBUS_E_DEXT_BusinessType'... ThisObject type :  #",sType)
+		}
+		if (sType == "" OR sType <> strBusinessTypeValue)
+		{
+			Trace(1,"T00513 N2H19721 00004 - AssemblySymmetry -> CopyFromObject type :  #",strBusinessTypeValue)
+			if (strBusinessTypeValue <> "")
+			{
+
+				ThisObject->SetAttributeString("AIRBUS_E_BusinessType_BusinessType", strBusinessTypeValue)
+			}
+		}
+		// START N2H-27374
+		//add Raw Material and Alternate material on EP Symmetry 
+		if(strBusinessTypeValue == "Elementary Part" AND CopyFromObject.HasAttribute("AIRBUS_E_DEXT_EPASSY_RAWMATERIAL_RawMaterial"))
+		{
+			ThisObject->AddExtension("AIRBUS_E_DEXT_EPASSY_RAWMATERIAL")
+		}
+		
+		if(strBusinessTypeValue == "Elementary Part" AND CopyFromObject.HasAttribute("AIRBUS_E_EPASSY_ALT_Material_AlternateMaterial"))
+		{
+			ThisObject->AddExtension("AIRBUS_E_DEXT_EPASSY_ALT_Material")
+		}
+		//End N2H-27374
+		//N2H-19725 | Symmetry of EP and Assembly | Start		
+		set ResourceSheet = CreateSheet("KnowledgeResources|Eurodrone_AssemblySymmetry_Attribute_Mapping") 
+
+		if(ResourceSheet <> NULL)
+		{
+			idxRows = 1
+			for idxRows while idxRows <= ResourceSheet.RowsNb
+			{
+				strAttributeName = ""
+				strAttributeName = ResourceSheet.CellAsString(idxRows, 1)
+				if(strAttributeName <> "" OR strAttributeName <> NULL)
+				{
+					strAttributeType = ResourceSheet.CellAsString(idxRows, 2)
+					if (ResourceSheet.CellAsString(idxRows, 3) == "Y")
+					{
+
+						listAttrToMapForEM.Append(strAttributeName)
+						listAttrTypeToMapForEM.Append(strAttributeType)
+					}
+					if (ResourceSheet.CellAsString(idxRows, 4) == "Y")
+					{
+						listAttrToMapForOtherBT.Append(strAttributeName)
+						listAttrTypeToMapForOtherBT.Append(strAttributeType)
+					}
+				}
+				idxRows = idxRows + 1		
+			}
+		}
+		else
+		{
+			Trace(1,"T00514 N2H19721 00005 - AssemblySymmetry -> Error in Knowledge Resource Path : Eurodrone_AssemblySymmetry_Attribute_Mapping sheet")
+		}
+				
+		//Retrieve and apply Deployment Extension sas per respective Business Type
+		listOfDEXT = Eurodrone_BT_Extension::ComputeExtensionFromBusinessType(strBusinessTypeValue)
+		
+		index = 1   
+		if (listOfDEXT.Size() > 0)
+		{
+			for index while index <= listOfDEXT.Size()
+			{
+				strDeploymentExtension = listOfDEXT -> GetItem(index)
+				if (ThisObject -> IsSupporting(strDeploymentExtension) == false) 
+				{
+					Trace(1, "T00515 N2H19721 00006 - AssemblySymmetry -> Adding Extension " + strDeploymentExtension)
+					ThisObject -> AddExtension(strDeploymentExtension)  
+				}
+				else 
+				{
+					Trace(1, "T00516 N2H19721 00007 - AssemblySymmetry -> Extension " + strDeploymentExtension + " already added")
+				}
+			}
+		}
+		else 
+		{
+			Trace(1, "T00517 N2H19721 00008 - AssemblySymmetry -> No suitable Deployment Extension found in the Mapping table <<<")
+		}
+		
+		//copy attribute values
+		if (strBusinessTypeValue == "EM")
+		{
+			index = 1
+			for index while index <= listAttrToMapForEM.Size()
+			{
+				strAttributeName = listAttrToMapForEM -> GetItem(index)
+				if (ThisObject -> HasAttribute(strAttributeName))			
+				{
+					if (CopyFromObject -> HasAttribute(strAttributeName))
+					{
+						if (listAttrTypeToMapForEM -> GetItem(index) == "List")
+						{
+							listAttrValue = CopyFromObject->GetAttributeObject(strAttributeName)
+							ThisObject->SetAttributeObject(strAttributeName, listAttrValue)
+						}
+						else if (listAttrTypeToMapForEM -> GetItem(index) == "String")
+						{
+							strAttributeValue = CopyFromObject->GetAttributeString(strAttributeName)
+							ThisObject->SetAttributeString(strAttributeName, strAttributeValue)
+						}
+					}
+				}
+			}		
+		}
+		else
+		{
+			index = 1
+			for index while index <= listAttrToMapForOtherBT.Size()
+			{
+
+				strAttributeName = listAttrToMapForOtherBT -> GetItem(index)
+				if (ThisObject -> HasAttribute(strAttributeName))			
+				{
+					if (CopyFromObject -> HasAttribute(strAttributeName))
+					{
+
+						if (listAttrTypeToMapForOtherBT -> GetItem(index) == "List")
+						{
+
+							listAttrValue = CopyFromObject->GetAttributeObject(strAttributeName)
+							ThisObject->SetAttributeObject(strAttributeName, listAttrValue)
+						}
+						else if (listAttrTypeToMapForOtherBT -> GetItem(index) == "String")
+						{
+							strAttributeValue = CopyFromObject->GetAttributeString(strAttributeName)
+							ThisObject->SetAttributeString(strAttributeName, strAttributeValue)
+						}
+					}
+				}
+			}		
+		}
+		
+		//N2H-19725 | Symmetry of EP and Assembly | End
+						
+		if(CopyFromObject -> HasAttribute("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode"))
+		{
+			strTechnoCode = CopyFromObject -> GetAttributeString("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode")
+			if (ThisObject -> HasAttribute("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode") == true)
+			{
+				sTechnoCode = ThisObject -> GetAttributeString("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode")
+				Trace(1,"T00518 N2H19721 00009 - AssemblySymmetry -> ThisObject TCode :  #",sTechnoCode)
+			}
+			else
+			{
+				ThisObject->AddExtension("AIRBUS_E_DEXT_EPASSY_PRE_POST_COMMON_ADAP")
+				sTechnoCode = ThisObject -> GetAttributeString("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode")
+				Trace(1,"T00519 N2H19721 00010 - AssemblySymmetry -> Adding 'AIRBUS_E_DEXT_EPASSY_PRE_POST_COMMON_ADAP'... ThisObject TCode :  #",sTechnoCode)
+			}
+			if (sTechnoCode == "" OR sTechnoCode <> strTechnoCode)
+
+			{
+				Trace(1,"T00520 N2H19721 00011 - AssemblySymmetry -> TCode :  #",strTechnoCode)
+				if (strTechnoCode <> "")
+				{
+					ThisObject->SetAttributeString("AIRBUS_E_EPASSY_PRE_POST_COMMON_ADAP_TechnologicalCode", strTechnoCode)
+				}
+			}
+		}
+
+		if (strBusinessTypeValue == "Refer To")
+		{
+			if (strTechnoCode == "RTA" OR strTechnoCode == "RTP" OR strTechnoCode == "RTH")
+
+			{
+				strClonedObjectAPN = CopyFromObject -> GetAttributeString("AIRBUS_E_Identification_AirbusPartNumber")
+				iLength = strClonedObjectAPN.Length()
+				iPosition = strClonedObjectAPN->Search("-", 0, TRUE)
+				strPRDLastName = strClonedObjectAPN->Extract(iPosition + 1, 3)
+				iAPNLastDigits = strPRDLastName.ToReal()
+				iAPNLastDigits = iAPNLastDigits + 1
+				if (iAPNLastDigits < 100)
+				{
+
+					if (iAPNLastDigits < 10)
+					{
+						sAPNLastDigits = "00" + ToString(iAPNLastDigits)
+					}
+					else
+					{
+						sAPNLastDigits = "0" + ToString(iAPNLastDigits)
+					}
+				}
+				else
+				{
+
+					sAPNLastDigits = ToString(iAPNLastDigits)
+				}
+				//Trace(1,">>>>>>>> Test trace 5 | APN last 3 :  #",sAPNLastDigits)
+				strPRDLastName = strClonedObjectAPN->Extract(iPosition + 4, iLength - iPosition - 4)
+				//Trace(1,">>>>>>>> Test trace 6 | strPRDLastName:  #", strPRDLastName)
+				strClonedObjectAPN = strClonedObjectAPN->Extract(0, iPosition + 1) + sAPNLastDigits + strPRDLastName
+				Trace(1,"T00521 N2H19721 00012 - AssemblySymmetry -> New APN :  #",strClonedObjectAPN)
+				if (strClonedObjectAPN <> NULL OR strClonedObjectAPN <> "")
+				{
+					ThisObject->SetAttributeString("AIRBUS_E_Identification_AirbusPartNumber", strClonedObjectAPN)
+					ThisObject->SetAttributeString("V_Name", strClonedObjectAPN)
+				}
+				if(CopyFromObject -> HasAttribute("AIRBUS_E_BOMReference_BOMReference"))
+				{
+					if(ThisObject -> HasAttribute("AIRBUS_E_BOMReference_BOMReference") == false)
+					{
+						ThisObject->AddExtension("AIRBUS_E_DEXT_BOMReference")
+						strBOMReference = strClonedObjectAPN->Extract(0, iPosition + 1) + sAPNLastDigits
+						Trace(1,"T00522 N2H19721 00013 - AssemblySymmetry -> Adding 'AIRBUS_E_DEXT_BOMReference'... New BOM Ref :  #",strBOMReference)
+						ThisObject->SetAttributeString("AIRBUS_E_BOMReference_BOMReference", strBOMReference)
+					}
+					else
+					{
+						strBOMReference = strClonedObjectAPN->Extract(0, iPosition + 1) + sAPNLastDigits
+						Trace(1,"T00523 N2H19721 00014 - AssemblySymmetry -> New BOM Ref :  #",strBOMReference)
+						ThisObject->SetAttributeString("AIRBUS_E_BOMReference_BOMReference", strBOMReference)
+					}
+				}
+			}
+			else
+			{
+				if (CopyFromObject -> HasAttribute("AIRBUS_E_Identification_AirbusPartNumber") == true)
+
+				{
+					strClonedObjectAPN = CopyFromObject -> GetAttributeString("AIRBUS_E_Identification_AirbusPartNumber")
+					if (strClonedObjectAPN <> NULL OR strClonedObjectAPN <> "")
+					{
+
+						ThisObject->SetAttributeString("AIRBUS_E_Identification_AirbusPartNumber", strClonedObjectAPN)
+						ThisObject->SetAttributeString("V_Name", strClonedObjectAPN)
+					}	
+				}
+				if(CopyFromObject -> HasAttribute("AIRBUS_E_BOMReference_BOMReference"))
+				{
+					strBOMReference = CopyFromObject -> GetAttributeString("AIRBUS_E_BOMReference_BOMReference")
+					if(ThisObject -> HasAttribute("AIRBUS_E_BOMReference_BOMReference") == false)
+					{
+						ThisObject->AddExtension("AIRBUS_E_DEXT_BOMReference")
+						Trace(1,"T00524 N2H19721 00015 - AssemblySymmetry -> Adding 'AIRBUS_E_DEXT_BOMReference'... New BOM Ref :  #",strBOMReference)
+						ThisObject->SetAttributeString("AIRBUS_E_BOMReference_BOMReference", strBOMReference)
+					}
+					else
+					{
+						Trace(1,"T00525 N2H19721 00016 - AssemblySymmetry -> New BOM Ref :  #",strBOMReference)
+						ThisObject->SetAttributeString("AIRBUS_E_BOMReference_BOMReference", strBOMReference)
+					}
+				}
+
+			}
+		}
+
+		else if (strBusinessTypeValue == "Master Geometry" OR strBusinessTypeValue == "Extended Item" OR strBusinessTypeValue == "Design Simulation")
+		{
+			set CopyFromObjectRef = CopyFromObject
+			strParentBT = Eurodrone_Util::GetParentBusinessType(CopyFromObjectRef)
+			Trace(1,"T00526 N2H19721 00017 - AssemblySymmetry -> Parent Business Type :  #", strParentBT)
+			if (strTechnoCode == "SFC" OR strTechnoCode == "KEY" OR strTechnoCode == "MGB" OR strTechnoCode == "PUB" OR strTechnoCode == "SOL"
+							OR strTechnoCode == "KIN" OR strTechnoCode == "DUP" OR strTechnoCode == "HUM")
+			{
+				strClonedObjectAPN = CopyFromObject -> GetAttributeString("AIRBUS_E_Identification_AirbusPartNumber")
+				iLength = strClonedObjectAPN.Length()
+				iPosition = strClonedObjectAPN->Search("-", 0, TRUE)
+				strPRDLastName = strClonedObjectAPN->Extract(iPosition + 1, 3)
+				iAPNLastDigits = strPRDLastName.ToReal()
+				if (strParentBT == "Storable Assembly")
+				{
+					iAPNLastDigits = iAPNLastDigits + 1
+				}
+				else if (strParentBT == "EM")
+				{
+					iAPNLastDigits = iAPNLastDigits + 100
+				}
+				if (iAPNLastDigits < 100)
+				{
+					if (iAPNLastDigits < 10)
+					{
+						sAPNLastDigits = "00" + ToString(iAPNLastDigits)
+					}
+					else
+					{
+						sAPNLastDigits = "0" + ToString(iAPNLastDigits)
+					}
+				}
+				else
+				{
+					sAPNLastDigits = ToString(iAPNLastDigits)
+				}
+				//Trace(1,">>>>>>>> Test trace2 | APN last 3 :  #",sAPNLastDigits)
+	
+
+				strPRDLastName = strClonedObjectAPN->Extract(iPosition + 4, 7)
+				//Trace(1,">>>>>>>> Test trace 00 | strPRDLastName:  #", strPRDLastName)
+				strClonedObjectAPN = strClonedObjectAPN->Extract(0, iPosition + 1) + sAPNLastDigits + strPRDLastName
+				Trace(1,"T00527 N2H19721 00018 - AssemblySymmetry -> New APN :  #",strClonedObjectAPN)
+				if (strClonedObjectAPN <> NULL OR strClonedObjectAPN <> "")
+				{
+					ThisObject->SetAttributeString("AIRBUS_E_Identification_AirbusPartNumber", strClonedObjectAPN)
+					ThisObject->SetAttributeString("V_Name", strClonedObjectAPN)
+				}
+			}
+		}
+		else if (strBusinessTypeValue == "StandardPart" OR strBusinessTypeValue == "3DEQ")
+		{
+			if (ThisObject -> HasAttribute("AIRBUS_E_Identification_AirbusPartNumber") AND ThisObject -> HasAttribute("V_Name"))			
+			{
+				if (CopyFromObject -> HasAttribute("AIRBUS_E_Identification_AirbusPartNumber") == true)
+				{
+					strClonedObjectAPN = CopyFromObject -> GetAttributeString("AIRBUS_E_Identification_AirbusPartNumber")
+					if (strClonedObjectAPN <> NULL OR strClonedObjectAPN <> "")
+					{
+						ThisObject->SetAttributeString("AIRBUS_E_Identification_AirbusPartNumber", strClonedObjectAPN)
+						ThisObject->SetAttributeString("V_Name", strClonedObjectAPN)
+					}	
+				}
+			}
+		}
+		else if (strBusinessTypeValue == "Elementary Part" OR strBusinessTypeValue == "Storable Assembly" OR strBusinessTypeValue == "EHI" OR strBusinessTypeValue == "SAM" OR strBusinessTypeValue == "Project Definition")
+		{
+			if (ThisObject -> HasAttribute("AIRBUS_E_Identification_AirbusPartNumber") AND ThisObject -> HasAttribute("V_Name"))			
+			{
+				if (CopyFromObject -> HasAttribute("AIRBUS_E_Identification_AirbusPartNumber") == true)
+				{
+					strClonedObjectAPN = CopyFromObject -> GetAttributeString("AIRBUS_E_Identification_AirbusPartNumber")
+					iLength = strClonedObjectAPN.Length()
+					iPosition = strClonedObjectAPN->Search("-", 0, FALSE)
+					strPRDLastName = strClonedObjectAPN->Extract(iPosition + 1, iLength - iPosition - 1)
+					iAPNLastDigits = strPRDLastName.ToReal()
+					iAPNLastDigits = iAPNLastDigits + 1
+					//N2H-20610 | Start
+					if (iAPNLastDigits < 100)
+					{
+						if (iAPNLastDigits < 10)
+						{
+							sAPNLastDigits = "00" + ToString(iAPNLastDigits)
+						}
+						else
+						{
+							sAPNLastDigits = "0" + ToString(iAPNLastDigits)
+						}
+					}
+					else
+					{
+						sAPNLastDigits = ToString(iAPNLastDigits)
+					}
+					
+					strClonedObjectAPN = strClonedObjectAPN->Extract(0, iPosition + 1)
+					strClonedObjectAPN = strClonedObjectAPN + sAPNLastDigits
+					//N2H-20610 | End
+					Trace(1,"T00528 N2H19721 00019 - AssemblySymmetry -> New APN :  #",strClonedObjectAPN)
+					if (strClonedObjectAPN <> NULL OR strClonedObjectAPN <> "")
+					{
+						ThisObject->SetAttributeString("AIRBUS_E_Identification_AirbusPartNumber", strClonedObjectAPN)
+						ThisObject->SetAttributeString("V_Name", strClonedObjectAPN)
+					}	
+				}
+			}
+		}
+		else if (strBusinessTypeValue == "EM")
+		{
+			if (ThisObject -> HasAttribute("AIRBUS_E_Identification_AirbusPartNumber") AND ThisObject -> HasAttribute("V_Name"))			
+			{
+				if (CopyFromObject -> HasAttribute("AIRBUS_E_Identification_AirbusPartNumber") == true)
+				{
+					strClonedObjectAPN = CopyFromObject -> GetAttributeString("AIRBUS_E_Identification_AirbusPartNumber")
+					iLength = strClonedObjectAPN.Length()
+					iPosition = strClonedObjectAPN->Search("-", 0, FALSE)
+					strPRDLastName = strClonedObjectAPN->Extract(iPosition + 1, iLength - iPosition - 1)
+					iAPNLastDigits = strPRDLastName.ToReal()
+					iAPNLastDigits = iAPNLastDigits + 100
+					strClonedObjectAPN = strClonedObjectAPN->Extract(0, iPosition + 1)
+					strClonedObjectAPN = strClonedObjectAPN + ToString(iAPNLastDigits)
+					Trace(1,"T00529 N2H19721 00020 - AssemblySymmetry -> New APN :  #",strClonedObjectAPN)
+					if (strClonedObjectAPN <> NULL OR strClonedObjectAPN <> "")
+					{
+						ThisObject->SetAttributeString("AIRBUS_E_Identification_AirbusPartNumber", strClonedObjectAPN)
+						ThisObject->SetAttributeString("V_Name", strClonedObjectAPN)
+					}	
+				}
+			}
+		}
+		else if (strBusinessTypeValue == "Design Solution")
+		{	
+		// Symetry of "Design Solution" BT
+			if (ThisObject -> HasAttribute("AIRBUS_E_Identification_AirbusPartNumber") 
+			AND ThisObject -> HasAttribute("V_Name")
+			AND CopyFromObject -> HasAttribute("AIRBUS_E_Identification_AirbusPartNumber") 
+			AND CopyFromObject -> HasAttribute("V_Name"))			
+			{
+				
+				//Infos of the "CopyFromObject" object
+				strClonedObjectAPN = CopyFromObject -> GetAttributeString("AIRBUS_E_Identification_AirbusPartNumber")
+				
+				//Infos of the "ThisObject" object
+				strExternalID = ThisObject -> GetAttributeString("PLM_ExternalID")
+				
+				Trace(1,"T00054 N2H-25006 01030 - AssemblySymmetry -> Old APN : #", strClonedObjectAPN)
+				
+				Trace(1,"T00055 N2H-25006 01032 - AssemblySymmetry -> new PRD : #", strExternalID)
+				if(strExternalID <> "" 
+				AND strExternalID <> NULL)
+				{	
+					//Get the PRD 8 lasts digigts of "ThisObject" object
+					iLength = strExternalID.Length()
+				}
+				
+				Trace(1,"T00056 N2H-25006 01040 - AssemblySymmetry -> new PRD length : #", iLength)
+				
+				strPrdNumber=""
+				if(iLength > 8)
+				{				
+					strPrdNumber = strExternalID->Extract(iLength-8, 8)
+				}
+				Trace(1,"T00057 N2H-25006 01047 - AssemblySymmetry -> New PRD last 8 digits : #", strPrdNumber)
+				
+				strClonedObjectAPN = strClonedObjectAPN + "-" + strPrdNumber
+				
+				//Setting the "ThisObject" with the new APN value
+				if (strClonedObjectAPN <> NULL AND strClonedObjectAPN <> "")
+				{
+					Trace(1,"T00058 N2H-25006 01054 - AssemblySymmetry -> New APN : #", strClonedObjectAPN)
+				
+					ThisObject->SetAttributeString("AIRBUS_E_Identification_AirbusPartNumber", strClonedObjectAPN)
+					ThisObject->SetAttributeString("V_Name", strClonedObjectAPN)
+				}	
+			}
+		}
+		else if (strBusinessTypeValue == "Undefined")
+		{
+			if (ThisObject -> HasAttribute("AIRBUS_E_Identification_AirbusPartNumber") AND ThisObject -> HasAttribute("V_Name"))			
+			{
+				if (CopyFromObject -> HasAttribute("AIRBUS_E_Identification_AirbusPartNumber") == true)
+				{
+					strClonedObjectAPN = CopyFromObject -> GetAttributeString("AIRBUS_E_Identification_AirbusPartNumber")
+					if (strClonedObjectAPN <> NULL OR strClonedObjectAPN <> "")
+					{
+						strClonedObjectAPN = "SYM" + strClonedObjectAPN
+						ThisObject->SetAttributeString("AIRBUS_E_Identification_AirbusPartNumber", strClonedObjectAPN)
+						ThisObject->SetAttributeString("V_Name", strClonedObjectAPN)
+					}	
+				}
+			}
+		}
+		else
+		{
+			if (ThisObject -> HasAttribute("AIRBUS_E_Identification_AirbusPartNumber") AND ThisObject -> HasAttribute("V_Name") AND (ThisObject->IsASortOf("BundleFastener")==false))			
+			{
+				if (CopyFromObject -> HasAttribute("AIRBUS_E_Identification_AirbusPartNumber") == true)
+				{
+					strClonedObjectAPN = CopyFromObject -> GetAttributeString("AIRBUS_E_Identification_AirbusPartNumber")
+					strClonedObjectAPN = UserPrefix + strClonedObjectAPN
+					Trace(1,"T00530 N2H19721 00021 - AssemblySymmetry -> New APN (Default) :  #",strClonedObjectAPN)
+					if (strClonedObjectAPN <> NULL OR strClonedObjectAPN <> "")
+					{
+
+	
+						ThisObject->SetAttributeString("AIRBUS_E_Identification_AirbusPartNumber", strClonedObjectAPN)
+						ThisObject->SetAttributeString("V_Name", strClonedObjectAPN)
+					}	
+				}
+			}
+
+		}	
+
+	}
+	//Added for N2H-21945:Starts
+	Let strBusinessTypeValueUpdated(String)
+	strBusinessTypeValueUpdated = ThisObject -> GetAttributeString("AIRBUS_E_BusinessType_BusinessType")
+	Trace(1,"BusinessType------",strBusinessTypeValueUpdated)
+	if("EM"==strBusinessTypeValueUpdated OR "Elementary Part"==strBusinessTypeValueUpdated)
+	{
+		if(ThisObject->IsSupporting("AIRBUS_E_DEXT_EM_ADAP_DS")==false)
+		{
+			ThisObject->AddExtension("AIRBUS_E_DEXT_EM_ADAP_DS")
+		}
+		if(ThisObject.HasAttribute("AIRBUS_E_EM_ADAP_DS_DesignOfficeResponsible") AND CopyFromObject -> HasAttribute("AIRBUS_E_EM_ADAP_DS_DesignOfficeResponsible"))
+		{
+			Trace(1,"Source DOR----",ThisObject -> GetAttributeString("AIRBUS_E_EM_ADAP_DS_DesignOfficeResponsible"))
+			Trace(1,"Copy DOR----",CopyFromObject -> GetAttributeString("AIRBUS_E_EM_ADAP_DS_DesignOfficeResponsible"))
+			strDOR=CopyFromObject -> GetAttributeString("AIRBUS_E_EM_ADAP_DS_DesignOfficeResponsible")
+			Trace(1,"Source Object DOR----",strDOR)
+			ThisObject->SetAttributeString("AIRBUS_E_EM_ADAP_DS_DesignOfficeResponsible",strDOR)
+			Trace(1,"DOR Copied--~~*******~~~~~--")
+		}
+	}
+	//Added for N2H-21945:Ends
+}
+//N2H-19721 | Symmetry of EP and Assembly | End
+
+
+Trace(1,"External Id----------",ThisObject->GetAttributeString("V_Name"))
+Trace (1, "END: Executing Rule >> Eurodrone_VPMReference_PLMIdentificationInitialization")
