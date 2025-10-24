@@ -6,6 +6,7 @@
 # Anglais 
 # Linux
 # Safe-Agile
+# Visual Studio Code
 
 
 ![download](https://github.com/user-attachments/assets/8a171ad6-8b20-43b0-994b-245d367cac6b)
