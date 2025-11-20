@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RFLP>
+    <LogicalReference>
+        <ID Value="1" Type="AIRBUS_E_RFLVPMLogRef_SECAMTechInv">
+            <Mandatory>
+                <PLM_ExternalID Type="String">_19_0_2_81501d6_1659084847393_506371_37628_INV</PLM_ExternalID>
+                <BoundingBox XMin="0" YMin="0" XMax="504" YMax="336"/>
+            </Mandatory>
+            <V_Name Type="String">Ice-Det-LWing_INV</V_Name>
+            <BackGroundColor R="207" G="234" B="255" A="255"/>
+            <Extension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_Transverse_System"><AIRBUS_E_System_Responsible Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_System_Responsible>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_SNS"><AIRBUS_E_SNS_Code Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_SNS_Code>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptCharacteristics"><AIRBUS_E_EqptCharacteristics_Nature Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptCharacteristics_Nature>
+                    <AIRBUS_E_EqptCharacteristics_Option Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptCharacteristics_Option>
+                    <AIRBUS_E_EqptCharacteristics_RoleEqptList Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptCharacteristics_RoleEqptList>
+                    <AIRBUS_E_EqptCharacteristics_Type Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptCharacteristics_Type>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqtMMEL"><AIRBUS_E_EqtMMEL_Bool Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqtMMEL_Bool>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_DAL"><AIRBUS_E_DAL_Required Type="Boolean"></AIRBUS_E_DAL_Required>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptSupply"><AIRBUS_E_EqptSupply_Supplier Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptSupply_Supplier>
+                    <AIRBUS_E_EqptSupply_MakeOrBuy Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptSupply_MakeOrBuy>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptID"><AIRBUS_E_EqptID_LIN Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptID_LIN>
+                </DeploymentExtension>
+            </Extension>
+        </ID>
+        <ID Value="2" Type="AIRBUS_E_RFLVPMLogRef_SECAMTechComponent">
+            <Mandatory>
+                <PLM_ExternalID Type="String">_19_0_2_81501d6_1659084847393_506371_37628</PLM_ExternalID>
+                <BoundingBox XMin="0" YMin="0" XMax="504" YMax="336"/>
+            </Mandatory>
+            <V_Name Type="String">Ice-Det-LWing</V_Name>
+            <BackGroundColor R="207" G="234" B="255" A="255"/>
+            <Extension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptLocation"><AIRBUS_E_EqptLocation_RPAInstallLocation Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptLocation_RPAInstallLocation>
+                    <AIRBUS_E_EqptLocation_GndInstall Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptLocation_GndInstall>
+                    <AIRBUS_E_EqptLocation_RPAInstallBay Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptLocation_RPAInstallBay>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptQuantity"><AIRBUS_E_EqptQuantity_BaseQuantity Type="Integer">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptQuantity_BaseQuantity>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptSWInfo"><AIRBUS_E_EqptSWInfo_EqptHostingAppSW Type="Integer">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptSWInfo_EqptHostingAppSW>
+                    <AIRBUS_E_EqptSWInfo_SWPartitionsAllocated Type="Integer">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptSWInfo_SWPartitionsAllocated>
+                </DeploymentExtension>
+            </Extension>
+        </ID>
+        <ID Value="3" Type="AIRBUS_E_RFLVPMLogRef_SECAMTechInv">
+            <Mandatory>
+                <PLM_ExternalID Type="String">_19_0_2_81501d6_1659083065419_167594_36663_INV</PLM_ExternalID>
+                <BoundingBox XMin="0" YMin="0" XMax="504" YMax="336"/>
+            </Mandatory>
+            <V_Name Type="String">Idps_INV</V_Name>
+            <BackGroundColor R="207" G="234" B="255" A="255"/>
+            <Extension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_Transverse_System"><AIRBUS_E_System_Responsible Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_System_Responsible>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_SNS"><AIRBUS_E_SNS_Code Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_SNS_Code>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptCharacteristics"><AIRBUS_E_EqptCharacteristics_Nature Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptCharacteristics_Nature>
+                    <AIRBUS_E_EqptCharacteristics_Option Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptCharacteristics_Option>
+                    <AIRBUS_E_EqptCharacteristics_RoleEqptList Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptCharacteristics_RoleEqptList>
+                    <AIRBUS_E_EqptCharacteristics_Type Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptCharacteristics_Type>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqtMMEL"><AIRBUS_E_EqtMMEL_Bool Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqtMMEL_Bool>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_DAL"><AIRBUS_E_DAL_Required Type="Boolean"></AIRBUS_E_DAL_Required>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptSupply"><AIRBUS_E_EqptSupply_Supplier Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptSupply_Supplier>
+                    <AIRBUS_E_EqptSupply_MakeOrBuy Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptSupply_MakeOrBuy>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptID"><AIRBUS_E_EqptID_LIN Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptID_LIN>
+                </DeploymentExtension>
+            </Extension>
+        </ID>
+        <ID Value="4" Type="AIRBUS_E_RFLVPMLogRef_SECAMTechComponent">
+            <Mandatory>
+                <PLM_ExternalID Type="String">_19_0_2_81501d6_1659083065419_167594_36663</PLM_ExternalID>
+                <BoundingBox XMin="0" YMin="0" XMax="504" YMax="336"/>
+            </Mandatory>
+            <V_Name Type="String">Idps</V_Name>
+            <BackGroundColor R="207" G="234" B="255" A="255"/>
+            <Extension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptLocation"><AIRBUS_E_EqptLocation_RPAInstallLocation Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptLocation_RPAInstallLocation>
+                    <AIRBUS_E_EqptLocation_GndInstall Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptLocation_GndInstall>
+                    <AIRBUS_E_EqptLocation_RPAInstallBay Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptLocation_RPAInstallBay>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptQuantity"><AIRBUS_E_EqptQuantity_BaseQuantity Type="Integer">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptQuantity_BaseQuantity>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptSWInfo"><AIRBUS_E_EqptSWInfo_EqptHostingAppSW Type="Integer">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptSWInfo_EqptHostingAppSW>
+                    <AIRBUS_E_EqptSWInfo_SWPartitionsAllocated Type="Integer">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptSWInfo_SWPartitionsAllocated>
+                </DeploymentExtension>
+            </Extension>
+        </ID>
+        <ID Value="6" Type="AIRBUS_E_RFLVPMLogRef_SECAMTechInv">
+            <Mandatory>
+                <PLM_ExternalID Type="String">_19_0_2_81501d6_1659084897612_978922_37638_INV</PLM_ExternalID>
+                <BoundingBox XMin="0" YMin="0" XMax="504" YMax="336"/>
+            </Mandatory>
+            <V_Name Type="String">Ice-Pro-RWing_INV</V_Name>
+            <BackGroundColor R="207" G="234" B="255" A="255"/>
+            <Extension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_Transverse_System"><AIRBUS_E_System_Responsible Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_System_Responsible>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_SNS"><AIRBUS_E_SNS_Code Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_SNS_Code>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptCharacteristics"><AIRBUS_E_EqptCharacteristics_Nature Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptCharacteristics_Nature>
+                    <AIRBUS_E_EqptCharacteristics_Option Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptCharacteristics_Option>
+                    <AIRBUS_E_EqptCharacteristics_RoleEqptList Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptCharacteristics_RoleEqptList>
+                    <AIRBUS_E_EqptCharacteristics_Type Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptCharacteristics_Type>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqtMMEL"><AIRBUS_E_EqtMMEL_Bool Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqtMMEL_Bool>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_DAL"><AIRBUS_E_DAL_Required Type="Boolean"></AIRBUS_E_DAL_Required>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptSupply"><AIRBUS_E_EqptSupply_Supplier Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptSupply_Supplier>
+                    <AIRBUS_E_EqptSupply_MakeOrBuy Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptSupply_MakeOrBuy>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptID"><AIRBUS_E_EqptID_LIN Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptID_LIN>
+                </DeploymentExtension>
+            </Extension>
+        </ID>
+        <ID Value="7" Type="AIRBUS_E_RFLVPMLogRef_SECAMTechComponent">
+            <Mandatory>
+                <PLM_ExternalID Type="String">_19_0_2_81501d6_1659084897612_978922_37638</PLM_ExternalID>
+                <BoundingBox XMin="0" YMin="0" XMax="504" YMax="336"/>
+            </Mandatory>
+            <V_Name Type="String">Ice-Pro-RWing</V_Name>
+            <BackGroundColor R="207" G="234" B="255" A="255"/>
+            <Extension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptLocation"><AIRBUS_E_EqptLocation_RPAInstallLocation Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptLocation_RPAInstallLocation>
+                    <AIRBUS_E_EqptLocation_GndInstall Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptLocation_GndInstall>
+                    <AIRBUS_E_EqptLocation_RPAInstallBay Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptLocation_RPAInstallBay>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptQuantity"><AIRBUS_E_EqptQuantity_BaseQuantity Type="Integer">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptQuantity_BaseQuantity>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptSWInfo"><AIRBUS_E_EqptSWInfo_EqptHostingAppSW Type="Integer">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptSWInfo_EqptHostingAppSW>
+                    <AIRBUS_E_EqptSWInfo_SWPartitionsAllocated Type="Integer">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptSWInfo_SWPartitionsAllocated>
+                </DeploymentExtension>
+            </Extension>
+        </ID>
+        <ID Value="8" Type="AIRBUS_E_RFLVPMLogRef_SECAMTechInv">
+            <Mandatory>
+                <PLM_ExternalID Type="String">_19_0_2_81501d6_1659084883878_410123_37635_INV</PLM_ExternalID>
+                <BoundingBox XMin="0" YMin="0" XMax="504" YMax="336"/>
+            </Mandatory>
+            <V_Name Type="String">Ice-Pro-LWing_INV</V_Name>
+            <BackGroundColor R="207" G="234" B="255" A="255"/>
+            <Extension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_Transverse_System"><AIRBUS_E_System_Responsible Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_System_Responsible>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_SNS"><AIRBUS_E_SNS_Code Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_SNS_Code>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptCharacteristics"><AIRBUS_E_EqptCharacteristics_Nature Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptCharacteristics_Nature>
+                    <AIRBUS_E_EqptCharacteristics_Option Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptCharacteristics_Option>
+                    <AIRBUS_E_EqptCharacteristics_RoleEqptList Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptCharacteristics_RoleEqptList>
+                    <AIRBUS_E_EqptCharacteristics_Type Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptCharacteristics_Type>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqtMMEL"><AIRBUS_E_EqtMMEL_Bool Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqtMMEL_Bool>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_DAL"><AIRBUS_E_DAL_Required Type="Boolean"></AIRBUS_E_DAL_Required>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptSupply"><AIRBUS_E_EqptSupply_Supplier Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptSupply_Supplier>
+                    <AIRBUS_E_EqptSupply_MakeOrBuy Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptSupply_MakeOrBuy>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptID"><AIRBUS_E_EqptID_LIN Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptID_LIN>
+                </DeploymentExtension>
+            </Extension>
+        </ID>
+        <ID Value="9" Type="AIRBUS_E_RFLVPMLogRef_SECAMTechComponent">
+            <Mandatory>
+                <PLM_ExternalID Type="String">_19_0_2_81501d6_1659084883878_410123_37635</PLM_ExternalID>
+                <BoundingBox XMin="0" YMin="0" XMax="504" YMax="336"/>
+            </Mandatory>
+            <V_Name Type="String">Ice-Pro-LWing</V_Name>
+            <BackGroundColor R="207" G="234" B="255" A="255"/>
+            <Extension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptLocation"><AIRBUS_E_EqptLocation_RPAInstallLocation Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptLocation_RPAInstallLocation>
+                    <AIRBUS_E_EqptLocation_GndInstall Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptLocation_GndInstall>
+                    <AIRBUS_E_EqptLocation_RPAInstallBay Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptLocation_RPAInstallBay>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptQuantity"><AIRBUS_E_EqptQuantity_BaseQuantity Type="Integer">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptQuantity_BaseQuantity>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptSWInfo"><AIRBUS_E_EqptSWInfo_EqptHostingAppSW Type="Integer">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptSWInfo_EqptHostingAppSW>
+                    <AIRBUS_E_EqptSWInfo_SWPartitionsAllocated Type="Integer">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptSWInfo_SWPartitionsAllocated>
+                </DeploymentExtension>
+            </Extension>
+        </ID>
+        <ID Value="10" Type="AIRBUS_E_RFLVPMLogRef_SECAMTechInv">
+            <Mandatory>
+                <PLM_ExternalID Type="String">_19_0_2_81501d6_1659084904847_32455_37641_INV</PLM_ExternalID>
+                <BoundingBox XMin="0" YMin="0" XMax="504" YMax="336"/>
+            </Mandatory>
+            <V_Name Type="String">Ice-Pro-Emp_INV</V_Name>
+            <BackGroundColor R="207" G="234" B="255" A="255"/>
+            <Extension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_Transverse_System"><AIRBUS_E_System_Responsible Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_System_Responsible>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_SNS"><AIRBUS_E_SNS_Code Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_SNS_Code>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptCharacteristics"><AIRBUS_E_EqptCharacteristics_Nature Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptCharacteristics_Nature>
+                    <AIRBUS_E_EqptCharacteristics_Option Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptCharacteristics_Option>
+                    <AIRBUS_E_EqptCharacteristics_RoleEqptList Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptCharacteristics_RoleEqptList>
+                    <AIRBUS_E_EqptCharacteristics_Type Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptCharacteristics_Type>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqtMMEL"><AIRBUS_E_EqtMMEL_Bool Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqtMMEL_Bool>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_DAL"><AIRBUS_E_DAL_Required Type="Boolean"></AIRBUS_E_DAL_Required>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptSupply"><AIRBUS_E_EqptSupply_Supplier Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptSupply_Supplier>
+                    <AIRBUS_E_EqptSupply_MakeOrBuy Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptSupply_MakeOrBuy>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptID"><AIRBUS_E_EqptID_LIN Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptID_LIN>
+                </DeploymentExtension>
+            </Extension>
+        </ID>
+        <ID Value="11" Type="AIRBUS_E_RFLVPMLogRef_SECAMTechComponent">
+            <Mandatory>
+                <PLM_ExternalID Type="String">_19_0_2_81501d6_1659084904847_32455_37641</PLM_ExternalID>
+                <BoundingBox XMin="0" YMin="0" XMax="504" YMax="336"/>
+            </Mandatory>
+            <V_Name Type="String">Ice-Pro-Emp</V_Name>
+            <BackGroundColor R="207" G="234" B="255" A="255"/>
+            <Extension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptLocation"><AIRBUS_E_EqptLocation_RPAInstallLocation Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptLocation_RPAInstallLocation>
+                    <AIRBUS_E_EqptLocation_GndInstall Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptLocation_GndInstall>
+                    <AIRBUS_E_EqptLocation_RPAInstallBay Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptLocation_RPAInstallBay>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptQuantity"><AIRBUS_E_EqptQuantity_BaseQuantity Type="Integer">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptQuantity_BaseQuantity>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptSWInfo"><AIRBUS_E_EqptSWInfo_EqptHostingAppSW Type="Integer">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptSWInfo_EqptHostingAppSW>
+                    <AIRBUS_E_EqptSWInfo_SWPartitionsAllocated Type="Integer">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptSWInfo_SWPartitionsAllocated>
+                </DeploymentExtension>
+            </Extension>
+        </ID>
+        <ID Value="14" Type="AIRBUS_E_RFLVPMLogRef_SECAMTechInv">
+            <Mandatory>
+                <PLM_ExternalID Type="String">_19_0_2_81501d6_1659084860908_379203_37632_INV</PLM_ExternalID>
+                <BoundingBox XMin="0" YMin="0" XMax="504" YMax="336"/>
+            </Mandatory>
+            <V_Name Type="String">Ice-Det-RWing_INV</V_Name>
+            <BackGroundColor R="207" G="234" B="255" A="255"/>
+            <Extension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_Transverse_System"><AIRBUS_E_System_Responsible Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_System_Responsible>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_SNS"><AIRBUS_E_SNS_Code Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_SNS_Code>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptCharacteristics"><AIRBUS_E_EqptCharacteristics_Nature Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptCharacteristics_Nature>
+                    <AIRBUS_E_EqptCharacteristics_Option Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptCharacteristics_Option>
+                    <AIRBUS_E_EqptCharacteristics_RoleEqptList Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptCharacteristics_RoleEqptList>
+                    <AIRBUS_E_EqptCharacteristics_Type Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptCharacteristics_Type>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqtMMEL"><AIRBUS_E_EqtMMEL_Bool Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqtMMEL_Bool>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_DAL"><AIRBUS_E_DAL_Required Type="Boolean"></AIRBUS_E_DAL_Required>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptSupply"><AIRBUS_E_EqptSupply_Supplier Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptSupply_Supplier>
+                    <AIRBUS_E_EqptSupply_MakeOrBuy Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptSupply_MakeOrBuy>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptID"><AIRBUS_E_EqptID_LIN Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptID_LIN>
+                </DeploymentExtension>
+            </Extension>
+        </ID>
+        <ID Value="15" Type="AIRBUS_E_RFLVPMLogRef_SECAMTechComponent">
+            <Mandatory>
+                <PLM_ExternalID Type="String">_19_0_2_81501d6_1659084860908_379203_37632</PLM_ExternalID>
+                <BoundingBox XMin="0" YMin="0" XMax="504" YMax="336"/>
+            </Mandatory>
+            <V_Name Type="String">Ice-Det-RWing</V_Name>
+            <BackGroundColor R="207" G="234" B="255" A="255"/>
+            <Extension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptLocation"><AIRBUS_E_EqptLocation_RPAInstallLocation Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptLocation_RPAInstallLocation>
+                    <AIRBUS_E_EqptLocation_GndInstall Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptLocation_GndInstall>
+                    <AIRBUS_E_EqptLocation_RPAInstallBay Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptLocation_RPAInstallBay>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptQuantity"><AIRBUS_E_EqptQuantity_BaseQuantity Type="Integer">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptQuantity_BaseQuantity>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptSWInfo"><AIRBUS_E_EqptSWInfo_EqptHostingAppSW Type="Integer">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptSWInfo_EqptHostingAppSW>
+                    <AIRBUS_E_EqptSWInfo_SWPartitionsAllocated Type="Integer">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptSWInfo_SWPartitionsAllocated>
+                </DeploymentExtension>
+            </Extension>
+        </ID>
+        <ID Value="19" Type="AIRBUS_E_RFLVPMLogRef_SECAMTechInv">
+            <Mandatory>
+                <PLM_ExternalID Type="String">_19_0_2_81501d6_1659083128124_744476_36728_INV</PLM_ExternalID>
+                <BoundingBox XMin="0" YMin="0" XMax="504" YMax="336"/>
+            </Mandatory>
+            <V_Name Type="String">Hmi_INV</V_Name>
+            <BackGroundColor R="207" G="234" B="255" A="255"/>
+            <Extension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_Transverse_System"><AIRBUS_E_System_Responsible Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_System_Responsible>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_SNS"><AIRBUS_E_SNS_Code Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_SNS_Code>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptCharacteristics"><AIRBUS_E_EqptCharacteristics_Nature Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptCharacteristics_Nature>
+                    <AIRBUS_E_EqptCharacteristics_Option Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptCharacteristics_Option>
+                    <AIRBUS_E_EqptCharacteristics_RoleEqptList Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptCharacteristics_RoleEqptList>
+                    <AIRBUS_E_EqptCharacteristics_Type Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptCharacteristics_Type>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqtMMEL"><AIRBUS_E_EqtMMEL_Bool Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqtMMEL_Bool>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_DAL"><AIRBUS_E_DAL_Required Type="Boolean"></AIRBUS_E_DAL_Required>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptSupply"><AIRBUS_E_EqptSupply_Supplier Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptSupply_Supplier>
+                    <AIRBUS_E_EqptSupply_MakeOrBuy Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptSupply_MakeOrBuy>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptID"><AIRBUS_E_EqptID_LIN Type="Boolean">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptID_LIN>
+                </DeploymentExtension>
+            </Extension>
+        </ID>
+        <ID Value="20" Type="AIRBUS_E_RFLVPMLogRef_SECAMTechComponent">
+            <Mandatory>
+                <PLM_ExternalID Type="String">_19_0_2_81501d6_1659083128124_744476_36728</PLM_ExternalID>
+                <BoundingBox XMin="0" YMin="0" XMax="504" YMax="336"/>
+            </Mandatory>
+            <V_Name Type="String">Hmi</V_Name>
+            <BackGroundColor R="207" G="234" B="255" A="255"/>
+            <Extension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptLocation"><AIRBUS_E_EqptLocation_RPAInstallLocation Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptLocation_RPAInstallLocation>
+                    <AIRBUS_E_EqptLocation_GndInstall Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptLocation_GndInstall>
+                    <AIRBUS_E_EqptLocation_RPAInstallBay Type="String">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptLocation_RPAInstallBay>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptQuantity"><AIRBUS_E_EqptQuantity_BaseQuantity Type="Integer">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptQuantity_BaseQuantity>
+                </DeploymentExtension>
+                <DeploymentExtension Type="AIRBUS_E_DEXT_EqptSWInfo"><AIRBUS_E_EqptSWInfo_EqptHostingAppSW Type="Integer">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptSWInfo_EqptHostingAppSW>
+                    <AIRBUS_E_EqptSWInfo_SWPartitionsAllocated Type="Integer">ATTRIBUTE_VALUE_HERE</AIRBUS_E_EqptSWInfo_SWPartitionsAllocated>
+                </DeploymentExtension>
+            </Extension>
+        </ID>
+    </LogicalReference>
+    <LogicalInstance>
+        <ID Value="5" Type="RFLVPMLogicalInstance">
+            <Mandatory>
+                <PLM_ExternalID Type="String">_2021x_2_91b01df_1659511577099_607001_21283</PLM_ExternalID>
+                <Relation OwnerReference="3" Reference="4"/>
+            </Mandatory>
+            <V_Name Type="String">idps : Idps</V_Name>
+            <V_Identifier Type="String">idps</V_Identifier>
+        </ID>
+        <ID Value="12" Type="RFLVPMLogicalInstance">
+            <Mandatory>
+                <PLM_ExternalID Type="String">_2021x_2_91b01df_1659512368754_511271_41858</PLM_ExternalID>
+                <Relation OwnerReference="10" Reference="11"/>
+            </Mandatory>
+            <V_Name Type="String">ice-Pro-Emp : Ice-Pro-Emp</V_Name>
+            <V_Identifier Type="String">ice-Pro-Emp</V_Identifier>
+        </ID>
+        <ID Value="13" Type="RFLVPMLogicalInstance">
+            <Mandatory>
+                <PLM_ExternalID Type="String">_2021x_2_91b01df_1659512373570_691525_41884</PLM_ExternalID>
+                <Relation OwnerReference="6" Reference="7"/>
+            </Mandatory>
+            <V_Name Type="String">ice-Pro-RWing : Ice-Pro-RWing</V_Name>
+            <V_Identifier Type="String">ice-Pro-RWing</V_Identifier>
+        </ID>
+        <ID Value="16" Type="RFLVPMLogicalInstance">
+            <Mandatory>
+                <PLM_ExternalID Type="String">_2021x_2_91b01df_1659512366609_477471_41845</PLM_ExternalID>
+                <Relation OwnerReference="14" Reference="15"/>
+            </Mandatory>
+            <V_Name Type="String">ice-Det-RWing : Ice-Det-RWing</V_Name>
+            <V_Identifier Type="String">ice-Det-RWing</V_Identifier>
+        </ID>
+        <ID Value="17" Type="RFLVPMLogicalInstance">
+            <Mandatory>
+                <PLM_ExternalID Type="String">_2021x_2_91b01df_1659512370935_627697_41871</PLM_ExternalID>
+                <Relation OwnerReference="8" Reference="9"/>
+            </Mandatory>
+            <V_Name Type="String">ice-Pro-LWing : Ice-Pro-LWing</V_Name>
+            <V_Identifier Type="String">ice-Pro-LWing</V_Identifier>
+        </ID>
+        <ID Value="18" Type="RFLVPMLogicalInstance">
+            <Mandatory>
+                <PLM_ExternalID Type="String">_2021x_2_91b01df_1659512364689_304490_41832</PLM_ExternalID>
+                <Relation OwnerReference="1" Reference="2"/>
+            </Mandatory>
+            <V_Name Type="String">ice-Det-LWing : Ice-Det-LWing</V_Name>
+            <V_Identifier Type="String">ice-Det-LWing</V_Identifier>
+        </ID>
+        <ID Value="21" Type="RFLVPMLogicalInstance">
+            <Mandatory>
+                <PLM_ExternalID Type="String">_2021x_2_91b01df_1659511579557_819772_21296</PLM_ExternalID>
+                <Relation OwnerReference="19" Reference="20"/>
+            </Mandatory>
+            <V_Name Type="String">hmi : Hmi</V_Name>
+            <V_Identifier Type="String">hmi</V_Identifier>
+        </ID>
+    </LogicalInstance>
+</RFLP>
