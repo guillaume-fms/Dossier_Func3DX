@@ -1,0 +1,9 @@
+BusinessType	Reference	Instance
+Elementary Part	X	X
+Storable Assembly	X	X
+Specialized Item		X
+FTA		X
+Refer To	X	X
+EHI	X	X
+FastenerDefinition		X
+Early Data Drop	X	X
