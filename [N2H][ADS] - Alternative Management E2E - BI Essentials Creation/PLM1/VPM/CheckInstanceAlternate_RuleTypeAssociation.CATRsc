@@ -1,0 +1,4 @@
+Color.Rule.VPMReference = "CheckInstanceAlternate_Script";
+Label.Rule.VPMReference = "CheckInstanceAlternate_Script";
+Color.Rule.VPMRepReference = "CheckInstanceAlternate_Script";
+Label.Rule.VPMRepReference = "CheckInstanceAlternate_Script";

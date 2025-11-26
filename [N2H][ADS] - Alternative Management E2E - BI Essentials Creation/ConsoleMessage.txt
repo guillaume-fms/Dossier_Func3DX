@@ -1,0 +1,68 @@
+Check Alternates on Instances
+---------------------------------------------------------------------
+ 
+Warning : 
+Type ENOSTSimulationGenericRepReferenceDS is unknown !
+Type ENOSTSimulationGenericObjectDS is unknown !
+Type ENOSTDocument_DocDS is unknown !
+Type ENOSTProductReference is unknown !
+Type ENOSTRepresentation is unknown !
+Type ENOSTMatReferenceDS is unknown !
+Type ENOSTValidationValidationDS is unknown !
+ 
+---------------------------------------------------------------
+ DUMPING BI : CheckInstanceAlternate_Description
+---------------------------------------------------------------
+CATRsc file path =C:\Program Files\Dassault Systemes\3DEXP\EURODRONE\win_b64\resources\plmcompass\PLM1\VPM\CheckInstanceAlternate_Description.CATRsc
+---------------------------------------------------------------
+BI NLS name=Check Alternates on Instances
+---------------------------------------------------------------
+BI Help=
+Version=2
+Associated Quadrant =North
+Custo Index =0
+Nb legend=3
+NLS file name=ADS_CheckInstanceAlternateNLSFile
+Color Rsc file name=ADS_CheckInstanceAlternateColorFile
+Color CATRsc file path =
+Type Rule file name=CheckInstanceAlternate_RuleTypeAssociation
+Type Rule CATRsc file path =C:\Program Files\Dassault Systemes\3DEXP\EURODRONE\win_b64\resources\plmcompass\PLM1\VPM\CheckInstanceAlternate_RuleTypeAssociation.CATRsc
+  Legend #1
+    Name=Alternate defined on instance
+    Id=ALTERNATE_DEFINED
+    Color Id = Color_Green
+    Color Rsc File Name = ADS_CheckInstanceAlternateColorFile
+    R = 0
+    G = 255
+    B = 0
+    A = 0
+  Legend #2
+    Name=Alternate not yet defined on instance
+    Id=ALTERNATE_NOT_DEFINED
+    Color Id = Color_Orange
+    Color Rsc File Name = ADS_CheckInstanceAlternateColorFile
+    R = 254
+    G = 143
+    B = 0
+    A = 0
+  Legend #3
+    Name=Alternate not applicable
+    Id=ALTERNATE_NOT_APPLICABLE
+    Color Id = Color_Black
+    Color Rsc File Name = ADS_CheckInstanceAlternateColorFile
+    R = 0
+    G = 0
+    B = 0
+    A = 0
+***********************************************************************************************************
+* Color rule table                                                                                        *
+* Real Type                                         <-> Rule                                              *
+***********************************************************************************************************
+VPMInstance<->CheckInstanceAlternate_Script
+***********************************************************************************************************
+***********************************************************************************************************
+* Label rule table                                                                                        *
+* Real Type                                         <-> Rule                                              *
+***********************************************************************************************************
+VPMInstance<->CheckInstanceAlternate_Script
+***********************************************************************************************************

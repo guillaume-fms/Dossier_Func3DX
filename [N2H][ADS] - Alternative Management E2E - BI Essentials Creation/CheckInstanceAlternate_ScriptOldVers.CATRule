@@ -1,0 +1,69 @@
+let thisOccurrence(ProductOccurrence)
+let thisInstance(VPMInstance)
+let thisReference(VPMReference)
+let sBusinnesType(String)
+let sColor(String)
+let sLabel(String)
+let intColor(Integer)
+Trace(1,"START Check Instance Alternate")
+
+
+set thisOccurrence = ThisObject
+thisInstance = thisOccurrence.Instance
+let test(String)
+test = thisInstance.Name
+if(NULL <> thisInstance)
+{ 
+    set thisReference = thisInstance.Reference
+    if(thisReference <> NULL)
+    {    
+    
+        sBusinnesType = thisReference->GetAttributeString("AIRBUS_E_BusinessType_BusinessType")
+        Trace(1,"sBusinnesType " , sBusinnesType)
+        if(sBusinnesType == "Elementary Part" OR sBusinnesType == "Storable Assembly" OR
+            sBusinnesType == "StandardPart" OR sBusinnesType == "FastenerDefinition")
+        {
+            if(thisInstance->HasAttribute("AIRBUS_E_InstanceAlternate"))
+            {
+                if (thisInstance->GetAttributeString("AIRBUS_E_InstanceAlternate") <> "NA" AND
+                thisInstance->GetAttributeString("AIRBUS_E_InstanceAlternate") <> "" )
+                {    
+                    intColor = 1
+                }
+                else  
+                {
+                    intColor = 2    
+                }
+            } 
+            else 
+            {
+                intColor = 3    
+            }
+        }
+        else 
+        {
+            intColor = 3    
+
+        }
+    }
+}
+
+
+if (intColor == 1) 
+{
+    sColor = "ALTERNATE_DEFINED"
+    sLabel = "1|Alternate defined on instance|I_Green"
+} 
+else if (intColor == 2) 
+{
+    sColor = "ALTERNATE_NOT_DEFINED"
+    sLabel = "1|Alternate not yet defined on instance|I_Orange"
+} 
+else if (intColor == 3)
+{
+    sColor = "ALTERNATE_NOT_APPLICABLE"
+    sLabel = "1|Alternate not applicable|I_Black"
+}
+
+Parameters -> SetAttributeString("MyColorForPLMCompass", sColor)
+Parameters -> SetAttributeString("MyLabelForPLMCompass", sLabel)

@@ -1,0 +1,31 @@
+For Check Alternates on Instances
+
+LegendNlsFile = "CBPPDM_NLSFile";
+ColorRscFile = "CBPPDM_ColorFile";
+TypeRuleDefinitionFile = "CBPPDM_DeltaB_Instance_RuleTypeAssociation";
+Version = "3";
+NumberOfColors = "3";
+LegendId1 = "Alternate defined on instance";
+ColorId1 = "Color_Green";
+LegendId2 = "Alternate not yet defined on instance";
+ColorId2 = "Color_Orange";
+LegendId3 = "Alternate not applicable";
+ColorId3 = "Color_Black";
+
+
+Doit on recréer la même chose pour une Référence ?
+
+
+For Check Alternates on Reference
+
+LegendNlsFile = "CBPPDM_NLSFile";
+ColorRscFile = "CBPPDM_ColorFile";
+TypeRuleDefinitionFile = "CBPPDM_DeltaB_Reference_RuleTypeAssociation";
+Version = "4";
+NumberOfColors = "3";
+LegendId1 = "Alternate defined on reference";
+ColorId1 = "Color_Green";
+LegendId2 = "Alternate not yet defined on reference";
+ColorId2 = "Color_Orange";
+LegendId3 = "Alternate not applicable"
+ColorId3 = "Color_Black";

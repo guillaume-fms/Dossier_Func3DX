@@ -1,0 +1,4 @@
+Color.Rule.VPMReference = "CheckReferenceAlternate_Script";
+Label.Rule.VPMReference = "CheckReferenceAlternate_Script";
+Color.Rule.VPMRepReference = "CheckReferenceAlternate_Script";
+Label.Rule.VPMRepReference = "CheckReferenceAlternate_Script";

@@ -1,0 +1,78 @@
+let thisReference(VPMReference)
+let thisRepReference(VPMRepReference)
+let primaryName(String)
+let sBusinnesType(String)
+let sColor(String)
+let sLabel(String)
+let intColor(Integer)
+Trace(1,"START Check Reference Alternate")
+
+
+primaryName = ThisObject.PrimaryType.Name
+
+if primaryName == "3DShape"
+{
+    set thisRepReference = ThisObject
+    set thisReference = thisRepReference.AggregatingReference
+}
+else
+{
+    set thisReference = ThisObject
+}
+
+if(thisReference <> NULL)
+{    
+
+    sBusinnesType = thisReference->GetAttributeString("AIRBUS_E_BusinessType_BusinessType")
+    Trace(1,"sBusinnesType " , sBusinnesType)
+    if(
+		sBusinnesType == "Elementary Part" 
+		OR sBusinnesType == "Storable Assembly" 
+		OR sBusinnesType == "StandardPart" 
+		OR sBusinnesType == "FastenerDefinition"
+		)
+    {
+        if(thisReference->HasAttribute("AIRBUS_E_ReferenceAlternate"))
+        {
+            if (thisReference->GetAttributeString("AIRBUS_E_ReferenceAlternate") <> "NA" 
+			AND thisReference->GetAttributeString("AIRBUS_E_ReferenceAlternate") <> "" 
+			)
+            {    
+                intColor = 1
+            }
+            else  
+            {
+                intColor = 2    
+            }
+        } 
+        else 
+        {
+            intColor = 3    
+        }
+    }
+    else 
+    {
+        intColor = 3    
+
+    }
+}
+
+
+if (intColor == 1) 
+{
+    sColor = "Color_Green"
+    sLabel = "1|Alternate defined on reference|I_Green|2|tests|I_noIcon"
+} 
+else if (intColor == 2) 
+{
+    sColor = "Color_Orange"
+    sLabel = "1|Alternate not yet defined on reference|I_Orange"
+} 
+else if (intColor == 3)
+{
+    sColor = "Color_Black"
+    sLabel = "1|Alternate not applicable|I_Black"
+}
+
+Parameters -> SetAttributeString("MyColorForPLMCompass", sColor)
+Parameters -> SetAttributeString("MyLabelForPLMCompass", sLabel)

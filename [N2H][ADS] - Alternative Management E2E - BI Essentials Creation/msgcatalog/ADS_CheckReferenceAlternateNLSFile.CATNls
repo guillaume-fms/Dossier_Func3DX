@@ -1,0 +1,6 @@
+<meta charset="UTF-8"/>
+
+CheckReferenceAlternate_Description="Check Alternates on Reference";
+ALTERNATE_DEFINED="Alternate defined on reference";
+ALTERNATE_NOT_DEFINED="Alternate not yet defined on reference";
+ALTERNATE_NOT_APPLICABLE="Alternate not applicable";

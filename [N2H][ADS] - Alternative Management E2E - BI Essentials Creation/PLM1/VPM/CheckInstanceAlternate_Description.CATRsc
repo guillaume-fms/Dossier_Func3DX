@@ -1,0 +1,17 @@
+LegendNlsFile = "ADS_CheckInstanceAlternateNLSFile";		                                  //The NLSName of the BI is mentioned here
+ColorRscFile = "ADS_CheckInstanceAlternateColorFile";	                                     //The Color IDs are defined here.Only One file can be mentioned
+TypeRuleDefinitionFile = "CheckInstanceAlternate_RuleTypeAssociation";  	                //CATRule and Type Association for both Color and Label
+
+																		   //To activate the occurrences mode
+NumberOfColors = "3";
+
+LegendId1 = "ALTERNATE_DEFINED";		                                                 //LegendId in the LegendNLS File
+ColorId1  = "Color_Green";				                                                //ID mentioned in the ColorRscFile
+
+LegendId2 = "ALTERNATE_NOT_DEFINED";
+ColorId2  = "Color_Orange";
+
+LegendId3 = "ALTERNATE_NOT_APPLICABLE";
+ColorId3  = "Color_Black";
+
+

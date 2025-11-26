@@ -1,0 +1,6 @@
+<meta charset="UTF-8"/>
+
+CheckInstanceAlternate_Description="Check Alternates on Instances";
+ALTERNATE_DEFINED="Alternate defined on instance";
+ALTERNATE_NOT_DEFINED="Alternate not yet defined on instance";
+ALTERNATE_NOT_APPLICABLE="Alternate not applicable";

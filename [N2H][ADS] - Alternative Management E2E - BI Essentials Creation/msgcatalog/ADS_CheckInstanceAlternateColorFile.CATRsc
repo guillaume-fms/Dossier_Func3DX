@@ -1,0 +1,15 @@
+Color_Green.Red = "0";
+Color_Green.Green = "255";
+Color_Green.Blue = "0";
+Color_Green.Transparency = "0";
+
+Color_Black.Red = "0";
+Color_Black.Green = "0";
+Color_Black.Blue = "0";
+Color_Black.Transparency = "0";
+
+Color_Orange.Red = "254";
+Color_Orange.Green = "143";
+Color_Orange.Blue = "0";
+Color_Orange.Transparency = "0";
+

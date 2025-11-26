@@ -1,0 +1,123 @@
+let primaryName(String)
+let thisReference(VPMReference)
+let thisInstance(VPMInstance)
+let thisRepReference(VPMRepReference)
+let sBusinnesType(String)
+let intColor(Integer)
+let listOfRoots(List)
+let rootOfEditor(VPMReference)
+let listOfInstances(List)
+let sColor(String)
+let sLabel(String)
+let strAlternateValue(String)
+
+primaryName = ThisObject.PrimaryType.Name
+
+if primaryName == "3DShape"
+{
+    set thisRepReference = ThisObject
+    set thisReference = thisRepReference.AggregatingReference
+}
+else
+{
+    set thisReference = ThisObject
+}
+
+if(thisReference == NULL)
+{   
+    exit
+} 
+
+listOfRoots = GetEditorRoots("feature")
+rootOfEditor = listOfRoots[1]
+listOfInstances = thisReference->ListInstances(rootOfEditor)
+if(listOfInstances.Size() > 0)
+{
+	thisInstance = listOfInstances[1]
+}
+else 
+{
+	exit
+}
+
+if(thisInstance == NULL)
+{
+	exit
+}
+
+if(thisReference->HasAttribute("AIRBUS_E_BusinessType_BusinessType"))
+{
+	sBusinnesType = thisReference->GetAttributeString("AIRBUS_E_BusinessType_BusinessType")
+}
+else 
+{
+	exit
+}
+
+if
+(
+sBusinnesType == "Elementary Part"
+OR sBusinnesType == "Storable Assembly"
+OR sBusinnesType == "StandardPart"
+OR sBusinnesType == "FastenerDefinition"
+)
+{
+	if(thisInstance->HasAttribute("AIRBUS_E_InstanceAlternate"))
+	{
+		strAlternateValue = thisInstance.GetAttributeString("AIRBUS_E_InstanceAlternate")
+		if
+		(
+		thisInstance->GetAttributeString("AIRBUS_E_InstanceAlternate") <> "NA"
+		AND thisInstance->GetAttributeString("AIRBUS_E_InstanceAlternate") <> ""
+		)
+		{
+			intColor = 1
+		}
+		else
+		{
+			intColor = 2
+		}
+	}
+	else
+	{
+		intColor = 3
+	}
+}
+else
+{
+	intColor = 3
+	
+}
+
+if (intColor == 1) 
+{
+    let strAlternateValueSplited(List)
+    let i(Integer)
+    strAlternateValueSplited = SplitString(strAlternateValue, ";")
+
+    sColor = "Color_Green"
+	sLabel = "1|Instance title : " + thisReference.Name + "|I_noIcon|2|Alternate defined on instance|I_Green"
+    for i = 1 while i <= strAlternateValueSplited.Size()
+    {
+        sLabel = sLabel + "|" + (i+2) + "|" + strAlternateValueSplited.GetItem(i) + "|I_noIcon"
+    }
+}
+else if (intColor == 2) 
+{
+    sColor = "Color_Orange"
+	sLabel = "1|Instance title : " + thisReference.Name + "|I_noIcon|2|Alternate not yet defined on instance|I_Orange"
+} 
+else if (intColor == 3)
+{
+    sColor = "Color_Black"
+	sLabel = "1|Instance title : " + thisReference.Name + "|I_noIcon|2|Alternate not applicable|I_Black"
+}
+
+if primaryName <> "3DShape" OR (primaryName == "3DShape" AND intColor <> 3)
+{
+	Parameters -> SetAttributeString("MyColorForPLMCompass", sColor)
+}
+if primaryName <> "3DShape"
+{
+	Parameters -> SetAttributeString("MyLabelForPLMCompass", sLabel)
+}
