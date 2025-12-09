@@ -1,0 +1,115 @@
+* {
+    margin: 12;
+    padding: 12;
+    font-family: Tahoma, sans-serif;
+}
+
+.title {
+    font-size: 27px;
+    font-family: sans-serif;
+    font-style: normal;
+    text-align: center;
+    color: bisque;
+    text-align: center;
+    text-decoration: underline;
+}
+
+/*body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}*/
+
+.container {
+    max-width: 500px;
+    padding: 2rem;
+    border: 4px solid white;
+    color: black;
+    border-radius: 11px;
+}
+
+.container h4 {
+    text-align: center;
+    margin-bottom: 2rem;
+    letter-spacing: 3px;
+    font-weight: 600;
+    line-height: 3rem;
+    font-style: oblique;
+    font-family: Tahoma, sans-serif;
+}
+
+.container h4 span {
+    color: yellow;
+    font-style: italic;
+    letter-spacing: 7px;
+}
+
+.input-container input {
+    color: black;
+    letter-spacing: 2px;
+    font-style: normal;
+}
+
+label {
+    color: black;
+    font-size: 18px;
+    font-style: normal;
+}
+
+.footer {
+    position: absolute;
+    text-align: center;
+    color: black;
+    font-size: 35px;
+    bottom: 0;
+    width: 100%;
+    /*Set the fixed height of the footer here*/
+    height: 10px;
+    clear: both;
+    /* border: 2px solid yellow;*/
+}
+
+.surfer {
+    font-size: 48px;
+    position: absolute;
+    animation-name: surfing;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes surfing {
+    from {
+        top: 200px;
+        left: 500px;
+    }
+
+    to {
+        top: 4%;
+        left: 280px;
+    }
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-45deg, #f1a542, #ee3b80, #24b3e7, #24e8bb);
+    background-size: 400% 400%;
+    animation: gradient 7s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
