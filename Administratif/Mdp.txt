@@ -1,0 +1,204 @@
+
+User et Mot de Passe
+
+Connexion Horizon Client VMware:
+	
+TA-2A64-TA-USER1-GPA  ==> L4\s,NC3uAaM1xm
+
+TA-2A64-TA-USER2-GPA  ==> Li9*bSg6nsi:GCb
+
+TA-2A64-TA-USER3-GPA  ==> m5S.dSBd+te((y\
+
+
+************************************************************
+************************************************************
+
+
+For people in France: licences 3DX dans  C:\ProgramData\DassaultSystemes\Licenses
+remove the old values and replace them by 
+fr0-2a64-p26.eu.airbus.corp:4085,fr0-2a64-p27.eu.airbus.corp:4085,fr0-2a64-p28.eu.airbus.corp:4085
+fr0-2a64-p29.eu.airbus.corp:4085,fr0-2a64-p30.eu.airbus.corp:4085,fr0-2a64-p31.eu.airbus.corp:4085
+
+
+************************************************************
+************************************************************
+
+Connection pour tests NRT changer le host en fonction de la plateforme
+sur \\fr0-svm09\2A64_DEV_QA_FullPPR\24xFD03_OOTB        et lancer SA-NIS ou EURODRONE sur VM
+
+
+
+user : ta-2a64-ta-user1-gpa ==>H175     mdp : Passw0rd 
+user : ta-2a64-ta-user1-gpa ==> AHCS01
+mdp : Passw0rd  Airbus@2018
+Platform targeted : DEV AH Hoth D94 
+
+
+utilisation de cet user pour P&O en Int14   mdp : Int14-2k18!  sur VMware Horizon Client
+user : ta-2a64-ta-user2-sje pour ce BP : Eurodrone L2 Electrical Designer EU
+A000IFF à connecter ou D001IFC
+\\fr0-svm09\2A64_DEV_QA_FullPPR\Hoth   ===> à utiliser sur réseau  VM
+
+\\fr0-svm09\2A64_DEV_QA_FullPPR\Krypton 
+
+
+TA-2A64-TA-USER3-GPA  ==> 
+
+************************************************************
+************************************************************
+PI 32 dev on platform Ix
+C:\Windows\System32\drivers\etc\hosts
+
+ADS	  D67	  DEV ADS	  10.125.121.193
+
+ALL BU	  Dv15	  Alpha Team + EXPLO   10.125.132.182
+
+ta-2a64-ta-user1-gpa  ==> DV15 leader owner ok
+ta-2a64-ta-user2-gpa
+
+regex FTA
+.-FTA(([0-9][0-9][1-9])|([0-9][1-9][0])|([1-9][0]{2}))
+
+Pour les CatSettings se mettre direct sur la D67  10.125.121.193  car pas de code
+
+************************************************************
+************************************************************
+
+Int14 Krypton Hugo2
+ta-2a64-ta-user2-hha
+Int14-2k18!
+\\fr0-svm09\2A64_DEV_QA_FULLPPR\Krypton
+ 
+ADS	INT14	2024xFD06	Krypton
+D001IFC/ A000IFJ
+
+Réseau Airbus
+\\fr0-svm09\2A64_Proj_WorkingArea2\NIS\User_Area\GuillaumePastor
+
+/*****************************************************************************/
+Pour Krypton 
+
+Configuration pour instancier des AnchorNuts(Teste
+déjà fait en D55) seront valables pour d'autres plateformes exemple de configuration
+
+   Process Category : Installation
+   Process Type : REMOVE-BOLT
+   Diameter : 4(6.35mm)
+
+Component :
+
+   Configuration : Screw- AnchorNut
+   Screw : 6.35mm|ABS0114|T-|Ti alloy|PROTUBERANT
+   AnchorNut : 6.35mm|NAS1473|C|CRES
+
+Secondary Fastners on the AnchorNut
+
+   Fastener reference : 2.4mm|EN6081|T-|Ti alloy|PROTUBERANT
+   Layers to Fasener : Garder la valeur par défaut qui est égale à 1
+
+/*****************************************************************************/
+Réorganisation NRT H175 AH	INT4	A000IFJ
+ta-2a64-ta-user3-ctr    Int4-2k18!   
+ligne 192 After modif
+/*****************************************************************************/
+
+
+/*****************************************************************************/
+Bonjour,
+Dans le cadre de vos fonctions de SST, vous avez des droits supplémentaires sur Optima (votre badge),
+*"Ceux ci sont à utiliser qu'en cas de nécessité et si c'est justifié"*
+Dans ce cadre, certaines salles disposent d'une double authentification (vous badgez, puis vous tapez un code puis validez avec #)
+Voici votre code de double authentifications pour les salles : 4488
+/*****************************************************************************/
+
+La INT4 étant en routage, vous pouvez faire vos tests sur la D57  AH	INT4  A000IFJ
+pour h175 en DEV
+TA-2A64-TA-USER1-GPA             user3 Coline Int4 et user2 for block EM => M108F6989769
+
+User Portal
+user1, user2, user3 marche sur toute les plateformes
+ta-2a64-ta-user2-gpa
+Ffa6-2k18!     ACA	FFA6     A000IFJ      A000FFC              Pour test MSSQL
+Li9*bSg6nsi:GCb
+APN Fastener : E5211230240200 // E5201430245200
+
+
+Storie N2H-29380
+Y53S21908-441
+ta-2a64-ta-user2-gpa => Li9*bSg6nsi:GCb
+A000IFJ
+
+
+Tests MSSQL ADS:
+
+Plateforme : INT5    https://space.3dxplatform-int5.eu.airbus.corp:9090/3dspace/
+DaaS : A000IFJ
+K0680-45678-001-RTQ-00157968
+
+
+D67 Pierre Y53S21920-431
+host: 10.125.121.193
+ta-2a64-ta-test-pvi          Airbus@2018
+
+
+user2 guillaume Int 3
+symmetry Y651M2820-943 
+
+user 1 guillaume Int 14
+symmetry Y34XR4137-811
+
+
+
+
+/*Reorga tests NRT FCAS
+pour le moment en recherche de tests
+CAD Authoring ta-2a64-ta-user3-gpa   DaaS : A000IFJ
+INT 14 Krypton Launcher FCAS, tous les rôles sont en RESTRICTED*/
+Y46GA3 step 15
+Y61N93863-973
+TA-2A64-TA-USER1-GPA  ==> L4\s,NC3uAaM1xm   ==> VMware
+Y09K77247-924  ==> N2H-25590
+
+
+Y65096438-982
+Y002B8927-844
+Y94I58371-868
+Y74NK5566-832
+Y58L85374-966 ==> APN Fasteners colorization Torque Value
+Y35DF0198-955
+Y27SR9230-805
+
+Info importante :
+Daas : A000IFJ
+Plateforme : INT5
+EIS : Krypton
+
+https://jira.factory.eu.airbus.corp:8443/browse/N2H-30206  == SPN Equipment
+
+Y68JI4627-829 Piping
+
+
+test undefined design solution  ==> https://jira.factory.eu.airbus.corp:8443/browse/N2H-30543
+Y23KU2639-858
+
+user3 Sidi Int3 Lusitania  écriture tests Materials
+
+https://jira.factory.eu.airbus.corp:8443/browse/N2H-28156 ==> Storie ADS Bravo
+
+Y04D9
+
+Y01WL
+
+Daily GoodBye:
+Luka: NRT Electrical ecriture de tests bien avancé,Socia next PI
+Benoit: Test NRT  Document en cours, Socia
+Pierre: Socia, étude backlog sur Fastener Sujet : [IR] - Update Fasteners Instance Attributes after creating a handed element/assembly
+Coline: check NRT  coté Bravo, socia
+Thimothé: doc know How apps en cours + explo sur PLM Resolv
+Clément:  Socia, exercice sur PS encours
+Guillaume : Socia, ecriture Test NRT Materials en cours
+
+
+
+
+
