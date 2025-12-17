@@ -1,0 +1,110 @@
+AggregatingReferenceBT	InstanceBT	DEXT_TO_ADD
+Storable Assembly	Elementary Part	AIRBUS_E_DEXT_Instance_EPASSY
+Storable Assembly	Elementary Part	AIRBUS_E_DEXT_ValidationDate
+Storable Assembly	Elementary Part	AIRBUS_E_DEXT_PTNorm
+Storable Assembly	Undefined	AIRBUS_E_DEXT_ValidationDate
+Storable Assembly	Undefined	AIRBUS_E_DEXT_Instance_EPASSY
+Storable Assembly	Undefined	AIRBUS_E_DEXT_PTNorm
+Storable Assembly	Specialized Item	AIRBUS_E_DEXT_Instance_EPASSY
+Storable Assembly	Specialized Item	AIRBUS_E_DEXT_ValidationDate
+Storable Assembly	Specialized Item	AIRBUS_E_DEXT_PTNorm
+Storable Assembly	FTA	AIRBUS_E_DEXT_Instance_EPASSY
+Storable Assembly	FTA	AIRBUS_E_DEXT_ValidationDate
+Storable Assembly	FTA	AIRBUS_E_DEXT_PTNorm
+Storable Assembly	Extended Item	AIRBUS_E_DEXT_Instance_EPASSY
+Storable Assembly	Extended Item	AIRBUS_E_DEXT_ValidationDate
+Storable Assembly	Extended Item	AIRBUS_E_DEXT_PTNorm
+Storable Assembly	Refer To	AIRBUS_E_DEXT_Instance_EPASSY
+Storable Assembly	Refer To	AIRBUS_E_DEXT_ValidationDate
+Storable Assembly	Refer To	AIRBUS_E_DEXT_PTNorm
+Storable Assembly	StandardPart	AIRBUS_E_DEXT_Instance_EPASSY
+Storable Assembly	StandardPart	AIRBUS_E_DEXT_ValidationDate
+Storable Assembly	StandardPart	AIRBUS_E_DEXT_PTNorm
+EM	Elementary Part	AIRBUS_E_DEXT_Instance_EPASSY
+EM	Elementary Part	AIRBUS_E_DEXT_ValidationDate
+EM	Elementary Part	AIRBUS_E_DEXT_PTNorm
+EM	Storable Assembly	AIRBUS_E_DEXT_Instance_EPASSY
+EM	Storable Assembly	AIRBUS_E_DEXT_ValidationDate
+EM	Storable Assembly	AIRBUS_E_DEXT_PTNorm
+EM	Undefined	AIRBUS_E_DEXT_Instance_EPASSY
+EM	Undefined	AIRBUS_E_DEXT_ValidationDate
+EM	Undefined	AIRBUS_E_DEXT_PTNorm
+EM	Specialized Item	AIRBUS_E_DEXT_Instance_EPASSY
+EM	Specialized Item	AIRBUS_E_DEXT_ValidationDate
+EM	Specialized Item	AIRBUS_E_DEXT_PTNorm
+EM	FTA	AIRBUS_E_DEXT_Instance_EPASSY
+EM	FTA	AIRBUS_E_DEXT_ValidationDate
+EM	FTA	AIRBUS_E_DEXT_PTNorm
+EM	Extended Item	AIRBUS_E_DEXT_Instance_EPASSY
+EM	Extended Item	AIRBUS_E_DEXT_ValidationDate
+EM	Extended Item	AIRBUS_E_DEXT_PTNorm
+EM	Refer To	AIRBUS_E_DEXT_Instance_EPASSY
+EM	Refer To	AIRBUS_E_DEXT_ValidationDate
+EM	Refer To	AIRBUS_E_DEXT_PTNorm
+EM	StandardPart	AIRBUS_E_DEXT_Instance_EPASSY
+EM	StandardPart	AIRBUS_E_DEXT_ValidationDate
+EM	StandardPart	AIRBUS_E_DEXT_PTNorm
+EM	Dummy Non 3D CAD	AIRBUS_E_DEXT_ValidationDate
+EM	Dummy Non 3D CAD	AIRBUS_E_DEXT_Instance_EPASSY
+EM	Dummy Non 3D CAD	AIRBUS_E_DEXT_PTNorm
+Elementary Part	Elementary Part	AIRBUS_E_DEXT_Instance_EPASSY
+Elementary Part	Elementary Part	AIRBUS_E_DEXT_ValidationDate
+Elementary Part	Elementary Part	AIRBUS_E_DEXT_PTNorm
+Elementary Part	Undefined	AIRBUS_E_DEXT_Instance_EPASSY
+Elementary Part	Undefined	AIRBUS_E_DEXT_ValidationDate
+Elementary Part	Undefined	AIRBUS_E_DEXT_PTNorm
+Elementary Part	FTA	AIRBUS_E_DEXT_Instance_EPASSY
+Elementary Part	FTA	AIRBUS_E_DEXT_ValidationDate
+Elementary Part	FTA	AIRBUS_E_DEXT_PTNorm
+Elementary Part	Extended Item	AIRBUS_E_DEXT_Instance_EPASSY
+Elementary Part	Extended Item	AIRBUS_E_DEXT_ValidationDate
+Elementary Part	Extended Item	AIRBUS_E_DEXT_PTNorm
+Elementary Part	StandardPart	AIRBUS_E_DEXT_Instance_EPASSY
+Elementary Part	StandardPart	AIRBUS_E_DEXT_ValidationDate
+Elementary Part	StandardPart	AIRBUS_E_DEXT_PTNorm
+Extended Item	Undefined	AIRBUS_E_DEXT_Instance_EPASSY
+Extended Item	Undefined	AIRBUS_E_DEXT_ValidationDate
+Extended Item	Undefined	AIRBUS_E_DEXT_PTNorm
+FTA	Undefined	AIRBUS_E_DEXT_Instance_EPASSY
+FTA	Undefined	AIRBUS_E_DEXT_ValidationDate
+FTA	Undefined	AIRBUS_E_DEXT_PTNorm
+Undefined	Undefined	AIRBUS_E_DEXT_Instance_EPASSY
+Undefined	Undefined	AIRBUS_E_DEXT_ValidationDate
+Undefined	Undefined	AIRBUS_E_DEXT_PTNorm
+Specialized Item	Undefined	AIRBUS_E_DEXT_Instance_EPASSY
+Specialized Item	Undefined	AIRBUS_E_DEXT_ValidationDate
+Specialized Item	Undefined	AIRBUS_E_DEXT_PTNorm
+Extended Item	StandardPart	AIRBUS_E_DEXT_Instance_EPASSY
+Extended Item	StandardPart	AIRBUS_E_DEXT_ValidationDate
+Extended Item	StandardPart	AIRBUS_E_DEXT_PTNorm
+FTA	StandardPart	AIRBUS_E_DEXT_Instance_EPASSY
+FTA	StandardPart	AIRBUS_E_DEXT_ValidationDate
+FTA	StandardPart	AIRBUS_E_DEXT_PTNorm
+Undefined	StandardPart	AIRBUS_E_DEXT_Instance_EPASSY
+Undefined	StandardPart	AIRBUS_E_DEXT_ValidationDate
+Undefined	StandardPart	AIRBUS_E_DEXT_PTNorm
+Specialized Item	StandardPart	AIRBUS_E_DEXT_Instance_EPASSY
+Specialized Item	StandardPart	AIRBUS_E_DEXT_ValidationDate
+Specialized Item	StandardPart	AIRBUS_E_DEXT_PTNorm
+Refer To	Elementary Part	AIRBUS_E_DEXT_PTNorm
+Refer To	StandardPart	AIRBUS_E_DEXT_PTNorm
+Refer To	Storable Assembly	AIRBUS_E_DEXT_PTNorm
+Refer To	Refer To	AIRBUS_E_DEXT_PTNorm
+Refer To	Elementary Part	AIRBUS_E_DEXT_ValidationDate
+Refer To	StandardPart	AIRBUS_E_DEXT_ValidationDate
+Refer To	Storable Assembly	AIRBUS_E_DEXT_ValidationDate
+Refer To	Refer To	AIRBUS_E_DEXT_ValidationDate
+EM	Electrical Design	AIRBUS_E_DEXT_Instance_EPASSY
+EM	Electrical Design	AIRBUS_E_DEXT_ValidationDate
+EM	EHI	AIRBUS_E_DEXT_Instance_EPASSY
+EM	EHI	AIRBUS_E_DEXT_ValidationDate
+Electrical Design	Electrical Geometry	AIRBUS_E_DEXT_ValidationDate
+Electrical Design	Electrical Geometry	AIRBUS_E_DEXT_Instance_EPASSY
+EHI	Electrical Geometry	AIRBUS_E_DEXT_ValidationDate
+EHI	Electrical Geometry	AIRBUS_E_DEXT_Instance_EPASSY
+Electrical Geometry	Electrical Branch Geometry	AIRBUS_E_DEXT_ValidationDate
+Electrical Geometry	Electrical Branch Geometry	AIRBUS_E_DEXT_Instance_EPASSY
+Electrical Design	Electrical Physical System	AIRBUS_E_DEXT_Instance_EPASSY
+Electrical Design	Electrical Physical System	AIRBUS_E_DEXT_ValidationDate
+EHI	Electrical Physical System	AIRBUS_E_DEXT_Instance_EPASSY
+EHI	Electrical Physical System	AIRBUS_E_DEXT_ValidationDate

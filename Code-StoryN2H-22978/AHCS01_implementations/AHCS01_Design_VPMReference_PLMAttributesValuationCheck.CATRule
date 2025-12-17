@@ -1,0 +1,612 @@
+/* Rule created by ng7da10 10/9/2020 */
+
+Include "AH_Util"
+
+Trace(1, "START: Executing the script >> AHCS01_Design_VPMReference_PLMAttributesValuationCheck.CATRule")
+
+Let listOfError(List)
+Let listOfWarning(List)
+Let listOfErrorMessage(List)
+Let listOfWarningMessage(List)
+Let strPartNumber(String)
+Let bPatternMatch(Boolean)
+Let bPartNumberParentMatch (Boolean)
+Let strTitle(String)
+Let strAttrBusinessTypeValue(String)
+Let strSubType(String)
+Let BTStringPattern_Sh(DTSheetType)
+Let UpperLevelBTStringPattern_Sh(DTSheetType)
+Let idxRows(Integer)
+Let BT_SPECIALIZED_ITEM(String)
+Let BT_EXTENDED_ITEM(String)
+Let strSubTypeExtension(String)
+let pNatoAttr(ValuePointer)
+Let idxBusinessTypeCol(Integer)
+Let idxSubTypeCol(Integer)
+Let idxSubTypePatternCol(Integer)
+Let idxExtRow(Integer)
+Let resSubstituteValues(String)
+Let extFileSheetExt(DTSheetType)
+Let strBusinessTypeValue(String)
+Let strSubTypeValue(String)
+Let strNamePattern(String)
+Let strMessageForUndefined(String)
+Let pCategory(ValuePointer)
+Let pSubCategory(ValuePointer)
+Let strCategoryExtension(String)
+Let strSubCategoryAttr(String)
+Let strCategoryAttr(String)
+Let isPatternIdentified(Boolean)
+Let BT_ELECTRICAL_GEOMETRY (String)
+Let BT_ELECTRICAL_BRANCH_GEOMETRY (String)
+Let BT_ELECTRICAL_PHYSICAL_SYSTEM (String)
+
+
+//Start - Define constants here
+Validation = true
+bPatternMatch = true
+BT_SPECIALIZED_ITEM = "Specialized Item"
+BT_EXTENDED_ITEM = "Extended Item"
+BT_ELECTRICAL_GEOMETRY = "Electrical Geometry"
+BT_ELECTRICAL_BRANCH_GEOMETRY = "Electrical Branch Geometry"
+BT_ELECTRICAL_PHYSICAL_SYSTEM = "Electrical Physical System"
+strSubTypeExtension = "AIRBUS_E_DEXT_SUBTYPE"
+idxRows = 1
+resSubstituteValues="AH_ManageSubType_Mapping"
+idxExtRow = 1
+idxBusinessTypeCol = 1
+idxSubTypeCol = 2
+idxSubTypePatternCol = 3
+//End - Define your constant here
+
+set listOfError = Parameters -> GetAttributeObject("ErrorAttributes")
+set listOfWarning = Parameters -> GetAttributeObject("WarningAttributes")
+set listOfErrorMessage = Parameters -> GetAttributeObject("ErrorMessages")
+strCategoryExtension = "AIRBUS_E_DEXT_Category"
+
+
+
+set listOfWarningMessage = Parameters -> GetAttributeObject("WarningMessages")
+
+BTStringPattern_Sh = CreateSheet("KnowledgeResources|AH_ManageSubType_Mapping")
+UpperLevelBTStringPattern_Sh = CreateSheet("KnowledgeResources|AH_Type_BusinessType_DEXT")
+
+strCategoryAttr = "AIRBUS_E_Category_Category"
+strSubCategoryAttr = "AIRBUS_E_Category_SubCategory"
+
+Trace(1,"T000078-N2H22978-00112-PrimaryType Name : #",ThisObject.PrimaryType.Name)
+// For VPMReference, we want to allow the user to create a Physical Product without adding a Business Type.
+if (ThisObject.PrimaryType.Name <> "VPMReference") 
+{	
+
+	if(ThisObject->HasAttribute("AIRBUS_E_BusinessType_BusinessType") == true)
+	//For object with AIRBUS_E_BusinessType_BusinessType attribute
+	{
+		strAttrBusinessTypeValue = ThisObject -> GetAttributeString("AIRBUS_E_BusinessType_BusinessType")
+		Trace(1,"T000087 N2H-22978 00100-BusinessTypeValue #",strAttrBusinessTypeValue)
+		if (ThisObject.PrimaryType.Name == "AIRBUS_E_VPMReference_EngineeringUpperLevel")
+		//For Upper Level
+		{
+			if(strAttrBusinessTypeValue == "" OR strAttrBusinessTypeValue == NULL) 
+			//If the BusinessType attribute is valuated, addition of the category extension
+			{
+				Trace(1, "T000094 N2H-22978 00101-Adding #", strCategoryExtension)
+				ThisObject->AddExtension(strCategoryExtension)
+			}
+			Trace(1,"T000097 N2H-22978 00102-val : #",AH_Util::ValidateUpperLevelBTToAddCategoryExt(strAttrBusinessTypeValue))
+			if(AH_Util::ValidateUpperLevelBTToAddCategoryExt(strAttrBusinessTypeValue))
+			//
+			{	
+				if(ThisObject.HasAttribute(strCategoryAttr)) 
+				//If the object has the attribute AIRBUS_E_Category_SubCategory
+				{
+					pCategory = ThisObject.GetAttributeValuePointer(strCategoryAttr)				
+					pSubCategory = ThisObject.GetAttributeValuePointer(strSubCategoryAttr)
+					pCategory.Constant = false
+				}
+				
+			}
+		}
+
+		if (ThisObject -> HasAttribute("AIRBUS_E_Identification_AirbusPartNumber") == true)
+		{
+			strPartNumber = ThisObject -> GetAttributeString("AIRBUS_E_Identification_AirbusPartNumber")
+		}
+
+		if(strAttrBusinessTypeValue <> "" AND strAttrBusinessTypeValue <> NULL AND strPartNumber <> "" AND strPartNumber <> NULL AND BTStringPattern_Sh <> NULL AND UpperLevelBTStringPattern_Sh <> NULL)
+		{
+			if (ThisObject.PrimaryType.Name == "AIRBUS_E_VPMReference_LowerLevel" OR ThisObject.PrimaryType.Name == "ElectricalGeometry" OR ThisObject.PrimaryType.Name == "ElectricalBranchGeometry"  OR ThisObject.PrimaryType.Name == "ElectricalPhysicalSystem")
+			{	
+				for idxRows while idxRows <= BTStringPattern_Sh.RowsNb
+				{
+					if(strAttrBusinessTypeValue == BTStringPattern_Sh.CellAsString(idxRows,1))
+					{				
+						Let stringPattern(String)
+						stringPattern = BTStringPattern_Sh.CellAsString(idxRows, 3)
+						Trace(1,"T000127-N2H22978-00114 Pattern : #",BTStringPattern_Sh.CellAsString(idxRows, 3))
+						if(BTStringPattern_Sh.CellAsString(idxRows, 3) <> "NA" AND BTStringPattern_Sh.CellAsString(idxRows, 3) <> "" AND BTStringPattern_Sh.CellAsString(idxRows, 3) <> NULL)
+						{	
+							if(strPartNumber.MatchPattern(BTStringPattern_Sh.CellAsString(idxRows, 3)) == true)
+							{
+								bPatternMatch = true
+								Trace(3, "Pattern Matched")
+								break
+							}
+							else
+							{
+								bPatternMatch = false
+								Trace(3, "Pattern doesn't Match")
+							}
+						}
+					}
+				}
+
+			}
+		}
+
+		Trace(1, "PartNumber -- # :: patternMatch -- #",strPartNumber,bPatternMatch)
+		if(strPartNumber == "" OR bPatternMatch == false)
+		{
+			Validation = false
+			Trace(1, "Number AIRBUS_E_Identification_AirbusPartNumber not correct")
+			listOfErrorMessage -> Append("Airbus Part Number is Empty or not correct. Please use a correct pattern")
+			listOfError -> Append("AIRBUS_E_Identification_AirbusPartNumber")
+		}
+
+		if(bPatternMatch == true)
+		{
+			if(ThisObject->IsSupporting(strSubTypeExtension) == false AND ThisObject.PrimaryType.Name == "AIRBUS_E_VPMReference_LowerLevel")
+			{
+				Trace(1, "Add AIRBUS_E_DEXT_SUBTYPE extension")
+				ThisObject->AddExtension(strSubTypeExtension)
+			}
+
+			if (strAttrBusinessTypeValue == "")
+			{
+				Validation = false
+
+				Trace(1, "Business Type AIRBUS_E_BusinessType_BusinessType not valuated")
+				listOfErrorMessage -> Append("BusinessType is Empty. Please choose your Business Type")
+				listOfError -> Append("AIRBUS_E_BusinessType_BusinessType")
+			}
+			else
+			{
+				if (strPartNumber <> "" AND strPartNumber <> NULL)
+				{
+					if (strAttrBusinessTypeValue == BT_ELECTRICAL_GEOMETRY OR strAttrBusinessTypeValue == BT_ELECTRICAL_PHYSICAL_SYSTEM)
+					{
+						bPartNumberParentMatch = AH_Util::ValidateElectricalGeometryNameVsParentName(ThisObject)
+						if not (bPartNumberParentMatch)
+						{
+							Validation = false
+							Trace( 1, "Parent and child airbus part numbers are not common. Please enter common part number" )
+
+							listOfErrorMessage -> Append( "Parent and child airbus part numbers are not common. Please enter common part number" )
+
+							listOfError -> Append( "AIRBUS_E_Identification_AirbusPartNumber" )
+						}
+					}
+					if (strAttrBusinessTypeValue == BT_ELECTRICAL_BRANCH_GEOMETRY)
+					{
+						bPartNumberParentMatch = AH_Util::ValidateElectricalBranchGeometryNameVsParentName( ThisObject )
+						if not (bPartNumberParentMatch)
+						{
+							Validation = false
+							Trace( 1, "Parent and child airbus part numbers are not common. Please enter common part number" )
+							listOfErrorMessage -> Append( "Parent and child airbus part numbers are not common. Please enter common part number" )
+							listOfError -> Append( "AIRBUS_E_Identification_AirbusPartNumber" )
+							
+						}
+					}
+				}
+			}			
+		}
+	}
+
+	if(Validation == false) 
+	{
+		Parameters -> SetAttributeObject("ErrorMessages", listOfErrorMessage)
+		Parameters -> SetAttributeObject("ErrorAttributes", listOfError)
+		Parameters -> SetAttributeObject("WarningAttributes", listOfWarning)
+		Parameters -> SetAttributeObject("WarningMessages", listOfWarningMessage)
+	}
+}
+if (BTStringPattern_Sh == NULL) 
+//If we do not have the file : AH_ManageSubType_Mapping
+{
+	Trace(2, "T000218 N2H-22978 00103 - Error in Knowledge Resource Path : AH_ManageSubType_Mapping sheet")
+}
+if (UpperLevelBTStringPattern_Sh == NULL) 
+//If we do not have the file : AH_Type_BusinessType_DEXT
+{
+	Trace(2, "T000223 N2H-22978 00103 - Error in Knowledge Resource Path : AH_Type_BusinessType_DEXT sheet")
+}
+// For VPMReference, we want to allow the user to create a Physical Product without adding a Business Type.
+if (ThisObject.PrimaryType.Name <> "VPMReference" AND ThisObject.PrimaryType.Name <> "Elec3DConductor" AND ThisObject.PrimaryType.Name <> "Elec3DConductorGroup" AND ThisObject.PrimaryType.Name <> "ElectricalGeometry" AND ThisObject.PrimaryType.Name <> "ElectricalBranchGeometry" OR ThisObject.PrimaryType.Name <> "Electrical3DSystem")
+{	
+    Trace(1, "T000228 N2H-22978 00104 - ThisObject is not VPMReference and not Elec3DConductor and not Elec3DConductorGroup and ElectricalGeometry")
+	//Extention : AIRBUS_M_DEXT_VUVB removal
+	ThisObject->RemoveExtension("AIRBUS_M_DEXT_VUVB")
+	if(ThisObject->IsSupporting("AIRBUS_E_DEXT_NATOCode") == false)
+	// If the extension : AIRBUS_E_DEXT_NATOCode is appliable
+	{
+		Trace(1, "T00234 N2H-22978 00151 Add AIRBUS_E_DEXT_NATOCode ext")
+		ThisObject->AddExtension("AIRBUS_E_DEXT_NATOCode")
+	}
+	// Adding extensions at Creation for LowerLevel
+	if(
+		ThisObject->IsSupporting(strSubTypeExtension) == false 
+		AND ThisObject->IsSupporting("AIRBUS_E_DEXT_Domestic") == false 
+		AND ThisObject.PrimaryType.Name == "AIRBUS_E_VPMReference_LowerLevel"
+	)
+	{
+        Trace(1, "T000244 N2H-22978 00105 - ThisObject is not supporting : # and not supporting : AIRBUS_E_DEXT_Domestic and is primaryType LowerLevel",strSubTypeExtension)
+		// Adding of the subtype extension
+		Trace(1, "T000246 N2H-22978 00106 - Add Sub Type ext")
+		ThisObject->AddExtension(strSubTypeExtension)
+		// Adding of the domestic extension
+		Trace(1, "T000249 N2H-22978 00107 - Add AIRBUS_E_DEXT_Domestic ext")
+		ThisObject->AddExtension("AIRBUS_E_DEXT_Domestic")
+	}
+	// Adding extensions at Creation for UpperLevel
+	if(
+		ThisObject->IsSupporting("AIRBUS_E_DEXT_EM_ADAP_DS") == false 
+		AND 
+		ThisObject.PrimaryType.Name == "AIRBUS_E_VPMReference_EngineeringUpperLevel"
+	)
+	{
+		// Adding AIRBUS_E_DEXT_EM_ADAP_DS extension
+		Trace(1, "T000260 N2H-22978 00108 - Add AIRBUS_E_DEXT_EM_ADAP_DS ext")
+		ThisObject->AddExtension("AIRBUS_E_DEXT_EM_ADAP_DS")
+	}
+	if(ThisObject -> HasAttribute("AIRBUS_E_BusinessType_BusinessType") == true)
+	// If there is the "AIRBUS_E_BusinessType_BusinessType" attribute
+	{
+		// Getting the value of AIRBUS_E_BusinessType_BusinessType attributes
+		strAttrBusinessTypeValue = ThisObject -> GetAttributeString("AIRBUS_E_BusinessType_BusinessType")
+		Trace(1,"T00268 N2H-22978 00031 BusinessTypeValue #",strAttrBusinessTypeValue)
+		if (
+			strAttrBusinessTypeValue<> NULL 
+			AND strAttrBusinessTypeValue<>"" 
+			AND strAttrBusinessTypeValue <> "EM" 
+			AND strAttrBusinessTypeValue <> "Storable Assembly" 
+			AND strAttrBusinessTypeValue<> "Elementary Part" 
+			AND strAttrBusinessTypeValue <> "SAM"
+		)
+		{
+			Trace(1,"T00278 N2H22978 00109 - thisObject businessType is different of Null and EM and Storable Assembly and Elementaryk part and SAM")
+			//Gettinjg NatoCode object
+			pNatoAttr = ThisObject.GetAttributeValuePointer("AIRBUS_E_NATOCode_NATOCode")
+			//Emptying NatCode
+			pNatoAttr.SetValue("")
+			//
+			pNatoAttr.Constant = true
+		}
+		if ( ThisObject.IsSupporting("AIRBUS_E_DEXT_NATOCode") 
+			AND 
+			(
+				strAttrBusinessTypeValue <> "EM" 
+				AND strAttrBusinessTypeValue <> "Storable Assembly" 
+				AND strAttrBusinessTypeValue <> "Elementary Part" 
+				AND strAttrBusinessTypeValue <> "SAM"
+			) 
+			AND (strAttrBusinessTypeValue <> "")
+		) 
+		{
+            Trace(1,"T00297 N2H22978 00110 - ThisPbject is supporting AIRBUS_E_DEXT_NATOCode and BusinessType different of EM and Storable Assembly and Elementary part and SAM")
+			// Remove extension AIRBUS_E_DEXT_NATOCode
+			ThisObject.RemoveExtension("AIRBUS_E_DEXT_NATOCode")
+		}
+		
+		if ( ThisObject.IsSupporting("AIRBUS_E_DEXT_SUBTYPE") 
+			AND 
+			(
+				strAttrBusinessTypeValue == "Undefined" 
+				OR strAttrBusinessTypeValue == "FTA" 
+				OR strAttrBusinessTypeValue == "StandardPart"
+			)
+		)
+		{
+            Trace(1,"T00311 N2H22978 00111 - ThisPbject is supporting AIRBUS_E_DEXT_SUBTYPE and BusinessType different of Undefined and FTA and StandardPart")
+			// Remove extension AIRBUS_E_DEXT_SUBTYPE
+			ThisObject.RemoveExtension("AIRBUS_E_DEXT_SUBTYPE")
+		}
+		
+		
+		if (ThisObject.HasAttribute("AIRBUS_E_SUBTYPE_SUBTYPE")) 
+		{
+            Trace(1,"T00319 N2H22978 00112 - ThisPbject Has attribute AIRBUS_E_SUBTYPE_SUBTYPE")
+			// Get subtype value
+			strSubType = ThisObject -> GetAttributeString("AIRBUS_E_SUBTYPE_SUBTYPE")
+		}
+		if (ThisObject -> HasAttribute("AIRBUS_E_Identification_AirbusPartNumber") == true) 
+		{
+			//Get the APN value
+			strPartNumber = ThisObject -> GetAttributeString("AIRBUS_E_Identification_AirbusPartNumber")
+			Trace(1,"T000245-N2H-00000-9999 # strPartNumber", strPartNumber)
+		}
+		
+		if(
+			strAttrBusinessTypeValue <> "" 
+			AND strAttrBusinessTypeValue <> NULL 
+			AND strPartNumber <> "" 
+			AND strPartNumber <> NULL 
+			AND BTStringPattern_Sh <> NULL 
+			AND UpperLevelBTStringPattern_Sh <> NULL
+			)
+		{
+            Trace(1,"T000339 N2H22978 000112 - ThisObject BusinessType not null APN AND not null AND value SubtypeManage Table not Null and UpperLevelBTStringPattern_Sh not null")
+			// Check the naming rules for AIRBUS_E_VPMReference_LowerLevel
+			if (ThisObject.PrimaryType.Name == "AIRBUS_E_VPMReference_LowerLevel")
+			{
+                Trace(1,"T000343 N2H22978 000113 - ThisObject PrimaryType is a LowerLevel")
+				for idxRows while idxRows <= BTStringPattern_Sh.RowsNb 
+				{
+					if(
+						strAttrBusinessTypeValue == BTStringPattern_Sh.CellAsString(idxRows,1) 
+						AND 
+						strAttrBusinessTypeValue == "Elementary Part" 
+						AND 
+						strSubType == BTStringPattern_Sh.CellAsString(idxRows,2)
+					)
+					//Business Type is "Elementary Part"
+					{
+						if(
+							BTStringPattern_Sh.CellAsString(idxRows, 3) <> "NA"
+							AND 
+							BTStringPattern_Sh.CellAsString(idxRows, 3) <> "" 
+							AND 
+							BTStringPattern_Sh.CellAsString(idxRows, 3) <> NULL
+						)
+						// the column 3 of BTStringPattern_Sh file is a pattern to math
+						{
+							if(
+								strPartNumber.MatchPattern(BTStringPattern_Sh.CellAsString(idxRows, 3)) == true
+							)
+							// APN match the pattern of column 3 of BTStringPattern_Sh file
+							{
+								bPatternMatch = true
+								Trace(3, "T00370 N2H22978 000115 - Pattern Matched, ", BTStringPattern_Sh.CellAsString(idxRows, 3))
+								break
+							}
+							else 
+							//	APN do not match the pattern of column 3 of BTStringPattern_Sh file
+							{
+								Trace(3, "T00194 00030 - Pattern no Matched, BTStringPattern: #", BTStringPattern_Sh.CellAsString(idxRows, 3))
+								Trace(3, "T00198 00031 - Pattern no Matched, strPartNumber: #", strPartNumber)
+								bPatternMatch = false
+							}
+						}
+					}
+					else if (
+						strAttrBusinessTypeValue == BTStringPattern_Sh.CellAsString(idxRows,1) 
+						AND 
+						strAttrBusinessTypeValue <> "Elementary Part" 
+						AND 
+						strAttrBusinessTypeValue <> "FTA" 
+						AND 
+						strAttrBusinessTypeValue <> BT_SPECIALIZED_ITEM
+					)
+					// Business Type is not  "Elementary Part" nor "FTA"  nor BT_SPECIALIZED_ITEM
+					{
+						if(
+							BTStringPattern_Sh.CellAsString(idxRows, 3) <> "NA" 
+							AND 
+							BTStringPattern_Sh.CellAsString(idxRows, 3) <> "" 
+							AND 
+							BTStringPattern_Sh.CellAsString(idxRows, 3) <> NULL
+						)
+						// the column 3 of BTStringPattern_Sh file is a pattern to math
+						{
+							if(strPartNumber.MatchPattern(BTStringPattern_Sh.CellAsString(idxRows, 3)) == true)
+							// APN match the pattern of column 3 of BTStringPattern_Sh file
+							{
+								bPatternMatch = true
+								Trace(3, "T00406 N2H22978 000116 - Pattern Matched, ", BTStringPattern_Sh.CellAsString(idxRows, 3))
+								break
+							}
+							else 
+							//	APN do not match the pattern of column 3 of BTStringPattern_Sh file
+							{
+								Trace(3, "T00212 00033 - Pattern no Matched, BTStringPattern: #", BTStringPattern_Sh.CellAsString(idxRows, 3))
+								Trace(3, "T00218 00034 - Pattern no Matched, strPartNumber: #", strPartNumber)
+								Trace(3, "T00216 00032 - Pattern no Matched BusinessTypeValue read is, strAttrBusinessTypeValue: #", strAttrBusinessTypeValue)
+								bPatternMatch = false
+							}
+						}
+					}
+					
+					// N2H-10296
+					if (
+						strAttrBusinessTypeValue == BTStringPattern_Sh.CellAsString(idxRows,1) 
+						AND 
+						(
+							strAttrBusinessTypeValue == "FTA" 
+							OR strAttrBusinessTypeValue == BT_SPECIALIZED_ITEM
+						) 
+						AND 
+						(
+							BTStringPattern_Sh.CellAsString(idxRows,4) == "EM" 
+							OR BTStringPattern_Sh.CellAsString(idxRows,4) == "Storable Assembly" 
+							OR BTStringPattern_Sh.CellAsString(idxRows,4)=="Dummy Non 3D CAD" 
+							OR BTStringPattern_Sh.CellAsString(idxRows,4)=="Project Definition"
+							OR BTStringPattern_Sh.CellAsString(idxRows,4)=="Specialized Item"
+						)
+					)
+					// Business Type is FTA or BT_SPECIALIZED_ITEM 
+					// The column 4 of BTStringPattern_Sh is EM or Storable Assembly or Dummy Non 3D CAD or Project Definition
+					{
+						
+						Trace(2, "T00227 00036 Condition strAttrBusinessTypeValue is FTA true, BTStringPattern: # , strAttrBusinessTypeValue: #", BTStringPattern_Sh.CellAsString(idxRows,1),strAttrBusinessTypeValue )
+						Trace(2, "T00228 00037 BTStringPattern_Sh.CellAsString Value: #" , BTStringPattern_Sh.CellAsString(idxRows, 3))
+						if(
+							BTStringPattern_Sh.CellAsString(idxRows, 3) <> "NA" 
+							AND BTStringPattern_Sh.CellAsString(idxRows, 3) <> "" 
+							AND BTStringPattern_Sh.CellAsString(idxRows, 3) <> NULL) 
+						// If there is a pattern to match
+						{
+							if(strPartNumber.MatchPattern(BTStringPattern_Sh.CellAsString(idxRows, 3)) == true)
+							// the APN match the pattern
+							{
+								bPatternMatch = true
+								Trace(3, "T00232 00035 Pattern Matched, ", BTStringPattern_Sh.CellAsString(idxRows, 3))
+								break
+							}
+							else 
+							// the APN do not match the pattern
+							{				
+								Trace(3, "T00233 00028 - Pattern no Matched, BTStringPattern: # , and IdxRow is :# ", BTStringPattern_Sh.CellAsString(idxRows, 3) , idxRows)
+								Trace(3, "T00240 00029 - Pattern no Matched, strPartNumber: #", strPartNumber)
+								bPatternMatch = false
+							}
+						}
+					}
+				}
+			}
+			
+			// Check the naming rules for "EM" AIRBUS_E_VPMReference_EngineeringUpperLevel
+			if (ThisObject.PrimaryType.Name == "AIRBUS_E_VPMReference_EngineeringUpperLevel")
+			{
+				for idxRows while idxRows <= UpperLevelBTStringPattern_Sh.RowsNb 
+				{
+					if(
+						strAttrBusinessTypeValue == UpperLevelBTStringPattern_Sh.CellAsString(idxRows,2) 
+						AND UpperLevelBTStringPattern_Sh.CellAsString(idxRows, 5) <> "" 
+						AND UpperLevelBTStringPattern_Sh.CellAsString(idxRows, 5) <> NULL
+					)
+					{
+						if(strPartNumber.MatchPattern(UpperLevelBTStringPattern_Sh.CellAsString(idxRows, 5)) == true)
+						// the APN match the pattern
+						{
+							bPatternMatch = true
+							Trace(3, "Pattern Matched, ", UpperLevelBTStringPattern_Sh.CellAsString(idxRows, 5))
+							break
+						}
+						else 
+						// the APN do not match the pattern
+						{
+							Trace(3, "T00257 00026 - Pattern no Matched, UpperLevelBTStringPattern: #", UpperLevelBTStringPattern_Sh.CellAsString(idxRows, 5))
+							Trace(3, "T00258 00027 - Pattern no Matched, strPartNumber: #", strPartNumber)
+							bPatternMatch = false
+						}
+					}
+				}
+			}
+		}
+		Trace(1, "T00497 N2H22978 0005 PartNumber -- # :: patternMatch -- #",strPartNumber,bPatternMatch)
+
+		if(strPartNumber == "" OR bPatternMatch == false) 
+		// If there is no match or no APN
+		{
+			Validation = false
+			Trace(1, "T00503 N2H22978 00117 - Number AIRBUS_E_Identification_AirbusPartNumber not correct")
+			listOfErrorMessage -> Append("Number is Empty or not correct. Please use a correct pattern")
+			listOfError -> Append("AIRBUS_E_Identification_AirbusPartNumber")
+		}
+
+		if(bPatternMatch == true)
+		//If APN match something
+		{
+			if (strAttrBusinessTypeValue == "")
+			// If business type value is empty
+			{
+				Validation = false
+				Trace(1, "T00515 N2H22978 00118 - Business Type AIRBUS_E_BusinessType_BusinessType not valuated")
+				listOfErrorMessage -> Append("BusinessType is Empty. Please choose your Business Type")
+				listOfError -> Append("AIRBUS_E_BusinessType_BusinessType")
+			}
+			else
+			// If business type value is not empty
+			{
+				if (strPartNumber <> "" AND strPartNumber <> NULL)
+				// If APN is valuated
+				{
+					// Setting SubType
+					if(
+						ThisObject.PrimaryType.Name == "AIRBUS_E_VPMReference_LowerLevel" 
+						AND (strSubType == "" OR strSubType == NULL) 
+						AND strAttrBusinessTypeValue <> "Undefined" 
+						AND strAttrBusinessTypeValue <> "Storable Assembly" 
+						AND strAttrBusinessTypeValue <> "FTA" 
+						AND strAttrBusinessTypeValue <> "StandardPart"
+					)
+					// Subtype not valuated error
+					{
+                        Trace(1, "T00536 N2H22978 00119 - ThisObject primaryType is LowerLevel AND SubType is different of null AND Business Type different of Undefined AND Storable Assembly AND FTA AND StandardPart")
+						Validation = false
+						Trace(1, "SubType <#> is empty or Null",strTitle)
+						listOfErrorMessage -> Append("SubType is mandatory.")
+						listOfError -> Append("SubType")
+					}
+					if(AH_Util::HasNoSubtypeOrUseNaming(strAttrBusinessTypeValue,strPartNumber) == true)
+					//Warn message for the SubType
+					{
+                        Trace(1, "T00545 N2H22978 00120 - ThisObject hasNoSubTypeOrUseNaming is true")
+						listOfWarningMessage -> Append("SubType is computed with Airbus Part Number naming rules in case of error please check your Airbus Part Number.")
+						listOfWarning -> Append("SubType")
+					}
+					if(strAttrBusinessTypeValue=="FTA")
+					{
+							bPartNumberParentMatch = AH_Util::ValidateItemNameVsParentName( ThisObject )
+							if not( bPartNumberParentMatch )
+							// Validation object APN vs parent APN failed
+							{
+								Validation = false
+								Trace( 1, "T00556 N2H22978 00121 - Parent and child airbus part numbers are not common. Please enter common part number" )
+								listOfErrorMessage -> Append( "Parent and child airbus part numbers are not common. Please enter common part number" )
+								listOfError -> Append( "AIRBUS_E_Identification_AirbusPartNumber" )
+							}
+					}
+					
+					if(
+					(strAttrBusinessTypeValue == BT_EXTENDED_ITEM) 
+					OR (strAttrBusinessTypeValue == BT_SPECIALIZED_ITEM)
+					)
+					// For Business Type : BT_EXTENDED_ITEM or BT_SPECIALIZED_ITEM
+					{
+						// Validation of object APN vs parent APN
+						bPartNumberParentMatch = AH_Util::ValidateItemNameVsParentName( ThisObject )
+						
+						if not( bPartNumberParentMatch )
+						// Validation object APN vs parent APN failed
+						{
+							Validation = false
+							Trace( 1, "T00575 N2H22978 00122 - Parent and child airbus part numbers are not common. Please enter common part number" )
+							listOfErrorMessage -> Append( "Parent and child airbus part numbers are not common. Please enter common part number" )
+							listOfError -> Append( "AIRBUS_E_Identification_AirbusPartNumber" )
+						}
+					}
+				}
+
+			}			
+		}
+		
+	   //Start - Added for N2H-16970
+		if(	
+			strAttrBusinessTypeValue == "Undefined" 
+			AND
+			strPartNumber <> "" AND strPartNumber <> NULL
+		)
+		{
+			Trace(1,"T00592 N2H22978 00123 - Business Type is 'Undefined'")
+			Validation = true
+			Trace(1,"T00594 N2H22978 00124 - Validation OK")
+		}	
+	   //End - Added for N2H-16970
+		
+    }
+	else
+	{
+		Trace(1, "T00601 N2H22978 00125 - Business Type AIRBUS_E_BusinessType_BusinessType not initialized in the data")
+	}	
+	
+	
+	if(Validation == false) 
+	{
+		Parameters -> SetAttributeObject("ErrorMessages", listOfErrorMessage)
+		Parameters -> SetAttributeObject("ErrorAttributes", listOfError)
+		Parameters -> SetAttributeObject("WarningAttributes", listOfWarning)
+		Parameters -> SetAttributeObject("WarningMessages", listOfWarningMessage)
+	}
+}
+Trace(1, "END: Executing the script >> AHCS01_Design_VPMReference_PLMAttributesValuationCheck.CATRule")

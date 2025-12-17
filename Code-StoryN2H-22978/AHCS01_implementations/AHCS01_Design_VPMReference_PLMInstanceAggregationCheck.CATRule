@@ -1,0 +1,412 @@
+/* Rule created by ng7da10 10/14/2020 */ 
+
+/* ThisObject -> VPMReference */
+/* Parameters -> RuleContext */
+/* Validation -> BooleanTEST */ 
+
+Include "AH_Util"
+
+/*Variables*/
+Let strErrorMsg (String)
+Let strSuccessMsg (String)
+Let listInstantiatedBy (List)
+Let strBusinessType (String)
+Let strSubType (String)
+Let strParentBT (String)
+Let strParentSubType (String)
+Let strParentType (String)	
+Let bMatchFound (Boolean)
+Let bMatchSubtype (Boolean)
+Let bStringCommon (Boolean)
+Let Reference(PLMEntity)
+Let strFatherNumber(String)
+Let intChildAPNLength(Integer)
+Let intFatherAPNLength(Integer)
+Let strFatherAPN(String)
+Let strChildAPN(String)
+Let intChildAPNSplittedLength(Integer)
+Let strChildAPNSplitted(String)
+Let strChildNumber(String)
+
+Let index(Integer)
+Let BT_SPECIALIZED_ITEM (String)
+Let BT_EXTENDED_ITEM (String)
+Let BT_FTA (String)
+Let BT_ELEMENTARY_PART (String)
+Let SUBTYPE_BLANK_PART (String)
+Let BT_PRODUCTDEFINITION(String)
+Let ST_IFA(String)
+Let ST_FTP(String)
+
+/*Constants*/
+BT_SPECIALIZED_ITEM = "Specialized Item"
+BT_EXTENDED_ITEM = "Extended Item"
+BT_FTA = "FTA"
+Validation = true
+BT_PRODUCTDEFINITION="Project Definition"
+ST_IFA = "IFA"
+ST_FTP="FTP"
+
+Trace(1, "START: Executing the script >> AHCS01_Design_VPMReference_PLMInstanceAggregationCheck.CATRule")
+set Reference = Parameters->GetAttributeObject("ReferenceToInstantiate")
+Trace(1, "T00045 00023 - Reference Value : #",Reference.PrimaryType.Name)
+Trace(1, "T00046 00024 - strBusinessType Value : #",strBusinessType)
+Trace(1, "T00048 00025 - Type Value : #",Reference.PrimaryType.Name)
+if (Reference -> HasAttribute("AIRBUS_E_BusinessType_BusinessType") AND Reference.PrimaryType.Name == "AIRBUS_E_VPMReference_LowerLevel")
+{
+	// Get business type value of Child object
+	strBusinessType = Reference -> GetAttributeString("AIRBUS_E_BusinessType_BusinessType")
+	Trace(1, "T00052 00022 - strBusinessType Value: #",strBusinessType)
+
+	if ((strBusinessType <> NULL) AND (strBusinessType <> ""))
+	{
+		// Get business type value of Parent object
+		if (ThisObject -> HasAttribute("AIRBUS_E_BusinessType_BusinessType"))
+		{
+			strParentBT = ThisObject -> GetAttributeString("AIRBUS_E_BusinessType_BusinessType")
+		}
+		
+		// Get Sub Type value of Parent object
+		if (ThisObject -> HasAttribute("AIRBUS_E_SUBTYPE_SUBTYPE"))
+		{
+			strParentSubType = ThisObject -> GetAttributeString("AIRBUS_E_SUBTYPE_SUBTYPE")
+		}
+		if (strParentSubType == "" OR strParentSubType == NULL)
+		{
+			strParentSubType = "NA"
+		}
+			
+		// Get SubType of child getting aggregated (Instance)
+		if (Reference -> HasAttribute("AIRBUS_E_SUBTYPE_SUBTYPE"))
+		{
+			strSubType = Reference -> GetAttributeString("AIRBUS_E_SUBTYPE_SUBTYPE")		
+		}
+		if (strSubType == "" OR strSubType == NULL)
+		{
+			strSubType = "NA"
+		}
+		
+		strParentType = ThisObject.PrimaryType.Name
+		Trace(1,"T00083 00021 - strParentBT Value: # and strSubType Value: #",strParentBT,strSubType)
+
+			
+		
+		if ((strParentBT <> NULL) AND (strParentBT <> "") AND (strSubType <> NULL) AND (strSubType <> "") AND strBusinessType <> "Undefined" AND strBusinessType <> "StandardPart" ) 
+		{
+			
+			
+		
+			AH_Util:: ValidateParent(strBusinessType, strSubType, strParentBT, strParentSubType, bMatchFound)
+			Trace(1, "==================================> strBusinessType : #",strBusinessType)
+			Trace(1, "==================================> strSubType : #",strSubType)
+			Trace(1, "==================================> strParentBT : #",strParentBT)
+			Trace(1, "==================================> strParentSubType : #",strParentSubType)
+			
+			if (bMatchFound == true) 
+			{
+				if(AH_Util::CheckParentAPN(strBusinessType, strSubType, strParentBT))
+				{
+					bStringCommon = true
+					strFatherNumber = ThisObject -> GetAttributeString("AIRBUS_E_Identification_AirbusPartNumber")
+					strChildNumber = Reference -> GetAttributeString("AIRBUS_E_Identification_AirbusPartNumber") 
+					Trace(1, "T00105 00020 - strParentType Value  : #",strParentType)
+					Trace(1, "T00106 00019 - strFatherNumber Value  : #",strFatherNumber)
+					Trace(1, "T00107 00018 - strChildNumber Value  : #",strChildNumber)
+					index = strChildNumber.Search("-",0,FALSE)
+					
+					Trace(1,"T00110 00011 - Index retreave from strChildNumber index from child is : #",index)
+					if(("" <> strChildNumber) AND (NULL <> strChildNumber) AND ("" <> strFatherNumber) AND (NULL <> strFatherNumber))
+					{
+						
+						if (index  == strFatherNumber.Length())
+						{
+							bStringCommon = ((strChildNumber.Extract(0, index)) == (strFatherNumber.Extract(0, index)))
+							Trace(2,"T00117 00012 - strChildNumberExtract: #",strChildNumber.Extract(0, index))
+							Trace(2,"T00118 00013 - strFatherNumberExtract: #",strFatherNumber.Extract(0, index))
+							Trace(2,"T00119 00014 - bStringCommon Status: #",bStringCommon)
+						}
+						else
+						{
+							if(strBusinessType=="FTA" AND strParentBT=="Project Definition" AND strParentSubType=="IFA")
+							{
+								bStringCommon = ((strChildNumber.Extract(0, index)) == (strFatherNumber.Extract(0, index)))
+							}
+							else
+							{
+								bStringCommon = false
+								Trace(2,"T00123 00015 - strChildNumberExtract: #",strChildNumber.Extract(0, index))
+								Trace(2,"T00128 00016 - strFatherNumberExtract: #",strFatherNumber.Extract(0, index))
+								Trace(2,"T00131 00017 - bStringCommon Status: #",bStringCommon)
+							}
+							
+						}
+					}
+					else 
+					{
+						bStringCommon = false
+					}
+					if (bStringCommon == true)
+					{								
+						strSuccessMsg = "Good match, Instantiation successful"
+						Parameters.Message = strSuccessMsg
+					}
+
+					else
+					{
+						Validation = false
+						strErrorMsg = "Parent and child airbus part numbers are not the same. Please enter identical part numbers."
+						Parameters.Message = strErrorMsg
+						Trace(2,"T00142 00016 - Error Message - Validation false because of different names between parent and child airbus part numbers")
+					}
+				}
+				else
+				{					    
+					strSuccessMsg = "Good match, Instantiation successful"
+					Parameters.Message = strSuccessMsg
+
+				}
+			}
+			else 
+			{	
+				Validation = false
+				strErrorMsg = "Parent BT/Subtype not correct for Instance BT/Subtype. Please choose the correct parent BT/Subtype."
+				Parameters.Message = strErrorMsg
+
+				Trace(2,"T00157 00015 - Error Message - Validation false because of Parent BusinessType and Subtype no matching for instantiation")
+			}
+		}
+			
+	}
+	
+	
+	
+}
+
+if (Reference -> HasAttribute("AIRBUS_E_BusinessType_BusinessType") AND (Reference.PrimaryType.Name == "ElectricalGeometry" OR Reference.PrimaryType.Name == "ElectricalBranchGeometry" OR Reference.PrimaryType.Name == "Electrical3DSystem"))
+{
+	// Get business type value of Child object
+	strBusinessType = Reference -> GetAttributeString("AIRBUS_E_BusinessType_BusinessType")
+	Trace(1, "T00189 N2H22978 00052 - Child BT : strBusinessType #",strBusinessType)
+
+	if ((strBusinessType <> NULL) AND (strBusinessType <> ""))
+	{
+		// Get business type value of Parent object
+		if (ThisObject -> HasAttribute("AIRBUS_E_BusinessType_BusinessType"))
+		{
+			strParentBT = ThisObject -> GetAttributeString("AIRBUS_E_BusinessType_BusinessType")
+			Trace(1, "T00197 N2H22978 00053 - Parent BusinessType: #",strParentBT)
+		}
+
+		strSubType = "NA"
+		strParentType = ThisObject.PrimaryType.Name
+		Trace(1,"T00202 N2H22978 00050 - strParentBT - # strParentType - #",strParentBT,strParentType)
+		Trace(1,"T00203 N2H22978 00051 - strBusinessType - # strSubType - #",strBusinessType,strSubType )
+
+		if ((strParentBT <> NULL) AND (strParentBT <> "")) 
+		{
+			AH_Util::ValidateParentBTForSubType(strBusinessType, strSubType, strParentBT, strParentType, bMatchFound)		
+			if (bMatchFound == true) 
+			{
+				bStringCommon = true
+				strFatherAPN = ThisObject -> GetAttributeString("AIRBUS_E_Identification_AirbusPartNumber")
+				strChildAPN = Reference -> GetAttributeString("AIRBUS_E_Identification_AirbusPartNumber") 
+				Trace(1, "strFatherAPN : #",strFatherAPN)
+				Trace(1, "strChildAPN : #",strChildAPN)
+
+				// Check if strChildAPN and strFatherAPN are not Empty.
+				if(("" <> strChildAPN) AND (NULL <> strChildAPN) AND ("" <> strFatherAPN) AND (NULL <> strFatherAPN)) 
+				{
+					intChildAPNLength = strChildAPN.Length()
+					intFatherAPNLength = strFatherAPN.Length()
+					strChildAPNSplitted = strChildAPN.Extract(0, intFatherAPNLength)
+					intChildAPNSplittedLength = strChildAPNSplitted.Length()
+					Trace(1, "T00223 N2H22978 00054 - child APN splitted #", strChildAPNSplitted)
+					Trace(1, "T00224 N2H22978 00059 - Length of the Father APN =  #", intFatherAPNLength)
+					Trace(1, "T00225 N2H22978 00058 - Length of the child APN =  #", intChildAPNLength)
+					Trace(1, "T00226 N2H22978 00058 - Length of the child APN splitted =  #", intChildAPNSplittedLength)
+					bStringCommon = (strChildAPNSplitted == strFatherAPN)
+					Trace(1, "T00228 N2H22978 00060 - Parent APN and child APN have the same base : ", bStringCommon)
+				}
+				else 
+				{
+					bStringCommon = false
+				}
+
+				if (bStringCommon == true)
+				{								
+					strSuccessMsg = "Good match, Instantiation succesful"
+					Parameters.Message = strSuccessMsg
+				} 
+				else
+				{
+					Validation = false
+					strErrorMsg = "Parent and child airbus part numbers are not common. Please enter common part number."
+					Parameters.Message = strErrorMsg
+				}
+			}
+			else 
+			{	
+				Validation = false
+				strErrorMsg = "Parent BT/parent type not correct for Instance Subtype. Please choose the correct parent BT/parent type."
+				Parameters.Message = strErrorMsg
+			}
+		}
+	}
+}
+
+Trace(1, ">>> START: Modification done to Insert Drawing type under EP/SA/Dummy Non 3D CAD")
+if (Reference -> HasAttribute("AIRBUS_E_BusinessType_BusinessType") AND Reference.PrimaryType.Name == "AIRBUS_E_VPMReference_StandardComponent")
+{
+	
+	
+	// Get business type value of Child object
+	strBusinessType = Reference -> GetAttributeString("AIRBUS_E_BusinessType_BusinessType")
+	Trace(1, "T00176 00014 - strBusinessType Value of Child Object - strBusinessType: #",strBusinessType)
+
+		
+		// Get business type value of Parent object
+		if (ThisObject -> HasAttribute("AIRBUS_E_BusinessType_BusinessType"))
+		{
+			strParentBT = ThisObject -> GetAttributeString("AIRBUS_E_BusinessType_BusinessType")
+		}
+		
+		// Get Sub Type value of Parent object
+		if (ThisObject -> HasAttribute("AIRBUS_E_SUBTYPE_SUBTYPE"))
+		{
+			strParentSubType = ThisObject -> GetAttributeString("AIRBUS_E_SUBTYPE_SUBTYPE")
+		}
+			
+		if(strParentSubType == "IFP" AND strParentBT == "Project Definition"){
+				Validation = false
+				strErrorMsg = "Parent BT/Subtype not correct for Instance BT/Subtype. Please choose the correct parent BT/Subtype."
+				Parameters.Message = strErrorMsg
+				Trace(2,"T00195 00013 - Error Message -Validation false because of bad instanciation")
+		}
+}
+		strParentType = ThisObject.PrimaryType.Name
+		Trace(1,"T00199 00012 - strParentBT Value and strSubType Value - strParentBT: # and strSubType: #",strParentBT,strSubType)
+		Trace(1,"T00200 00011 - Validation Status - Validation: #",Validation)
+if (Reference -> HasAttribute("AIRBUS_E_BusinessType_BusinessType") AND Reference.PrimaryType.Name == "Drawing")
+{	
+	
+	// Get business type value of Child object
+	strBusinessType = Reference -> GetAttributeString("AIRBUS_E_BusinessType_BusinessType")
+	Trace(1, "T00206 00010 - Value of strBusiness - strBusinessType: #",strBusinessType)
+
+	if ((strBusinessType <> NULL) AND (strBusinessType <> ""))
+	{
+		// Get business type value of Parent object
+		if (ThisObject -> HasAttribute("AIRBUS_E_BusinessType_BusinessType"))
+		{
+			strParentBT = ThisObject -> GetAttributeString("AIRBUS_E_BusinessType_BusinessType")
+		}
+		
+		// Get Sub Type value of Parent object
+		if (ThisObject -> HasAttribute("AIRBUS_E_SUBTYPE_SUBTYPE"))
+		{
+			strParentSubType = ThisObject -> GetAttributeString("AIRBUS_E_SUBTYPE_SUBTYPE")
+		}
+		if (strParentSubType == "" OR strParentSubType == NULL)
+		{
+			strParentSubType = "NA"
+		}
+			
+		// Get SubType of child getting aggregated (Instance)
+		if (Reference -> HasAttribute("AIRBUS_E_SUBTYPE_SUBTYPE"))
+		{
+			strSubType = Reference -> GetAttributeString("AIRBUS_E_SUBTYPE_SUBTYPE")		
+		}
+		if (strSubType == "" OR strSubType == NULL)
+		{
+			strSubType = "NA"
+		}
+		
+		strParentType = ThisObject.PrimaryType.Name
+		Trace(1,"T00237 00009 - Value of strParentBT and strSubType - strParentBT: # and strSubType: #",strParentBT,strSubType)
+		
+		if ((strParentBT <> NULL) AND (strParentBT <> "") AND (strSubType <> NULL) AND (strSubType <> "")) 
+		{
+			AH_Util:: ValidateParent(strBusinessType, strSubType, strParentBT, strParentSubType, bMatchFound)
+			Trace(1, "T00242 00008 - Value of bMatchFound ValidateParent's Parameter - bMatchFound: #",bMatchFound)
+			strChildNumber = Reference -> GetAttributeString("AIRBUS_E_Identification_AirbusPartNumber")
+			if (bMatchFound == true) 
+			{
+				// Start N2H-20751
+				if(AH_Util::CheckParentAPN(strBusinessType, strSubType, strParentBT))
+				{
+					// For APN dependent on the parent, check that the rule is respected
+					Trace(1,"T00260 20751 12345 - Value of strBusinessType - Call of AH Utile AND strBusinessType: #",strBusinessType)
+
+					bStringCommon = true
+					strFatherNumber = ThisObject -> GetAttributeString("AIRBUS_E_Identification_AirbusPartNumber")
+					strChildNumber = Reference -> GetAttributeString("AIRBUS_E_Identification_AirbusPartNumber") 
+					Trace(1, "T00266 20751 12346 - Value strParentType - strParentType : #",strParentType)
+					Trace(1, "T00267 20751 12347 - Value strFatherNumber - strFatherNumber : #",strFatherNumber)
+					Trace(1, "T00268 20751 12348 - Value strChildNumber - strChildNumber : #",strChildNumber)
+
+					if (("" <> strChildNumber) AND (NULL <> strChildNumber) AND ("" <> strFatherNumber) AND (NULL <> strFatherNumber))
+					{
+
+						if (strFatherNumber.Length() == strChildNumber.Length() AND strChildNumber == strFatherNumber)
+						{
+							bStringCommon = true
+							Trace(1,"T00276 20751 12349 - Check APN lenght between strChild Number and strFatherNumber -  bStringCommon: #",bStringCommon)
+						}
+						else
+						{
+							index = strChildNumber.Search("-",0,FALSE)
+
+							Trace(1,"T00282 20751 12350 - index retreave from strChildNumber.Search - index #",index)
+							if (index  == strFatherNumber.Length() )
+							{
+								Trace(1,"T00285 20751 12351 - Value of strChildNumber.Extract and strFatherNumber.Extract - strChildNumber: # , strFatherNumber: #",strChildNumber.Extract(0, index),strFatherNumber.Extract(0, index))
+								bStringCommon = ((strChildNumber.Extract(0, index)) == (strFatherNumber.Extract(0, index)))
+							}
+							else
+							{
+								bStringCommon = false
+							}
+						}
+					}
+					else 
+					{
+						bStringCommon = false
+					}
+					if (bStringCommon == true)
+					{								
+						strSuccessMsg = "Good match, Instantiation succesful"
+						Parameters.Message = strSuccessMsg
+					}
+					else
+					{
+						Validation = false
+						strErrorMsg = "Parent and child airbus part numbers are not common. Please enter common part number."
+						Parameters.Message = strErrorMsg
+					}
+				}
+				else
+				{					    
+					strSuccessMsg = "Good match, Instantiation succesful"
+					Parameters.Message = strSuccessMsg
+				}
+				// End N2H-20751			
+			}
+			else 
+
+			{	
+				Validation = false
+				strErrorMsg = "Parent BT/Subtype not correct for Instance BT/Subtype. Please choose the correct parent BT/Subtype."
+				Parameters.Message = strErrorMsg
+			}
+
+
+		}
+	}
+	
+}
+Trace(1, ">>> END: Modification done to Insert Drawing type under EP/SA/Dummy Non 3D CAD")
+if (Validation == false)
+{
+	Parameters.Message = strErrorMsg
+}
+Trace(1, "END: Executing the script >> AHCS01_Design_VPMReference_PLMInstanceAggregationCheck.CATRule")

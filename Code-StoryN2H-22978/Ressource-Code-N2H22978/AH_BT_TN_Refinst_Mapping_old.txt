@@ -1,0 +1,7 @@
+BusinessType	Reference	Instance
+Elementary Part	X	X
+Storable Assembly	X	X
+Specialized Item		X
+FTA		X
+Refer To		X
+Extended Item	X	X

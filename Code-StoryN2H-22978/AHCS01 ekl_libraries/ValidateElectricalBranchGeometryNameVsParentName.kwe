@@ -1,0 +1,112 @@
+/* 
+Method: ValidateElectricalBranchGeometryNameVsParentName
+This function returns TRUE if the Airbus Part Nubmer of Electrical Branch geometry is aligned with the Electrical Geometry.
+Parameters:
+Returned type Boolean
+iChildRef (VPMReference) IN
+oBooleanIsStringCommon (String) OUT
+*/
+
+Let listReferences (List)
+Let strAttributeAirbusPartNumber(String)
+Let refActualObject (VPMReference)
+Let listInstances (List)
+Let bObjectIsBeingCreated (Boolean)
+Let instActualObject (VPMInstance)
+Let refParent (VPMReference)
+Let lengthOfObject(Integer)
+Let strParentName(String)
+Let strparentType (String)    
+Let strBusinessType(String)
+Let refRoot (VPMReference)
+Let oBooleanIsStringCommon(Boolean)
+Let strAttributeAPNValue (String)
+Let listRoots (List)
+
+strAttributeAirbusPartNumber = "AIRBUS_E_Identification_AirbusPartNumber"
+
+Trace( 1, "Start Function ---> ValidateElectricalBranchGeometryNameVsParentName()" )
+
+// Get all the roots of the session, if no roots found, this list will be empty.
+listRoots = GetEditorRoots( "VPMReference" )
+if listRoots.Size() > 0
+{
+    refRoot = listRoots[1]
+}
+else
+{
+    ToReturn = true
+    exit
+}
+
+// Get the actual reference of the object
+if iChildRef <> NULL
+{
+    Trace( 2, "iChildRef ID = #", iChildRef.PLM_ExternalID )
+    listReferences = refRoot->Query( "VPMReference", "x.PLM_ExternalID == \"" + iChildRef.PLM_ExternalID + "\"" )
+}
+else
+{
+    Trace( 2, "iChildRef is NULL!" )
+}
+
+// The list above might be empty if the object iChildRef is being created
+if listReferences.Size() > 0
+{
+    refActualObject = listReferences[1]
+}
+
+// Get an instance of the actual object
+if refActualObject <> NULL
+{
+    listInstances = refActualObject.ListInstances( refRoot )
+}
+
+if listInstances.Size() > 0
+{
+    instActualObject = listInstances[1]
+    bObjectIsBeingCreated = false
+}
+else
+{
+    bObjectIsBeingCreated = true
+}
+
+// Get the parent of the object
+if instActualObject <> NULL
+{
+    set refParent = instActualObject.Owner
+}
+
+if ( iChildRef.HasAttribute( strAttributeAirbusPartNumber ) and refParent <> NULL and not( bObjectIsBeingCreated ) )
+{
+    strparentType = refParent.PrimaryType.Name
+    strAttributeAPNValue = iChildRef.GetAttributeString( strAttributeAirbusPartNumber )
+    strBusinessType = iChildRef.GetAttributeString("AIRBUS_E_BusinessType_BusinessType")
+    strParentName = refParent.GetAttributeString( strAttributeAirbusPartNumber )
+    lengthOfObject = strAttributeAPNValue.Search("-",0 ,FALSE)
+
+    if (lengthOfObject == strParentName.Length())
+    {
+    oBooleanIsStringCommon = ((strAttributeAPNValue.Extract(0, lengthOfObject)) == (strParentName.Extract(0, lengthOfObject)))
+    ToReturn = oBooleanIsStringCommon
+    } 
+    else
+    {
+        oBooleanIsStringCommon = false
+        ToReturn = oBooleanIsStringCommon
+    }
+    
+}
+else if (bObjectIsBeingCreated)
+{
+    Trace( 2, "Object # is being created.", iChildRef.PLM_ExternalID )
+    ToReturn = true
+}
+else
+{
+    Trace( 2, "Either there was no Airbus Part Number attribute on Object, or for some reason, refParent = NULL" )
+    ToReturn = false
+}
+Trace( 2, "ToReturn = #", ToReturn )
+Trace(1,"End Function ---> ValidateElectricalBranchGeometryNameVsParentName()")

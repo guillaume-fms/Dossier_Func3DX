@@ -1,0 +1,156 @@
+BUSINESS_TYPE	SUBTYPE	SUBTYPE_PATTERN	PARENT_BUSINESS_TYPE	PARENT_TYPE	RESTRICTED_PARENT_BT	USE_NAMING_RULE	SUBTYPE_DESC	PARENT_SUBTYPE	CHECK_PARENT_APN
+Elementary Part	BlankPart	[A-Z0-9]{6}H[0-9]{4}[A-Z0-9]{4}	Elementary Part	NA	NA	YES	NA	ElementaryPart	NO
+Elementary Part	BlankPart	[A-Z0-9]{6}H[0-9]{4}[A-Z0-9]{4}	Storable Assembly	NA	NA	YES	NA	NA	NO
+Elementary Part	BlankPart	[A-Z0-9]{6}H[0-9]{4}[A-Z0-9]{4}	Specialized Item	NA	NA	YES	NA	NA	NO
+Elementary Part	ElementaryPart	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}	Storable Assembly	NA	NA	NO	NA	NA	NO
+Elementary Part	ElementaryPart	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}	Specialized Item	NA	NA	NO	NA	NA	NO
+Elementary Part	ElementaryPart	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}	EM	NA	NA	NO	NA	NA	NO
+Elementary Part	ElementaryPart	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}	Refer To	NA	NA	NO	NA	NA	NO
+Elementary Part	SheetMetalPart	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}	Storable Assembly	NA	NA	NO	NA	NA	NO
+Elementary Part	SheetMetalPart	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}	Specialized Item	NA	NA	NO	NA	NA	NO
+Elementary Part	SheetMetalPart	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}	EM	NA	NA	NO	NA	NA	NO
+Elementary Part	SheetMetalPart	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}	Refer To	NA	NA	NO	NA	NA	NO
+Elementary Part	MechanicalMachining	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}	Storable Assembly	NA	NA	NO	NA	NA	NO
+Elementary Part	MechanicalMachining	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}	Specialized Item	NA	NA	NO	NA	NA	NO
+Elementary Part	MechanicalMachining	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}	EM	NA	NA	NO	NA	NA	NO
+Elementary Part	MechanicalMachining	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}	Refer To	NA	NA	NO	NA	NA	NO
+Elementary Part	Composites	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}	Storable Assembly	NA	NA	NO	NA	NA	NO
+Elementary Part	Composites	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}	Specialized Item	NA	NA	NO	NA	NA	NO
+Elementary Part	Composites	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}	EM	NA	NA	NO	NA	NA	NO
+Elementary Part	Composites	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}	Refer To	NA	NA	NO	NA	NA	NO
+Elementary Part	3DPrinting	[A-Z0-9]{6}J[0-9]{4}[A-Z0-9]{4}	Storable Assembly	NA	NA	YES	NA	NA	NO
+Elementary Part	3DPrinting	[A-Z0-9]{6}J[0-9]{4}[A-Z0-9]{4}	Specialized Item	NA	NA	YES	NA	NA	NO
+Elementary Part	3DPrinting	[A-Z0-9]{6}J[0-9]{4}[A-Z0-9]{4}	EM	NA	NA	YES	NA	NA	NO
+Elementary Part	3DPrinting	[A-Z0-9]{6}J[0-9]{4}[A-Z0-9]{4}	Refer To	NA	NA	YES	NA	NA	NO
+Elementary Part	Pipe	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}	Storable Assembly	NA	NA	NO	NA	NA	NO
+Elementary Part	Pipe	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}	Specialized Item	NA	NA	NO	NA	NA	NO
+Elementary Part	Pipe	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}	EM	NA	NA	NO	NA	NA	NO
+Elementary Part	Pipe	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}	Refer To	NA	NA	NO	NA	NA	NO
+Elementary Part	NA	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}	Storable Assembly	NA	NA	NO	NA	NA	NO
+Elementary Part	NA	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}	Specialized Item	NA	NA	NO	NA	NA	NO
+Elementary Part	NA	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}	EM	NA	NA	NO	NA	NA	NO
+Elementary Part	NA	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}	Refer To	NA	NA	NO	NA	NA	NO
+Storable Assembly	NA	[A-Z0-9]{6}E[0-9]{4}[A-Z0-9]{4}	EM	NA	NA	NO	NA	NA	NO
+Storable Assembly	NA	[A-Z0-9]{6}E[0-9]{4}[A-Z0-9]{4}	Refer To	NA	NA	NO	NA	NA	NO
+Storable Assembly	NA	[A-Z0-9]{6}E[0-9]{4}[A-Z0-9]{4}	Storable Assembly	NA	NA	NO	NA	NA	NO
+Storable Assembly	NA	[A-Z0-9]{6}E[0-9]{4}[A-Z0-9]{4}	Specialized Item	NA	NA	NO	NA	NA	NO
+Storable Assembly	SheetMetalPart_Sub_assembly	[A-Z0-9]{6}E[0-9]{4}[A-Z0-9]{4}	EM	NA	NA	NO	NA	NA	NO
+Storable Assembly	SheetMetalPart_Sub_assembly	[A-Z0-9]{6}E[0-9]{4}[A-Z0-9]{4}	Storable Assembly	NA	NA	NO	NA	NA	NO
+Storable Assembly	SheetMetalPart_Sub_assembly	[A-Z0-9]{6}E[0-9]{4}[A-Z0-9]{4}	Specialized Item	NA	NA	NO	NA	NA	NO
+Storable Assembly	MechanicalMachining_Sub_Assembly	[A-Z0-9]{6}E[0-9]{4}[A-Z0-9]{4}	EM	NA	NA	NO	NA	NA	NO
+Storable Assembly	MechanicalMachining_Sub_Assembly	[A-Z0-9]{6}E[0-9]{4}[A-Z0-9]{4}	Storable Assembly	NA	NA	NO	NA	NA	NO
+Storable Assembly	MechanicalMachining_Sub_Assembly	[A-Z0-9]{6}E[0-9]{4}[A-Z0-9]{4}	Specialized Item	NA	NA	NO	NA	NA	NO
+Storable Assembly	Composites_Sub_assembly	[A-Z0-9]{6}E[0-9]{4}[A-Z0-9]{4}	EM	NA	NA	NO	NA	NA	NO
+Storable Assembly	Composites_Sub_assembly	[A-Z0-9]{6}E[0-9]{4}[A-Z0-9]{4}	Storable Assembly	NA	NA	NO	NA	NA	NO
+Storable Assembly	Composites_Sub_assembly	[A-Z0-9]{6}E[0-9]{4}[A-Z0-9]{4}	Specialized Item	NA	NA	NO	NA	NA	NO
+Storable Assembly	StorableAssembly	[A-Z0-9]{6}E[0-9]{4}[A-Z0-9]{4}	EM	NA	NA	NO	NA	NA	NO
+Storable Assembly	StorableAssembly	[A-Z0-9]{6}E[0-9]{4}[A-Z0-9]{4}	Storable Assembly	NA	NA	NO	NA	NA	NO
+Storable Assembly	StorableAssembly	[A-Z0-9]{6}E[0-9]{4}[A-Z0-9]{4}	Specialized Item	NA	NA	NO	NA	NA	NO
+Storable Assembly	WeldedPart	[A-Z0-9]{6}G[0-9]{4}[A-Z0-9]{4}	EM	NA	NA	NO	NA	NA	NO
+Storable Assembly	WeldedPart	[A-Z0-9]{6}G[0-9]{4}[A-Z0-9]{4}	Storable Assembly	NA	NA	NO	NA	NA	NO
+Storable Assembly	WeldedPart	[A-Z0-9]{6}G[0-9]{4}[A-Z0-9]{4}	Specialized Item	NA	NA	NO	NA	NA	NO
+FTA	NA	[A-Z0-9]{15}-FTA(00[1-9]|[0-9][1-9][0-9]|[1-9]0[0-9])	EM	NA	NA	YES	NA	NA	NO
+FTA	NA	[A-Z0-9]{15}-FTA(00[1-9]|[0-9][1-9][0-9]|[1-9]0[0-9])	Elementary Part	NA	NA	YES	NA	NA	YES
+FTA	NA	[A-Z0-9]{15}-FTA(00[1-9]|[0-9][1-9][0-9]|[1-9]0[0-9])	Storable Assembly	NA	NA	YES	NA	NA	YES
+FTA	NA	[A-Z0-9]{15}-FTA(00[1-9]|[0-9][1-9][0-9]|[1-9]0[0-9])	Project Definition	NA	NA	YES	NA	IFA	YES
+FTA	NA	[A-Z0-9]{15}-[A-Z0-9]{6}-FTA(00[1-9]|[0-9][1-9][0-9]|[1-9]0[0-9])	Specialized Item	NA	NA	YES	NA	NA	YES
+Specialized Item	DesignSpaceAllocationforStructure	[A-Z0-9]{15}-DSA/d{3}	EM	NA	NA	YES	NA	NA	NO
+Specialized Item	DesignSpaceAllocationforStructure	[A-Z0-9]{15}-DSA/d{3}	Storable Assembly	NA	NA	YES	NA	NA	YES
+Specialized Item	DesignSpaceAllocationforEquipment	[A-Z0-9]{15}-ESA/d{3}	EM	NA	NA	YES	NA	NA	NO
+Specialized Item	DesignSpaceAllocationforEquipment	[A-Z0-9]{15}-ESA/d{3}	Storable Assembly	NA	NA	YES	NA	NA	YES
+Specialized Item	MaintainabilitySpaceAllocation	[A-Z0-9]{15}-MSA/d{3}	EM	NA	NA	YES	NA	NA	NO
+Specialized Item	MaintainabilitySpaceAllocation	[A-Z0-9]{15}-MSA/d{3}	Storable Assembly	NA	NA	YES	NA	NA	YES
+Specialized Item	VirtualSpaceAllocation	[A-Z0-9]{15}-VSA/d{3}	EM	NA	NA	YES	NA	NA	NO
+Specialized Item	VirtualSpaceAllocation	[A-Z0-9]{15}-VSA/d{3}	Storable Assembly	NA	NA	YES	NA	NA	YES
+Specialized Item	SweptVolume	[A-Z0-9]{15}-SWV/d{3}	EM	NA	NA	YES	NA	NA	NO
+Specialized Item	SweptVolume	[A-Z0-9]{15}-SWV/d{3}	Storable Assembly	NA	NA	YES	NA	NA	YES
+Specialized Item	SafetySpaceAllocation	[A-Z0-9]{15}-SSA/d{3}	EM	NA	NA	YES	NA	NA	NO
+Specialized Item	SafetySpaceAllocation	[A-Z0-9]{15}-SSA/d{3}	Storable Assembly	NA	NA	YES	NA	NA	YES
+Specialized Item	ProductionSpaceAllocation	[A-Z0-9]{15}-PSA/d{3}	EM	NA	NA	YES	NA	NA	NO
+Specialized Item	ProductionSpaceAllocation	[A-Z0-9]{15}-PSA/d{3}	Storable Assembly	NA	NA	YES	NA	NA	YES
+Specialized Item	cProtectionorInterfayusingProtectiveTreatmentCode	[A-Z0-9]{15}-PI(([0-9][0-9][0-9][1-9])|([0-9][1-9][0-9][0])|([0-9][0-9][1-9][0])|([1-9][0]{3}))	EM	NA	NA	YES	NA	NA	NO
+Specialized Item	cProtectionorInterfayusingProtectiveTreatmentCode	[A-Z0-9]{15}-PI(([0-9][0-9][0-9][1-9])|([0-9][1-9][0-9][0])|([0-9][0-9][1-9][0])|([1-9][0]{3}))	Storable Assembly	NA	NA	YES	NA	NA	YES
+Specialized Item	DocumentLocation	[A-Z0-9]{15}-LOC(([0-9]{2}[1-9])|([1-9][0-9]0)|([0-9][1-9]0))	Dummy Non 3D CAD	NA	NA	YES	NA	NA	YES
+Specialized Item	ExtendedWelding	[A-Z0-9]{15}-WDG(([0-9][0-9][1-9])|([1-9][0-9][0-9])|([0-9][1-9][0-9]))	Storable Assembly	NA	NA	YES	NA	NA	YES
+Specialized Item	cSimpleAlternative	[A-Z0-9]{15}-CSA(([0-9][0-9][1-9])|([0-9][1-9][0-9])|([1-9][0-9][0-9]))	EM	NA	NA	YES	NA	NA	NO
+Specialized Item	cComplexAlternative	[A-Z0-9]{15}-CCA(([0-9][0-9][1-9])|([0-9][1-9][0-9])|([1-9][0-9][0-9]))	EM	NA	NA	YES	NA	NA	NO
+Specialized Item	ExtendedSimpleAlternative	[A-Z0-9]{6}E[0-9]{4}[A-Z0-9]{4}-EXA(([0-9][0-9][1-9])|([0-9][1-9][0-9])|([1-9][0-9][0-9]))	Storable Assembly	NA	NA	YES	NA	NA	YES	
+Extended Item	CuttingItem	.+-CUT/d{3}	Elementary Part	NA	NA	YES	NA	NA	YES
+Extended Item	CuttingItem	.+-CUT/d{3}	Storable Assembly	NA	NA	YES	NA	NA	YES
+Extended Item	MarkingcontainerfollowingABD0003	.+-MKG/d{3}	Elementary Part	NA	NA	YES	NA	NA	YES
+Extended Item	MarkingcontainerfollowingABD0003	.+-MKG/d{3}	Storable Assembly	NA	NA	YES	NA	NA	YES
+Extended Item	SolidEnvelopPart	.+-(SEP(([0-9][0-9][1-9])|([1-9][0-9][0-9])|([0-9][1-9][0-9])))	Storable Assembly	NA	NA	YES	NA	NA	YES
+Extended Item	SolidEnvelopPart	[A-Z0-9]{6}E[0-9]{4}[A-Z0-9]{4}-RTSA-.+-(SEP(([0-9][0-9][1-9])|([1-9][0-9][0-9])|([0-9][1-9][0-9])))	Refer To	NA	NA	YES	NA	RTSA	YES
+Extended Item	SolidEnvelopPart	.+-(CDP(([0-9][0-9][1-9])|([1-9][0-9][0-9])|([0-9][1-9][0-9])))	Elementary Part	NA	NA	YES	NA	NA	YES
+Extended Item	CompositeDesignedPlies	.+-(CPD(([0-9][0-9][1-9])|([1-9][0-9][0-9])|([0-9][1-9][0-9])))	Storable Assembly	NA	NA	YES	NA	NA	YES
+Extended Item	CompositeDesignedPlies	.+-(CPD(([0-9][0-9][1-9])|([1-9][0-9][0-9])|([0-9][1-9][0-9])))	Elementary Part	NA	NA	YES	NA	NA	YES
+Extended Item	ToolingSurface	.+-(SUR(([0-9][0-9][1-9])|([1-9][0-9][0-9])|([0-9][1-9][0-9])))	Storable Assembly	NA	NA	YES	NA	NA	YES
+Extended Item	ToolingSurface	.+-(SUR(([0-9][0-9][1-9])|([1-9][0-9][0-9])|([0-9][1-9][0-9])))	Elementary Part	NA	NA	YES	NA	NA	YES
+Extended Item	StudySolidDefinition	.+-(STU(([0-9][0-9][1-9])|([1-9][0-9][0-9])|([0-9][1-9][0-9])))	Storable Assembly	NA	NA	YES	NA	NA	YES
+Extended Item	StudySolidDefinition	.+-(STU(([0-9][0-9][1-9])|([1-9][0-9][0-9])|([0-9][1-9][0-9])))	Elementary Part	NA	NA	YES	NA	NA	YES
+Refer To	RTEP	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}-RTEP-.+	EM	NA	NA	YES	NA	NA	NO
+Refer To	RTEP	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}-RTEP-.+	Specialized Item	NA	NA	YES	NA	NA	NO
+Refer To	RTEP	[A-Z0-9]{6}J[0-9]{4}[A-Z0-9]{4}-RTEP-.+	EM	NA	NA	YES	NA	NA	NO
+Refer To	RTSA	[A-Z0-9]{6}E[0-9]{4}[A-Z0-9]{4}-RTSA-.+	EM	NA	NA	YES	NA	NA	NO
+Refer To	RTSA	[A-Z0-9]{6}E[0-9]{4}[A-Z0-9]{4}-RTSA-.+	Specialized Item	NA	NA	YES	NA	NA	NO
+Refer To	RTSP	.+-RTSP-.+	Specialized Item	NA	NA	YES	NA	NA	NO
+Refer To	RTSP	.+-RTSP-.+	EM	NA	NA	YES	NA	NA	NO
+Refer To	RTMT	.+-RTMT-.+	EM	NA	NA	YES	NA	NA	NO
+Refer To	RTMT	.+-RTMT-.+	Specialized Item	NA	NA	YES	NA	NA	NO
+Refer To	RTEP	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}-RTEP-.+	Storable Assembly	NA	NA	YES	NA	NA	NO
+Refer To	RTEP	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}-RTEP-.+	Specialized Item	NA	NA	YES	NA	NA	NO
+Refer To	RTEP	[A-Z0-9]{6}J[0-9]{4}[A-Z0-9]{4}-RTEP-.+	Storable Assembly	NA	NA	YES	NA	NA	NO
+Refer To	RTSP	.+-RTSP-.+	Storable Assembly	NA	NA	YES	NA	NA	NO
+Refer To	RTSP	.+-RTSP-.+	Specialized Item	NA	NA	YES	NA	NA	NO
+Refer To	RTMT	.+-RTMT-.+	Storable Assembly	NA	NA	YES	NA	NA	NO
+Refer To	RTEP	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}-RTEP-.+	Refer To	NA	NA	YES	NA	RTSA	NO
+Refer To	RTEP	[A-Z0-9]{6}J[0-9]{4}[A-Z0-9]{4}-RTEP-.+	Refer To	NA	NA	YES	NA	RTSA	NO
+Refer To	RTSA	[A-Z0-9]{6}E[0-9]{4}[A-Z0-9]{4}-RTSA-.+	Refer To	NA	NA	YES	NA	RTSA	NO
+Refer To	RTSP	.+-RTSP-.+	Refer To	NA	NA	YES	NA	RTSA	NO
+Refer To	RTSP	.+-RTSP-.+	Specialized Item	NA	NA	YES	NA	RTSA	NO
+Refer To	RTMT	.+-RTMT-.+	Refer To	NA	NA	YES	NA	RTSA	NO
+Refer To	RTSP	.+-RTSP-.+	Project Definition	NA	NA	YES	NA	IFA	NO
+Refer To	RTMT	.+-RTMT-.+	Project Definition	NA	NA	YES	NA	IFA	NO
+Refer To	RTEP	[A-Z0-9]{6}F[0-9]{4}[A-Z0-9]{4}-RTEP-.+	Project Definition	NA	NA	YES	NA	IFA	NO
+Refer To	RTEP	[A-Z0-9]{6}J[0-9]{4}[A-Z0-9]{4}-RTEP-.+	Project Definition	NA	NA	YES	NA	IFA	NO
+Refer To	RTSA	[A-Z0-9]{6}E[0-9]{4}[A-Z0-9]{4}-RTSA-.	Project Definition	NA	NA	YES	NA	IFA	NO
+Dummy Non 3D CAD	cDocument	[A-Z0-9]{15}-DOC([0-9][0-9][1-9]|[0-9][1-9]0|[1-9]00)	EM	NA	NA	YES	NA	NA	NO
+Dummy Non 3D CAD	cDrawing	[A-Z0-9]{15}-DRW([0-9][0-9][1-9]|[0-9][1-9]0|[1-9]00)	EM	NA	NA	YES	NA	NA	NO
+Drawing	NA	[A-Z0-9]{15}-DRW(00[1-9]|0[1-9][0-9]|[1-9][0-9]{2})	Dummy Non 3D CAD	NA	NA	YES	NA	NA	YES
+Drawing	NA	[A-Z0-9]{15}-DRW(00[1-9]|0[1-9][0-9]|[1-9][0-9]{2})-(0[1-9]|[1-9][0-9]|100)	Dummy Non 3D CAD	NA	NA	YES	NA	NA	YES
+Drawing	NA	.*{15}	Storable Assembly	NA	NA	YES	NA	NA	YES
+Drawing	NA	[A-Z0-9]{15}-(0[1-9]|[1-9][0-9])	Storable Assembly	NA	NA	YES	NA	NA	YES
+Drawing	NA	[A-Z0-9]{15}-[A-Z0-9]{6}-(0[1-9]|[1-9][0-9])	Specialized Item	NA	NA	YES	NA	NA	YES
+Drawing	NA	[A-Z0-9]{15}	Elementary Part	NA	NA	YES	NA	NA	YES
+Drawing	NA	[A-Z0-9]{15}-(0[1-9]|[1-9][0-9])	Elementary Part	NA	NA	YES	NA	NA	YES
+Drawing	NA	[A-Z0-9]{15}-IFA(([0-9][0-9][1-9])|([1-9][0][0])|([0-9][1-9][0]))	Project Definition	NA	NA	YES	NA	IFA	YES
+Document	NA	[A-Z0-9]{9}[0-9]{3}-NOT(([0-9][0-9][1-9])|([0-9][1-9][0-9])|([1-9][0-9][0-9]))  cComplexAlternative	NA	NA	YES	NA	NA	YES
+Drawing	NA	[A-Z0-9]{15}-IFA(([0-9][0-9][1-9])|([1-9][0][0])|([0-9][1-9][0]))-(0[1-9]|[1-9][0-9])	Project Definition	NA	NA	YES	NA	IFA	YES
+Project Definition	IFA	[A-Z0-9]{15}-IFA(([0-9][0-9][1-9])|([1-9][0][0])|([0-9][1-9][0]))	EM	NA	NA	YES	NA	NA	NO
+Project Definition	IFA	[A-Z0-9]{15}-IFA(([0-9][0-9][1-9])|([1-9][0][0])|([0-9][1-9][0]))	Project Definition	NA	NA	YES	NA	IFA	NO
+Project Definition	IFP	[A-Z0-9]{15}-IFP(([0-9][0-9][1-9])|([1-9][0][0])|([0-9][1-9][0]))	Project Definition	NA	NA	YES	NA	IFA	NO
+Project Definition	PDA	[A-Z0-9]{15}-PDA(([0-9][0-9][1-9])|([1-9][0][0])|([0-9][1-9][0]))	EM	NA	NA	YES	NA	NA	NO
+Project Definition	PDA	[A-Z0-9]{15}-PDA(([0-9][0-9][1-9])|([1-9][0][0])|([0-9][1-9][0]))	Project Definition	NA	NA	YES	NA	PDA	NO
+Project Definition	PDP	[A-Z0-9]{15}-PDP(([0-9][0-9][1-9])|([1-9][0][0])|([0-9][1-9][0]))	EM	NA	NA	YES	NA	NA	NO
+Project Definition	PDP	[A-Z0-9]{15}-PDP(([0-9][0-9][1-9])|([1-9][0][0])|([0-9][1-9][0]))	Project Definition	NA	NA	YES	NA	PDA	NO
+Project Definition	PDR	[A-Z0-9]{15}-PDR(([0-9][0-9][1-9])|([1-9][0][0])|([0-9][1-9][0]))	EM	NA	NA	YES	NA	NA	NO
+Project Definition	PDR	[A-Z0-9]{15}-PDR(([0-9][0-9][1-9])|([1-9][0][0])|([0-9][1-9][0]))	Project Definition	NA	NA	YES	NA	PDA	NO
+Project Definition	SKA	[A-Z0-9]{15}-SKA(([0-9][0-9][1-9])|([1-9][0][0])|([0-9][1-9][0]))	EM	NA	NA	YES	NA	NA	NO
+Project Definition	SKA	[A-Z0-9]{15}-SKA(([0-9][0-9][1-9])|([1-9][0][0])|([0-9][1-9][0]))	Project Definition	NA	NA	YES	NA	SKA	NO
+Project Definition	SKP	[A-Z0-9]{15}-SKP(([0-9][0-9][1-9])|([1-9][0][0])|([0-9][1-9][0]))	EM	NA	NA	YES	NA	NA	NO
+Project Definition	SKP	[A-Z0-9]{15}-SKP(([0-9][0-9][1-9])|([1-9][0][0])|([0-9][1-9][0]))	Project Definition	NA	NA	YES	NA	SKA	NO
+EHI	VEU	[0-9A-Z]{15}-VEU[0-9]{3}	EM			NO	NA	NA
+EHI	HRN	[0-9A-Z]{15}-HRN[0-9]{3}	EM			NO	NA	NA
+EHI	FIF	[0-9A-Z]{15}-FIF[0-9]{3}	EM			NO	NA	NA
+EHI	VEU	[0-9A-Z]{15}-VEU[0-9]{3}	EM			YES	NA	NA
+EHI	HRN	[0-9A-Z]{15}-HRN[0-9]{3}	EM			YES	NA	NA
+EHI	FIF	[0-9A-Z]{15}-FIF[0-9]{3}	EM			YES	NA	NA
+EHI	VEU	[0-9A-Z]{15}-VEU[0-9]{3}	Early Data Drop			NO	NA	NA
+EHI	HRN	[0-9A-Z]{15}-HRN[0-9]{3}	Early Data Drop			NO	NA	NA
+EHI	FIF	[0-9A-Z]{15}-FIF[0-9]{3}	Early Data Drop			NO	NA	NA
+EHI	VEU           [0-9A-Z]{15}-VEU[0-9]{3}	Early Data Drop			YES	NA	NA
+EHI	HRN	[0-9A-Z]{15}-HRN[0-9]{3}	Early Data Drop			YES	NA	NA
+EHI	FIF	[0-9A-Z]{15}-FIF[0-9]{3}	Early Data Drop			YES	NA	NA
+Electrical Geometry	NA	.{22}[A-Z0-9]{2}	EHI			YES	NA	NA
+Electrical Branch Geometry	NA	.*-EBG[0-9]{2}	Electrical Geometry			YES	NA	NA
+Electrical Physical System		.*-EPS[0-9]{2}	EHI			YES	NA	NA

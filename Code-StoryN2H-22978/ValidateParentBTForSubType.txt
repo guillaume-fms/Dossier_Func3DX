@@ -1,0 +1,98 @@
+/* 
+Library AH_Util_klib (Logical Name = AH_Util)
+Method: ValidateParentBTForSubType
+This function Returns TRUE when, the Parent BT and "Child BT + Sub type" is alligned according to "Eurodrone_ManageSubType_Mapping" else it returns FALSE.
+Parameters:
+iStrAttrBusinessType (String) IN
+iStrAttrSubType (String) IN 
+iStrParentType (String) IN
+iStrParentBT(String)IN
+oBooleanPatternMatch (Boolean) OUT
+*/
+	
+Let manageSubTypeFileName = "AH_ManageSubType_Mapping"
+Let list_SubTypePattern(List)
+Let strBusinessTypeColValue(String)
+Let strSubTypeColValue(String)
+Let strParentBTColValue(String)
+Let strParentTypeColValue(String)
+Let strRestrictedParentBT(String)
+Let subtypeFileSheet(DTSheetType)
+Let idxBusinessTypeCol(Integer)
+Let idxSubTypeCol(Integer)
+Let idxParentBTCol(Integer)
+Let idxParentTypeCol(Integer)
+Let idxRestrictedParentBT(Integer)
+Let idxRow(Integer)
+
+idxBusinessTypeCol = 1
+idxSubTypeCol = 2
+idxParentBTCol = 4
+idxParentTypeCol = 5
+idxRestrictedParentBT = 6
+idxRow = 1
+
+oBooleanPatternMatch = false
+
+Trace(2, "START: Function >> ValidateParentBTForSubtype")
+
+subtypeFileSheet = CreateSheet("KnowledgeResources|" + manageSubTypeFileName)
+if (subtypeFileSheet <> NULL)
+{
+	for idxRow while idxRow < subtypeFileSheet.RowsNb 
+	{
+		strBusinessTypeColValue = subtypeFileSheet.CellAsString(idxRow, idxBusinessTypeCol)
+		strSubTypeColValue = subtypeFileSheet.CellAsString(idxRow, idxSubTypeCol)
+        strParentBTColValue = subtypeFileSheet.CellAsString(idxRow, idxParentBTCol)
+        strParentTypeColValue = subtypeFileSheet.CellAsString(idxRow, idxParentTypeCol)
+        strRestrictedParentBT = subtypeFileSheet.CellAsString(idxRow, idxRestrictedParentBT)
+		
+        //Check based on Parent BT
+        if ((strParentBTColValue <> NULL) AND (strParentBTColValue <> "") AND (strParentBTColValue <> "NA")) 
+		{
+            if ((iStrAttrBusinessType == strBusinessTypeColValue) AND (iStrAttrSubType == strSubTypeColValue) AND (iStrParentBT == strParentBTColValue)) 
+			{
+                oBooleanPatternMatch = true
+				Trace(2, "Match parent BT")
+                break
+            }
+        }
+        //Check based on Parent type
+        if ((strParentTypeColValue <> NULL) AND (strParentTypeColValue <> "") AND (strParentTypeColValue <> "NA")) 
+		{
+            //Check to avoid restricted parent business type in special cases
+            if ((strRestrictedParentBT <> NULL) AND (strRestrictedParentBT <> "")) 
+			{
+                if ((iStrAttrBusinessType == strBusinessTypeColValue) AND (iStrAttrSubType == strSubTypeColValue) AND (strRestrictedParentBT == iStrParentBT)) 
+				{
+                    oBooleanPatternMatch = false
+					Trace(2, "Restricted parent BT")
+                    break
+                }
+                else 
+				{
+                    if ((iStrAttrBusinessType == strBusinessTypeColValue) AND (iStrAttrSubType == strSubTypeColValue) AND (iStrParentType ==strParentTypeColValue))
+					{
+                        oBooleanPatternMatch = true
+						Trace(2, "Match parent Type")
+					}
+                }
+            }
+            else 
+			{
+                if ((iStrAttrBusinessType == strBusinessTypeColValue) AND (iStrAttrSubType == strSubTypeColValue) AND (iStrParentType == strParentTypeColValue)) 
+				{
+                    oBooleanPatternMatch = true
+					Trace(2, "Match parent Type")
+                    break
+                }
+            }
+        }	
+	}
+}
+else
+{
+	Trace(1, ">> Error in Knowledge Resource Path : AH_ManageSubType_Mapping sheet <<")
+}
+Trace(2, "patternMatch - #",oBooleanPatternMatch)
+Trace(2, "END: Function >> ValidateParentBTForSubtype")

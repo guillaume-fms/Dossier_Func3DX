@@ -1,0 +1,9 @@
+OBJECT_TYPE	CURRENT_BUSINESS_TYPE	NEW_BUSINESS_TYPE
+AIRBUS_E_VPMReference_LowerLevel	Undefined	Elementary Part
+AIRBUS_E_VPMReference_LowerLevel	Undefined	Storable Assembly
+AIRBUS_E_VPMReference_LowerLevel	Undefined	FTA
+AIRBUS_E_VPMReference_LowerLevel	Undefined	Specialized Item
+AIRBUS_E_VPMReference_LowerLevel	Undefined	Extended Item
+AIRBUS_E_VPMReference_LowerLevel	Undefined	Dummy Non 3D CAD
+AIRBUS_E_VPMReference_LowerLevel	Undefined	Drawing
+AIRBUS_E_VPMReference_LowerLevel	Undefined	Project Definition

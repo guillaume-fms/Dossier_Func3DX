@@ -1,0 +1,88 @@
+/* 
+Library AH_Util_klib (Logical Name = Eurodrone_Util)
+Method ValidateElectricalGeometryNameVsParentName
+
+Returned type Boolean
+iChildRef (VPMReference) IN
+*/
+Trace( 1, "Start executing ---> ValidateElectricalGeometryNameVsParentName()" )
+
+// Get all the roots of the session, if the user does + > New Content from nothing, this list will be empty.
+let lRoots (List)
+lRoots = GetEditorRoots( "VPMReference" )
+
+let Root (VPMReference)
+if lRoots.Size() > 0
+{
+	Root = lRoots[1]
+}
+else
+{
+	ToReturn = true
+	exit
+}
+
+
+// Get the actual reference of the object
+let lReferences (List)
+if iChildRef <> NULL
+{
+	Trace( 2, "iChildRef ID = #", iChildRef.PLM_ExternalID )
+	lReferences = Root->Query( "VPMReference", "x.PLM_ExternalID == \"" + iChildRef.PLM_ExternalID + "\"" )
+}
+else
+{
+	Trace( 2, "iChildRef is NULL!" )
+}
+
+// The list above might be empty if the object iChildRef is being created
+let refActualObject (VPMReference)
+if lReferences.Size() > 0
+{
+	refActualObject = lReferences[1]
+}
+
+// Get an instance of the actual object
+let lInstances (List)
+if refActualObject <> NULL
+{
+	lInstances = refActualObject.ListInstances( Root )
+}
+
+let instActualObject (VPMInstance)
+if lInstances.Size() > 0
+{
+	instActualObject = lInstances[1]
+}
+
+// Get the parent of the object
+let refParent (VPMReference)
+if instActualObject <> NULL
+{
+	set refParent = instActualObject.Owner
+}
+
+
+let attrAirbusPartNumber (String)
+attrAirbusPartNumber = "AIRBUS_E_Identification_AirbusPartNumber"
+
+let bIsStringCommon (Boolean)
+let iStrChildVName (String)
+let iStrParentVName (string)
+let iStrChildVNameLength(Number)
+if ( iChildRef.HasAttribute( attrAirbusPartNumber ) and refParent <> NULL)
+{
+	iStrChildVName = iChildRef.GetAttributeString( attrAirbusPartNumber )
+	iStrChildVNameLength = iStrChildVName.Length()
+	iStrParentVName = refParent.GetAttributeString( attrAirbusPartNumber )
+	bIsStringCommon = (iStrChildVName == (iStrParentVName.Extract(0, iStrChildVNameLength)))
+	ToReturn = bIsStringCommon
+}
+else
+{
+	Trace( 2, "Either there was no Airbus Part Number attribute on Extended Item, or for some reason, refParent = NULL" )
+	ToReturn = false
+}
+
+Trace( 2, "ToReturn = #", ToReturn )
+Trace(1,"End executing ---> ValidateElectricalGeometryNameVsParentName()")
