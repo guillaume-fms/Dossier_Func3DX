@@ -1,0 +1,141 @@
+BUSINESS_TYPE	SUBTYPE	SUBTYPE_PATTERN	PARENT_BUSINESS_TYPE	PARENT_TYPE	RESTRICTED_PARENT_BT	USE_NAMING_RULE	SUBTYPE_DESC	PARENT_SUBTYPE
+Elementary Part	MCH	Y[0-9]{2}[A-E^G-P^R-Z^0-9][A-Z0-9][0-9]{4}-(([0-3][0-9][1-9])|([0-3][1-9][0])|([1-3][0]{2}))	EM	AIRBUS_E_VPMReference_LowerLevel	NA	NO	NA	NA
+Elementary Part	CFE	Y[0-9]{2}[A-E^G-P^R-Z^0-9][A-Z0-9][0-9]{4}-(([0-3][0-9][1-9])|([0-3][1-9][0])|([1-3][0]{2}))	EM	AIRBUS_E_VPMReference_LowerLevel	NA	NO	NA	NA
+Elementary Part	SHT	Y[0-9]{2}[A-E^G-P^R-Z^0-9][A-Z0-9][0-9]{4}-(([0-3][0-9][1-9])|([0-3][1-9][0])|([1-3][0]{2}))	EM	AIRBUS_E_VPMReference_LowerLevel	NA	NO	NA	NA
+Elementary Part	COR	Y[0-9]{2}[A-E^G-P^R-Z^0-9][A-Z0-9][0-9]{4}-(([0-3][0-9][1-9])|([0-3][1-9][0])|([1-3][0]{2}))	EM	AIRBUS_E_VPMReference_LowerLevel	NA	NO	NA	NA
+Elementary Part	ALM	Y[0-9]{2}[A-E^G-P^R-Z^0-9][A-Z0-9][0-9]{4}-(([0-3][0-9][1-9])|([0-3][1-9][0])|([1-3][0]{2}))	EM	AIRBUS_E_VPMReference_LowerLevel	NA	NO	NA	NA
+Elementary Part	SPF	Y[0-9]{2}[A-E^G-P^R-Z^0-9][A-Z0-9][0-9]{4}-(([0-3][0-9][1-9])|([0-3][1-9][0])|([1-3][0]{2}))	EM	AIRBUS_E_VPMReference_LowerLevel	NA	NO	NA	NA
+Elementary Part	MCH	Y[0-9]{2}[A-E^G-P^R-Z^0-9][A-Z0-9][0-9]{4}-(([0-3][0-9][1-9])|([0-3][1-9][0])|([1-3][0]{2}))	Early Data Drop	AIRBUS_E_VPMReference_LowerLevel	NA	NO	NA	NA
+Elementary Part	CFE	Y[0-9]{2}[A-E^G-P^R-Z^0-9][A-Z0-9][0-9]{4}-(([0-3][0-9][1-9])|([0-3][1-9][0])|([1-3][0]{2}))	Early Data Drop	AIRBUS_E_VPMReference_LowerLevel	NA	NO	NA	NA
+Elementary Part	SHT	Y[0-9]{2}[A-E^G-P^R-Z^0-9][A-Z0-9][0-9]{4}-(([0-3][0-9][1-9])|([0-3][1-9][0])|([1-3][0]{2}))	Early Data Drop	AIRBUS_E_VPMReference_LowerLevel	NA	NO	NA	NA
+Elementary Part	COR	Y[0-9]{2}[A-E^G-P^R-Z^0-9][A-Z0-9][0-9]{4}-(([0-3][0-9][1-9])|([0-3][1-9][0])|([1-3][0]{2}))	Early Data Drop	AIRBUS_E_VPMReference_LowerLevel	NA	NO	NA	NA
+Elementary Part	ALM	Y[0-9]{2}[A-E^G-P^R-Z^0-9][A-Z0-9][0-9]{4}-(([0-3][0-9][1-9])|([0-3][1-9][0])|([1-3][0]{2}))	Early Data Drop	AIRBUS_E_VPMReference_LowerLevel	NA	NO	NA	NA
+Elementary Part	SPF	Y[0-9]{2}[A-E^G-P^R-Z^0-9][A-Z0-9][0-9]{4}-(([0-3][0-9][1-9])|([0-3][1-9][0])|([1-3][0]{2}))	Early Data Drop	AIRBUS_E_VPMReference_LowerLevel	NA	NO	NA	NA
+Storable Assembly	ASY	Y[0-9]{2}[A-E^G-P^R-Z^0-9][A-Z0-9][0-9]{4}-(([4-9][0-9][1-9])|([4-9][1-9][0])|([5-9][0]{2}))	EM	AIRBUS_E_VPMReference_LowerLevel	NA	NO	NA	NA
+Storable Assembly	CPT	Y[0-9]{2}[A-E^G-P^R-Z^0-9][A-Z0-9][0-9]{4}-(([4-9][0-9][1-9])|([4-9][1-9][0])|([5-9][0]{2}))	EM	AIRBUS_E_VPMReference_LowerLevel	NA	NO	NA	NA
+Storable Assembly	SPF	Y[0-9]{2}[A-E^G-P^R-Z^0-9][A-Z0-9][0-9]{4}-(([4-9][0-9][1-9])|([4-9][1-9][0])|([5-9][0]{2}))	EM	AIRBUS_E_VPMReference_LowerLevel	NA	NO	NA	NA
+Storable Assembly	ASY	Y[0-9]{2}[A-E^G-P^R-Z^0-9][A-Z0-9][0-9]{4}-(([4-9][0-9][1-9])|([4-9][1-9][0])|([5-9][0]{2}))	Early Data Drop	AIRBUS_E_VPMReference_LowerLevel	NA	NO	NA	NA
+Storable Assembly	CPT	Y[0-9]{2}[A-E^G-P^R-Z^0-9][A-Z0-9][0-9]{4}-(([4-9][0-9][1-9])|([4-9][1-9][0])|([5-9][0]{2}))	Early Data Drop	AIRBUS_E_VPMReference_LowerLevel	NA	NO	NA	NA
+Storable Assembly	SPF	Y[0-9]{2}[A-E^G-P^R-Z^0-9][A-Z0-9][0-9]{4}-(([4-9][0-9][1-9])|([4-9][1-9][0])|([5-9][0]{2}))	Early Data Drop	AIRBUS_E_VPMReference_LowerLevel	NA	NO	NA	NA
+Early Data Drop	NA	.*	Early Data Drop	Early Data Drop	NA	NO	NA	NA
+Specialized Item	LOC	.*-LOC(([0-9][0-9][1-9])|([0-9][1-9][0])|([1-9][0]{2}))	Dummy Non 3D CAD	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Specialized Item	CUT	Y[0-9A-Z]{8}-[0-9A-Z]{3}-CUT([0-9]{2}[1-9])	EM	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Specialized Item	CUT	Y[0-9A-Z]{8}-[0-9A-Z]{3}-CUT([0-9]{2}[1-9])	Storable Assembly	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Master Geometry	MGB	Y06G/d{5}-/d{3}-MGB/d{3}	EM	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Master Geometry	KEY	Y06G/d{5}-/d{3}-KEY/d{3}	EM	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Master Geometry	SFC	Y06G/d{5}-/d{3}-SFC/d{3}	EM	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Master Geometry	PUB	Y06G/d{5}-/d{3}-PUB/d{3}	EM	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Master Geometry	MGB	Y06G/d{5}-/d{3}-MGB/d{3}	Early Data Drop	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Master Geometry	KEY	Y06G/d{5}-/d{3}-KEY/d{3}	Early Data Drop	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Master Geometry	SFC	Y06G/d{5}-/d{3}-SFC/d{3}	Early Data Drop	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Master Geometry	PUB	Y06G/d{5}-/d{3}-PUB/d{3}	Early Data Drop	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Refer To	RTP	Y[0-9]{2}[A-P^R-Z^0-9][A-Z0-9][0-9]{4}-(([0-3][0-9][1-9])|([0-3][1-9][0])|([1-3][0]{2}))-RTP.+	EM	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Refer To	RTA	Y[0-9]{2}[A-P^R-Z^0-9][A-Z0-9][0-9]{4}-(([4-7][0-9][1-9])|([4-7][1-9][0])|([5-7][0]{2}))-RTA.+	EM	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Refer To	RTS	.+-RTS.+	EM	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Refer To	RTM	.+-RTM.+	EM	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Refer To	RTP	Y[0-9]{2}[A-P^R-Z^0-9][A-Z0-9][0-9]{4}-(([0-3][0-9][1-9])|([0-3][1-9][0])|([1-3][0]{2}))-RTP.+	Early Data Drop	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Refer To	RTA	Y[0-9]{2}[A-P^R-Z^0-9][A-Z0-9][0-9]{4}-(([4-7][0-9][1-9])|([4-7][1-9][0])|([5-7][0]{2}))-RTA.+	Early Data Drop	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Refer To	RTS	.+-RTS.+	Early Data Drop	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Refer To	RTM	.+-RTM.+	Early Data Drop	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Refer To	RTP	Y[0-9]{2}[A-P^R-Z^0-9][A-Z0-9][0-9]{4}-(([0-3][0-9][1-9])|([0-3][1-9][0])|([1-3][0]{2}))-RTP.+	Electrical Geometry	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Refer To	RTA	Y[0-9]{2}[A-P^R-Z^0-9][A-Z0-9][0-9]{4}-(([4-7][0-9][1-9])|([4-7][1-9][0])|([5-7][0]{2}))-RTA.+	Electrical Geometry	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Refer To	RTS	.+-RTS.+	Electrical Geometry	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Refer To	RTM	.+-RTM.+	Electrical Geometry	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Refer To	RTC	.+-RTC.+	EM	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Refer To	RTC	.+-RTC.+	Early Data Drop	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+SAM	EQT	Y[0-9]{2}Q[0-9]{5}-[0-9]{3}	EM	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+SAM	ELC	Y(91|92)S[0-9]{5}-[0-9]{3}	EM	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+SAM	TUB	Y(28|29)S[0-9]{5}-[0-9]{3}	EM	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+SAM	EQT	Y[0-9]{2}Q[0-9]{5}-[0-9]{3}	Early Data Drop	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+SAM	ELC	Y(91|92)S[0-9]{5}-[0-9]{3}	Early Data Drop	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+SAM	TUB	Y(28|29)S[0-9]{5}-[0-9]{3}	Early Data Drop	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Extended Item	SOL	.*-SOL[0-9]{3}		AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Extended Item	PLY	.*-PLY[0-9]{3}		AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Extended Item	SPF	.*-SPF[0-9]{3}		AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+EHI	VEU	[A-Z]{1}[0-9]{2}[A-Z0-9]{1}[0-9]{5}-[0-9]{3}	EM			NO	NA	NA
+EHI	HRN	[A-Z]{1}[0-9]{2}[A-Z0-9]{1}[0-9]{5}-[0-9]{3}	EM			NO	NA	NA
+EHI	FIF	[A-Z]{1}[0-9]{2}[A-Z0-9]{1}[0-9]{5}-[0-9]{3}	EM			NO	NA	NA
+EHI	VEU	[A-Z]{1}[0-9]{2}[A-Z0-9]{1}[0-9]{5}-[0-9]{3}	EM			YES	NA	NA
+EHI	HRN	[A-Z]{1}[0-9]{2}[A-Z0-9]{1}[0-9]{5}-[0-9]{3}	EM			YES	NA	NA
+EHI	FIF	[A-Z]{1}[0-9]{2}[A-Z0-9]{1}[0-9]{5}-[0-9]{3}	EM			YES	NA	NA
+EHI	VEU	[A-Z]{1}[0-9]{2}[A-Z0-9]{1}[0-9]{5}-[0-9]{3}	Storable Assembly			YES	NA	NA
+EHI	VEU	[A-Z]{1}[0-9]{2}[A-Z0-9]{1}[0-9]{5}-[0-9]{3}	Storable Assembly			NO	NA	NA
+EHI	VEU	[A-Z]{1}[0-9]{2}[A-Z0-9]{1}[0-9]{5}-[0-9]{3}	Early Data Drop			NO	NA	NA
+EHI	HRN	[A-Z]{1}[0-9]{2}[A-Z0-9]{1}[0-9]{5}-[0-9]{3}	Early Data Drop			NO	NA	NA
+EHI	FIF	[A-Z]{1}[0-9]{2}[A-Z0-9]{1}[0-9]{5}-[0-9]{3}	Early Data Drop			NO	NA	NA
+EHI	VEU	[A-Z]{1}[0-9]{2}[A-Z0-9]{1}[0-9]{5}-[0-9]{3}	Early Data Drop			YES	NA	NA
+EHI	HRN	[A-Z]{1}[0-9]{2}[A-Z0-9]{1}[0-9]{5}-[0-9]{3}	Early Data Drop			YES	NA	NA
+EHI	FIF	[A-Z]{1}[0-9]{2}[A-Z0-9]{1}[0-9]{5}-[0-9]{3}	Early Data Drop			YES	NA	NA
+Electrical Geometry	NA	.{13}[A-Z0-9]{2}	EHI			YES	NA	NA
+Electrical Branch Geometry	NA	.*-EBG[0-9]{3}	Electrical Geometry			YES	NA	NA
+Electrical Physical System		.*-EPS[0-9]{3}	EHI			YES	NA	NA
+Dummy Non 3D CAD	DOC	.*-DOC[0-9][0-9][1-9]	EM	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Dummy Non 3D CAD	DRW	.*-DRW[0-9][0-9][1-9]	EM	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Dummy Non 3D CAD	DOC	.*-DOC[0-9][0-9][1-9]	Early Data Drop	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Dummy Non 3D CAD	DRW	.*-DRW[0-9][0-9][1-9]	Early Data Drop	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Drawing	Drawing	.*-[0-9][1-9]		Drawing	NA	YES	NA	NA
+Piping_Rigid_Pipe	TUB	Y(28|29|21|72|79)[A-Z0-9][0-9]{5}-(([0-3][0-9][1-9])|([0-3][1-9][0]))	NA	NA	NA	NO	NA	NA
+Piping_Spool	TUB	Y[2][8-9][A-Z0-9][0-9]{5}-(([4-7][0-9][1-9])|([4-7][0-9][0]))	NA	NA	NA	NO	NA	NA
+Design Simulation	KIN	Y.{2}K.{5}-(([4-7][0-9][1-9])|([4-7][1-9][0-9])|([5-7][0-9][0-9]))-KIN(([0-9][0-9][1-9])|([0-9][1-9][0-9])|([1-9][0-9][0-9]))	EM	NA	NA	YES	NA	NA
+Design Simulation	KIS	Y.{2}K.{5}-(([0-3][0-9][1-9])|([0-3][1-9][0-9])|([1-3][0-9][0-9]))-KIS(([0-9][0-9][1-9])|([0-9][1-9][0-9])|([1-9][0-9][0-9]))	Design Simulation	NA	NA	YES	NA	KIN
+Design Simulation	DUP	Y.{2}K.{5}-(([4-7][0-9][1-9])|([4-7][1-9][0-9])|([5-7][0-9][0-9]))-DUP(([0-9][0-9][1-9])|([0-9][1-9][0-9])|([1-9][0-9][0-9]))	EM	NA	NA	YES	NA	NA
+Design Simulation	HUM	Y.{2}H.{5}-(([4-7][0-9][1-9])|([4-7][1-9][0-9])|([5-7][0-9][0-9]))-HUM(([0-9][0-9][1-9])|([0-9][1-9][0-9])|([1-9][0-9][0-9]))	EM	NA	NA	YES	NA	NA
+Design Simulation	DUP	Y.{2}K.{5}-(([4-7][0-9][1-9])|([4-7][1-9][0-9])|([5-7][0-9][0-9]))-DUP(([0-9][0-9][1-9])|([0-9][1-9][0-9])|([1-9][0-9][0-9]))	Early Data Drop	NA	NA	YES	NA	NA
+Design Simulation	HUM	Y.{2}H.{5}-(([4-7][0-9][1-9])|([4-7][1-9][0-9])|([5-7][0-9][0-9]))-HUM(([0-9][0-9][1-9])|([0-9][1-9][0-9])|([1-9][0-9][0-9]))	Early Data Drop	NA	NA	YES	NA	NA
+Design Simulation	KIN	Y.{2}K.{5}-(([4-7][0-9][1-9])|([4-7][1-9][0-9])|([5-7][0-9][0-9]))-KIN(([0-9][0-9][1-9])|([0-9][1-9][0-9])|([1-9][0-9][0-9]))	Early Data Drop	NA	NA	YES	NA	NA
+3DEQ	EQ_DS	.*	EM			NO	NA	NA
+3DEQ	EQ_DS	.*	Early Data Drop			NO	NA	NA
+3DEQ	EQ_PART	.*	3DEQ			NO	NA	EQ_DS
+3DEQ	EQ_PART	.*	3DEQ			NO	NA	EQ_ASSY
+3DEQ	EQ_ASSY	.*	3DEQ			NO	NA	EQ_DS
+Document	Document	Y92(1|3|4|5|7|8|S)[0-9]{5}-(([4-6][0-9][1-9])|([4-6][1-9]0)|([5-6]00))-DOC(([0-9][0-9][1-9])|([0-9][1-9][0])|([1-9][0]{2}))	EHI	AIRBUS_E_VPMReference_LowerLevel		YES
+Document	Document	Y92(1|3|4|7|8|9|S)[0-9]{5}-(([4-6][0-9][1-9])|([4-6][1-9]0)|([5-6]00))-DOC(([0-9][0-9][1-9])|([0-9][1-9][0])|([1-9][0]{2}))	EHI	AIRBUS_E_VPMReference_LowerLevel		YES
+Document	Document	Y92(1|3|4|7|8|F)[0-9]{5}-(([4-6][0-9][1-9])|([4-6][1-9]0)|([5-6]00))-DOC(([0-9][0-9][1-9])|([0-9][1-9][0])|([1-9][0]{2}))	EHI	AIRBUS_E_VPMReference_LowerLevel		YES
+Document	Document	Y92(1|3|4|5|7|8|S)[0-9]{5}-(([4-6][0-9][1-9])|([4-6][1-9]0)|([5-6]00))-DOC(([0-9][0-9][1-9])|([0-9][1-9][0])|([1-9][0]{2}))	EHI	AIRBUS_E_VPMReference_LowerLevel		YES
+Document	Document	Y92(1|3|4|7|8|9|S)[0-9]{5}-(([4-6][0-9][1-9])|([4-6][1-9]0)|([5-6]00))-DOC(([0-9][0-9][1-9])|([0-9][1-9][0])|([1-9][0]{2}))	EHI	AIRBUS_E_VPMReference_LowerLevel		YES
+Document	Document	Y92(1|3|4|7|8|F)[0-9]{5}-(([4-6][0-9][1-9])|([4-6][1-9]0)|([5-6]00))-DOC(([0-9][0-9][1-9])|([0-9][1-9][0])|([1-9][0]{2}))	EHI	AIRBUS_E_VPMReference_LowerLevel		YES
+Document	Document	[A-Z]{1}[0-9]{2}[A-Z0-9]{1}[0-9]{5}-[0-9]{3}-DOC(([0-9][0-9][1-9])|([0-9][1-9][0])|([1-9][0]{2}))	EHI	AIRBUS_E_VPMReference_LowerLevel		YES
+Document	Document	.*-DOC(([0-9][0-9][1-9])|([0-9][1-9][0])|([1-9][0]{2}))	Design Solution	AIRBUS_E_VPMReference_LowerLevel		YES
+AIRBUS_E_Document_DDeV	DDeV Document	Y[0-9]{2}[A-P^R-Z^0-9][A-Z0-9][0-9]{4}-(([0-3][0-9][1-9])|([0-3][1-9][0])|([1-3][0]{2}))-[A-Z]-DDeV	Elementary Part	AIRBUS_E_VPMReference_LowerLevel		YES
+AIRBUS_E_Document_DDeV	DDeV Document	Y[0-9]{2}[A-P^R-Z^0-9][A-Z0-9][0-9]{4}-(([4-7][0-9][1-9])|([4-7][1-9][0])|([5-7][0]{2}))-[A-Z]-DDeV	Storable Assembly	AIRBUS_E_VPMReference_LowerLevel		YES
+AIRBUS_E_Document_DDeV	DDeV Document	Y[0-9]{2}[A-P^R-Z^0-9][A-Z0-9][0-9]{4}-(([8][0-9][1-9])|([8][1-9][0]))-DRL(([0-9][0-9][1-9])|([0-9][1-9][0])|([1-9][0]{2}))-[A-Z]-DDeV	Specialized Item  	AIRBUS_E_VPMReference_LowerLevel		YES
+AIRBUS_E_Document_DDeV	DDeV Document	Y[0-9]{2}[A-P^R-Z^0-9][A-Z0-9][0-9]{4}-(([4-7][0-9][1-9])|([4-7][1-9][0])|([5-7][0]{2}))-DRL(([0-9][0-9][1-9])|([0-9][1-9][0])|([1-9][0]{2}))-[A-Z]-DDeV	Specialized Item  	AIRBUS_E_VPMReference_LowerLevel		YES
+AIRBUS_E_Document_DDeV	DDeV Document	.*-FTA(([0-9][0-9][1-9])|([0-9][1-9][0])|([1-9][0]{2}))-[A-Z]-DDeV	FTA  	AIRBUS_E_VPMReference_LowerLevel		YES
+AIRBUS_E_Document_DDeV	DDeV Document	Y[0-9]{2}F[0-9]{5}-(([0-9][0-9][1-9])|([0-9][1-9][0])|([1-9][0]{2}))-[A-Z]-DDeV	Specialized Item  	AIRBUS_E_VPMReference_LowerLevel		YES
+AIRBUS_E_Document_DDeV	DDeV Document	Y[0-9]{2}F[0-9]{5}-(([0-9][0-9][1-9])|([0-9][1-9][0])|([1-9][0]{2}))-IFP(([0-9][0-9][1-9])|([0-9][1-9][0])|([1-9][0]{2}))-[A-Z]-DDeV	Specialized Item  	AIRBUS_E_VPMReference_LowerLevel		YES
+AIRBUS_E_Document_DDeV	DDeV Document	Y[2][8-9][A-Z0-9][0-9]{5}-(([0-3][0-9][1-9])|([0-3][1-9][0]))-[A-Z]-DDeV	Elementary Part  	AIRBUS_E_VPMReference_LowerLevel		YES
+AIRBUS_E_Document_DDeV	DDeV Document	Y[2][8-9][A-Z0-9][0-9]{5}-(([4-7][0-9][1-9])|([4-7][0-9][0]))-[A-Z]-DDeV	Storable Assembly  	AIRBUS_E_VPMReference_LowerLevel		YES
+AIRBUS_E_Document_DDeV	DDeV Document	.*-[A-Z]-DDeV	Design Solution	AIRBUS_E_VPMReference_LowerLevel		YES
+Project Definition	DDA	 Y.{2}W.{5}-(([4-7][0-9][1-9])|([4-7][1-9][0-9])|([5-7][0-9][0-9]))	EM	NA	NA	YES	NA	NA
+Project Definition	DDA	Y.{2}W.{5}-(([4-7][0-9][1-9])|([4-7][1-9][0-9])|([5-7][0-9][0-9]))	Project Definition	NA	NA	YES	NA	DDA
+Project Definition	DDP	Y.{2}W.{5}-(([0-3][0-9][1-9])|([0-3][1-9][0-9])|([1-3][0-9][0-9]))	EM	NA	NA	YES	NA	NA
+Project Definition	DDP	Y.{2}W.{5}-(([0-3][0-9][1-9])|([0-3][1-9][0-9])|([1-3][0-9][0-9]))	Project Definition	NA	NA	YES	NA	DDA
+Project Definition	IMA	Y.{2}X.{5}-(([4-7][0-9][1-9])|([4-7][1-9][0-9])|([5-7][0-9][0-9]))	EM	NA	NA	YES	NA	NA
+Project Definition	IMA	Y.{2}X.{5}-(([4-7][0-9][1-9])|([4-7][1-9][0-9])|([5-7][0-9][0-9]))	Project Definition	NA	NA	YES	NA	IMA
+Project Definition	IMP	Y.{2}X.{5}-(([0-3][0-9][1-9])|([0-3][1-9][0-9])|([1-3][0-9][0-9]))	EM	NA	NA	YES	NA	NA
+Project Definition	IMP	Y.{2}X.{5}-(([0-3][0-9][1-9])|([0-3][1-9][0-9])|([1-3][0-9][0-9]))	Project Definition	NA	NA	YES	NA	IMA
+Project Definition	IFA	Y.{2}F.{5}-(([4-7][0-9][1-9])|([4-7][1-9][0-9])|([5-7][0-9][0-9]))	EM	NA	NA	YES	NA	NA
+Project Definition	IFA	Y.{2}F.{5}-(([4-7][0-9][1-9])|([4-7][1-9][0-9])|([5-7][0-9][0-9]))	Project Definition	NA	NA	YES	NA	IFA
+Project Definition	IFP	Y.{2}F.{5}-(([0-3][0-9][1-9])|([0-3][1-9][0-9])|([1-3][0-9][0-9]))	Project Definition	NA	NA	YES	NA	IFA
+Project Definition	DDA	 Y.{2}W.{5}-(([4-7][0-9][1-9])|([4-7][1-9][0-9])|([5-7][0-9][0-9]))	Early Data Drop	NA	NA	YES	NA	NA
+Project Definition	DDP	Y.{2}W.{5}-(([0-3][0-9][1-9])|([0-3][1-9][0-9])|([1-3][0-9][0-9]))	Early Data Drop	NA	NA	YES	NA	NA
+Project Definition	IMA	Y.{2}X.{5}-(([4-7][0-9][1-9])|([4-7][1-9][0-9])|([5-7][0-9][0-9]))	Early Data Drop	NA	NA	YES	NA	NA
+Project Definition	IMP	Y.{2}X.{5}-(([0-3][0-9][1-9])|([0-3][1-9][0-9])|([1-3][0-9][0-9]))	Early Data Drop	NA	NA	YES	NA	NA
+Project Definition	IFA	Y.{2}F.{5}-(([4-7][0-9][1-9])|([4-7][1-9][0-9])|([5-7][0-9][0-9]))	Early Data Drop	NA	NA	YES	NA	NA
+Refer To	RTS	.+-RTS.+	Project Definition	NA	NA	YES	NA	IFA
+Refer To	RTM	.+-RTM.+	Project Definition	NA	NA	YES	NA	IFA
+Refer To	RTC	.+-RTC.+	Project Definition	NA	NA	YES	NA	IFA
+Refer To	RTH	Y92(1|3|4|7|8|9|S)[0-9]{5}-(([4-6][0-9][1-9])|([4-6][1-9]0)|([5-6]00))-RTH.+	EM	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Refer To	RTH	Y92(1|3|4|5|7|8|S)[0-9]{5}-(([4-6][0-9][1-9])|([4-6][1-9]0)|([5-6]00))-RTH.+	EM	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Refer To	RTH	Y92(1|3|4|7|8|F)[0-9]{5}-(([4-6][0-9][1-9])|([4-6][1-9]0)|([5-6]00))-RTH.+	EM	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+Refer To	RQD	.+-RQD.+	EM	AIRBUS_E_VPMReference_LowerLevel	NA	YES	NA	NA
+FTA	FTA	[A-Z0-9]{9}-([4-9][0-9][1-9]|[5-9][0-9]0|4[1-9]0)-FTA(([0-9][0-9][1-9])|([0-9][1-9][0])|([1-9][0]{2}))	EM	NA	NA	NO	NA	NA
+FTA	FTA	[A-Z0-9]{9}-([4-9][0-9][1-9]|[5-9][0-9]0|4[1-9]0)-FTA(([0-9][0-9][1-9])|([0-9][1-9][0])|([1-9][0]{2}))	Project Definition	NA	NA	YES	NA	IFA
+FTA	FTA	[A-Z0-9]{9}-([4-9][0-9][1-9]|[5-9][0-9]0|4[1-9]0)-FTA(([0-9][0-9][1-9])|([0-9][1-9][0])|([1-9][0]{2}))	Storable Assembly	NA	NA	YES	NA	IFA
+FTA	FTA	[A-Z0-9]{9}-([4-9][0-9][1-9]|[5-9][0-9]0|4[1-9]0)-FTA(([0-9][0-9][1-9])|([0-9][1-9][0])|([1-9][0]{2}))	EHI	NA	NA	NO	NA	NA
+FTA	FTA	[A-Z0-9]{9}-([4-9][0-9][1-9]|[5-9][0-9]0|4[1-9]0)-FTA(([0-9][0-9][1-9])|([0-9][1-9][0])|([1-9][0]{2}))	EHI	NA	NA	NO	NA	NA
+FTA	FTA	[A-Z0-9]{9}-([4-9][0-9][1-9]|[5-9][0-9]0|4[1-9]0)-FTA(([0-9][0-9][1-9])|([0-9][1-9][0])|([1-9][0]{2}))	Early Data Drop	NA	NA	NO	NA	NA
+
+FTA	FTA	[A-Z0-9]{9}-([4-9][0-9][1-9]|[5-9][0-9]0|4[1-9]0)-FTA(([0-9][0-9][1-9])|([0-9][1-9][0])|([1-9][0]{2}))	Undefined	NA	NA	NO	NA	NA
+
+Design Solution	DS	.*	Design Solution	Design Solution	NA	NO	NA	NA

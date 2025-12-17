@@ -1,0 +1,26 @@
+Impact Analysis N2H-26023
+
+Repérer BL ⇒ DataSetUp / Eurodrone_Design / KnowledgeResources / Eurodrone_ManageSubType_Mapping.txt
+
+FTA  ⇒ under Undefined
+
+Create :  
+Create as usual : EM, EP, SA, EHI, Specialized Item  
+
+Create as usual : FTA under EM + SA with parent APN
+
+Criteria Acceptance story FTA ===> Undefined
+
+FTA FTA [A-Z0-9]{9}-([4-9][0-9][1-9]|[5-9][0-9]0|4[1-9]0)-FTA(([0-9][0-9][1-9])|([0-9][1-9][0])|([1-9][0]{2})) Undefined	NA NA NO NA NA
+
+
+9MGGVTXO9-710-FTA300
+33HKDUQ4N-660-FTA900
+YRHY2S8T1-720-FTA848
+1V33OQBI2-480-FTA070
+4ZV3K0S96-545-FTA913
+P3G8K1HI2-939-FTA350
+K51394806-940-FTA540
+KUCFPKRX4-987-FTA471
+OHVZOP554-474-FTA390
+WTS07OOTY-410-FTA790
